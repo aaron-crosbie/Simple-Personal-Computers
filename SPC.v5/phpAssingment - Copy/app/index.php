@@ -34,7 +34,7 @@ $db = "test";
 
 
 
-$connection = mysqli_connect($hostname, $user, $pass, $db);
+    $connection = mysqli_connect($hostname, $user, $pass, $db);
 
 if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);

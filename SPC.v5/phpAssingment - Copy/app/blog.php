@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $filename ='blog';
 
 $title = 'Blog';
@@ -31,7 +33,7 @@ if(mysqli_connect_errno()){
 if(isset($_POST['commentData'])) {
     echo "hello";
     $newTime = date("Y/m/d");
-    $sql="INSERT INTO blog (Username,Email,Topic,Content,TimeSubmited) VALUES ('$_POST[username]','$_POST[email]','$_POST[topic]','$_POST[content]','$newTime')";//SQL statement to insert data in user database
+    $sql="INSERT INTO blog (Username,Topic,Content,TimeSubmited) VALUES ('$_SESSION[username]','$_POST[topic]','$_POST[content]','$newTime')";//SQL statement to insert data in user database
 
     mysqli_query($connection, $sql);
 }
@@ -55,14 +57,33 @@ switch ($action){
 
 function showH()
 {
+//Database connection information
+    $hostname = "localhost";
+    $user = "root";
+    $pass = "";
+    $db = "test";
+
+    $connection = mysqli_connect($hostname, $user, $pass, $db);
 
     $sql="SELECT ID FROM blog ORDER BY ID DESC ;";
 
+    $retval = mysqli_query($connection, $sql);
 
-    mysqli_query($connection, $sql);
-    echo $_POST['ID'];
 
+    $ID = filter_input(INPUT_GET, 'ID', FILTER_SANITIZE_STRING);
+
+
+    if(!$retval )
+    {
+        die('Could not get data: ' );
+    }
+
+    while($row = mysqli_fetch_array($retval, 1));
 }
+
+//require_once __DIR__ . '/index.php'.$_GET['username'];
+
+
 
 
 
@@ -76,13 +97,13 @@ function showH()
 
     <div class="jumbotron">
         <header>
-            <h1>Welcome to SPC Blog </h1>
+            <h1>Welcome to SPC Blog  </h1>
 
             <div>
                 <p>Advise | Help | Solve </p>
             </div>
             <div id="login">
-                <a >Create Post</a>
+                <a>Create Post</a>
             </div>
         </header>
     </div>
@@ -94,28 +115,23 @@ function showH()
                 id="form1"
                 method="POST"
                 action="">
-            <h3>InsertUsernameHere, this is your first post! Good luck!</h3>
-            <label>Please enter your details below</label>
+            <h3><?php if(!$_SESSION['username'] == '')
+            {
+                        echo $_SESSION['username'] ;
+                ?>
+                , this is your first post! Good luck!</h3>
+            <?php
+                }else{
+            ?>
+            Please login!
+            <?php }
+            ?>
 
-            <br>
-            <br>
-            <label>Username:</label>
-            <br>
-            <input type="text" name="username" id="username">
-
-            <br>
-            <br>
-
-            <label>E-mail:</label>
-            <br>
-            <input type="text" name="email" id="email">
-
-            <br>
             <br>
 
             <label>Please select your topic</label>
             <br>
-
+            <br>
             <input type="text" name="topic" id="topic">
 
             <br>
@@ -172,9 +188,8 @@ function showH()
             $sql="SELECT * FROM blog ORDER BY ID DESC ;";
 
             $retval = mysqli_query($connection, $sql);
-            $id = filter_input(INPUT_GET, 'ID', FILTER_SANITIZE_STRING);
+            $ID = filter_input(INPUT_GET, 'ID', FILTER_SANITIZE_STRING);
 
-            echo $id;
             if(!$retval )
             {
                 die('Could not get data: ' );
@@ -183,11 +198,10 @@ function showH()
             while($row = mysqli_fetch_array($retval, 1))
             {
 
-
                 ?>
 
                 <form
-                        action="blog.php?action=showH"
+                        action="post.php"
                         method="POST">
                     <table>
                         <tr>
@@ -203,9 +217,14 @@ function showH()
                             </td>
                         </tr>
 
+
                         <tr>
-                            <td><input type="submit" id="clickedForView" value="View"></td>
+                            <td><input type="submit" id="clickedForView" value="View">
+                                <input type="hidden" name="ID" value="<?php echo "{$row['ID']}" ?>">
+                            </td>
                         </tr>
+
+
                     </table>
                 </form>
             <hr>
@@ -229,19 +248,8 @@ function showH()
         <div id="thisPost" hidden>
             <?php
 
-
-
-
-
-
-            if (!$retval)
-            {
-                die('Could not get data: ');
-            }
-
             if ($row = mysqli_fetch_array($retval, 1))
             {
-                echo "{$row['ID']}";
                 $temp = $row['ID'];
                 echo "Hello $temp";
 
