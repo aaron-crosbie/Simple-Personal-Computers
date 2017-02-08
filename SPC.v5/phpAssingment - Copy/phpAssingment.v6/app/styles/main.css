@@ -1,0 +1,81 @@
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    background: url("/images/mnml.jpg")  no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 0;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#heading {
+    color: #007399;
+    text-shadow: #1e1e1e 10px;
+}
+
+#top {
+    /*display: flex;*/
+    text-align: center;
+}
+
+#top div {
+    flex: 1;
+}
+
+#mainContent {
+    background-color: #404040;
+    padding: 5%;
+    transition: 1s;
+    color: #cfe2e2;
+    font-size: small;
+    text-shadow: #000 2px;
+    height: inherit;
+    border-radius: 10px;
+    display: flex;
+}
+
+#mainContent section {
+    flex: 1;
+    text-align: justify;
+}
+
+#mainContent section img {
+    width: 60%;
+    border-radius: 3px;
+    box-shadow: #b3b3b3 2px 2px 8px;
+}
+
+#mainContent section h3 {
+    text-align: center;
+}
+
+#shown {
+    display: flex;
+}
+#shown div {
+    flex: 1;
+}
+#shown div a  {
+    color: #313131;
+    text-decoration: none;
+}
+
+#shown div a h2 {
+    text-align: center;
+    color: #313131;
+    text-decoration: none;
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+#shown div a h2:hover {
+    color: aliceblue;
+    text-decoration: underline;
+    background-color: #888888;
+    transition: 0.5s;
+}
+

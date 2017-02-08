@@ -1,0 +1,21 @@
+#bigBlock {
+    display: flex;
+    border: 1px solid #000;
+}
+
+#bigBlock div {
+    flex:1;
+}
+
+#leftBlock {
+    width: 20%;
+    border: 1px solid blue;
+}
+
+#buildDisplay {
+    display: flex;
+}
+
+#buildDisplay div {
+    flex: 1;
+}
