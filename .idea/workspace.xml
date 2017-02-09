@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bd7352bd-3472-40b0-a520-91e62560a499" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/images/bat.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/images/case1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/images/class.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/images/cool.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/images/cooler.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/images/coolest.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/images/mnml.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/Controller.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/Cpu.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/DatabaseManager.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/DatabaseTable.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/DatatbaseUtility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/Gpu.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/Hdd.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/Login.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/ModuleController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/Motherboard.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/ProductController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/Ram.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/RegisterController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/Registered.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/Ssd.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/Tester.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/blog.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/build.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/contact.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/footer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/functionsDrag.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/head.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/modal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/myscripts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/nav.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/post.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/public/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/registering.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/script.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/scripts/modal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/scripts/script.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/sitemap.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/styles/build.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/styles/footer.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/styles/forms.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/styles/main.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/styles/modal.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/styles/nav.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/styles/reviews.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/styles/script.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/styles/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/survey.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/surveyAsk.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/tutorials.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/us-states.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/which.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/phpAssingment.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/Controller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/Cpu.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/DatabaseManager.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/DatabaseTable.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/DatatbaseUtility.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/Gpu.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/Hdd.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/Login.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/ModuleController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/Motherboard.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/ProductController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/Ram.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/RegisterController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/Registered.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/Ssd.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/Tester.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/blog.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/build.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/contact.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/footer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/functionsDrag.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/head.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/modal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/myscripts.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/nav.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/post.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/public/index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/registering.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/script.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/scripts/modal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/scripts/script.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/sitemap.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/styles/build.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/styles/footer.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/styles/forms.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/styles/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/styles/modal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/styles/nav.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/styles/reviews.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/styles/script.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/styles/styles.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/survey.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/surveyAsk.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/tutorials.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/us-states.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/which.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/images/bat.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/images/case1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/images/class.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/images/cool.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/images/cooler.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/images/coolest.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/images/mnml.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/phpAssingment.iml" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2244">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1486578268118" expanded="true" signature="1840:1906" ph="SELECT * FRO... user" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/post.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="188" column="0" lean-forward="true" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+              <folding>
+                <marker date="1486654352701" expanded="true" signature="501:537" ph="SELECT ID FR... blog" />
+                <marker date="1486654352701" expanded="true" signature="690:800" ph="INSERT INTO comments... " />
+                <marker date="1486654352701" expanded="true" signature="853:866" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="853:908" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="878:908" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="928:961" ph="SELECT * FRO... blog" />
+                <marker date="1486654352701" expanded="true" signature="1222:1322" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="1265:1322" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="1283:1314" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="1283:1322" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="1467:2305" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="1483:1974" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="2005:2305" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="2028:2305" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="2128:2305" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="2157:2188" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="2218:2305" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="2251:2298" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="2251:2305" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="2765:2788" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="2765:3109" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="2822:2895" ph="{...}" />
+                <marker date="1486654352701" expanded="true" signature="2957:3082" ph="{...}" />
+                <marker date="1486654352701" expanded="true" signature="3304:3869" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="3376:3845" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="3543:3609" ph="..." />
+                <marker date="1486654352701" expanded="true" signature="3959:3998" ph="SELECT * FRO... comments" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nav.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/nav.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-11">
+              <caret line="26" column="64" lean-forward="false" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/styles/styles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="91">
+              <caret line="79" column="15" lean-forward="false" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blog.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/blog.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="533">
+              <caret line="217" column="0" lean-forward="true" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
+              <folding>
+                <marker date="1486651806624" expanded="true" signature="624:754" ph="INSERT INTO blog... " />
+                <marker date="1486651806624" expanded="true" signature="1330:1366" ph="SELECT ID FR... blog" />
+                <marker date="1486651806624" expanded="true" signature="3874:3909" ph="SELECT * FRO... blog" />
+                <marker date="1486651806624" expanded="true" signature="5971:6001" ph="SELECT * FRO... blog" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>commentData</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/index.php" />
+        <option value="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/blog.php" />
+        <option value="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/post.php" />
+        <option value="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/styles/styles.css" />
+        <option value="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/nav.php" />
+        <option value="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/styles/styles.css" />
+        <option value="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/blog.php" />
+        <option value="$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/post.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Personal-Computers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Personal-Computers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Personal-Computers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Personal-Computers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SPC.v5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phpAssingment.v6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+  </component>
+  <component name="RunManager" selected="PHP Built-in Web Server.Unnamed">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Simple-Personal-Computers" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+    <configuration default="false" name="Unnamed" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app">
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="PHP Built-in Web Server.Unnamed" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd7352bd-3472-40b0-a520-91e62560a499" name="Default" comment="" />
+      <created>1486563371769</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1486563371769</updated>
+      <workItem from="1486563375515" duration="13822000" />
+      <workItem from="1486583046532" duration="533000" />
+      <workItem from="1486644234541" duration="7446000" />
+    </task>
+    <task id="LOCAL-00001" summary="v6 - CHanged the">
+      <created>1486583083319</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1486583083319</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="21801000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37359098" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37359098" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25718608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="v6 - CHanged the" />
+    <option name="LAST_COMMIT_MESSAGE" value="v6 - CHanged the" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/head.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/blog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3468">
+          <caret line="203" column="40" lean-forward="false" selection-start-line="203" selection-start-column="40" selection-end-line="203" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="120" column="22" lean-forward="true" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/styles/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2074">
+          <caret line="122" column="36" lean-forward="false" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/index.php" />
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/head.php" />
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/blog.php" />
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/post.php" />
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/styles/styles.css" />
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/blog.php" />
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/head.php" />
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/index.php" />
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/styles/styles.css" />
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment - Copy/app/post.php" />
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2244">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1486578268118" expanded="true" signature="1840:1906" ph="SELECT * FRO... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/styles/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="79" column="15" lean-forward="false" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11">
+          <caret line="26" column="64" lean-forward="false" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/blog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="217" column="0" lean-forward="true" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
+          <folding>
+            <marker date="1486651806624" expanded="true" signature="624:754" ph="INSERT INTO blog... " />
+            <marker date="1486651806624" expanded="true" signature="1330:1366" ph="SELECT ID FR... blog" />
+            <marker date="1486651806624" expanded="true" signature="3874:3909" ph="SELECT * FRO... blog" />
+            <marker date="1486651806624" expanded="true" signature="5971:6001" ph="SELECT * FRO... blog" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SPC.v5/phpAssingment.v6/app/post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="188" column="0" lean-forward="true" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+          <folding>
+            <marker date="1486654352701" expanded="true" signature="501:537" ph="SELECT ID FR... blog" />
+            <marker date="1486654352701" expanded="true" signature="690:800" ph="INSERT INTO comments... " />
+            <marker date="1486654352701" expanded="true" signature="853:866" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="853:908" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="878:908" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="928:961" ph="SELECT * FRO... blog" />
+            <marker date="1486654352701" expanded="true" signature="1222:1322" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="1265:1322" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="1283:1314" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="1283:1322" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="1467:2305" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="1483:1974" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="2005:2305" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="2028:2305" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="2128:2305" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="2157:2188" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="2218:2305" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="2251:2298" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="2251:2305" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="2765:2788" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="2765:3109" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="2822:2895" ph="{...}" />
+            <marker date="1486654352701" expanded="true" signature="2957:3082" ph="{...}" />
+            <marker date="1486654352701" expanded="true" signature="3304:3869" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="3376:3845" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="3543:3609" ph="..." />
+            <marker date="1486654352701" expanded="true" signature="3959:3998" ph="SELECT * FRO... comments" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
