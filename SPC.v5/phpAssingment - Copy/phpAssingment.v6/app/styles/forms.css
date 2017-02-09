@@ -1,0 +1,13 @@
+
+#myform {
+    background-color: #313131;
+    padding: 2%;
+    color: aliceblue;
+}
+
+.center {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 2%;
+}
