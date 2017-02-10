@@ -3,7 +3,7 @@
 }
 
 body {
-    background: url("/images/mnml.jpg")  no-repeat center center fixed;
+    background: url("/../images/")  no-repeat center center fixed;
     background-size: cover;
     font-family: 'Raleway', sans-serif;
     margin-top: 0;
@@ -27,14 +27,13 @@ body {
 }
 
 #mainContent {
-    background-color: #404040;
+    background-color: #313131;
     padding: 5%;
     transition: 1s;
     color: #cfe2e2;
     font-size: small;
     text-shadow: #000 2px;
     height: inherit;
-    border-radius: 10px;
     display: flex;
 }
 

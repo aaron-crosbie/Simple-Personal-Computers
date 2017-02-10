@@ -254,7 +254,7 @@ if ($connection->connect_error) {
         <section>
             <h3>Check out new PC designs</h3>
             <iframe width="350" height="215"
-                    src="https://www.youtube.com/embed/35FLXniqeFQ?autoplay=0">
+                    src="https://www.youtube.com/embed/35FLXniqeFQ?autoplay=1">
             </iframe>
         </section>
 
