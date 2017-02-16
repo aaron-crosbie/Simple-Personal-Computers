@@ -84,11 +84,11 @@ if ($connection->connect_error) {
         $result = mysqli_query($connection, $sql);
 
 
-// Mysql_num_row is counting table row
+        // Mysql_num_row is counting table row
         $count = mysqli_num_rows($result);
 
 
-// If result matched $username and $password, table row must be 1 row
+        // If result matched $username and $password, table row must be 1 row
         if ($count == 1) {
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
@@ -211,13 +211,20 @@ if ($connection->connect_error) {
 <div id="mainContent">
     <section>
 
+        <section>
+            <h3>Check out new PC designs</h3>
+            <iframe width="725" height="415"
+                    src="https://www.youtube.com/embed/35FLXniqeFQ?autoplay=0">
+            </iframe>
+        </section>
+
+
         <h1 style="text-align: center">New builds</h1>
 
         <p style="text-align: center">Created by users</p>
 
         <section style="text-align: center">
-            <img src="../images/coolest.jpg" style="text-align: center">
-
+            <img src="images/cooler.jpg">
             <p>
                 <i>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit
@@ -228,7 +235,7 @@ if ($connection->connect_error) {
         <hr>
 
         <section style="text-align: center">
-            <img src="../images/cooler.jpg">
+            <img src="images/cool.jpg">
             <p>
                 <i>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit
@@ -239,7 +246,8 @@ if ($connection->connect_error) {
         <hr>
 
         <section style="text-align: center">
-            <img src="../images/cool.jpg">
+            <img src="images/coolest.jpg" style="text-align: center">
+
             <p>
                 <i>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit
@@ -250,37 +258,74 @@ if ($connection->connect_error) {
     </section>
 
 
-    <section>
-        <section>
-            <h3>Check out new PC designs</h3>
-            <iframe width="350" height="215"
-                    src="https://www.youtube.com/embed/35FLXniqeFQ?autoplay=1">
-            </iframe>
-        </section>
+    <section id="news">
 
         <section>
-            <h3>News 1</h3>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque ducimus.</p>
+            <h2>Recent Events</h2>
+
+            <section>
+
+                <h3>News 1</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque ducimus.</p>
+
+            </section>
+
+            <hr>
+
+            <section>
+
+                <h3>News 1</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque ducimus.</p>
+
+            </section>
+
+            <hr>
+
+            <section>
+
+                <h3>News 1</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque ducimus.</p>
+
+            </section>
+
         </section>
 
-        <hr>        <section>
-            <h3>News 1</h3>
+        <section>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque ducimus.</p>
+            <h2> Recent User Posts</h2>
+            <?php
+
+            $sql="SELECT * FROM blog ORDER BY ID DESC";
+
+            $retval = mysqli_query($connection, $sql);
+
+            if(!$retval){
+                die("Could not get data");
+            }
+
+            $counter = 0;
+
+            while($row = mysqli_fetch_array($retval, 1))
+            {
+                $counter++;
+                if($counter >= 4){ break;}
+            ?>
+
+            <h4><?php echo "{$row['Topic']}"?></h4>
+            <h5><?php echo "@{$row['Username']}" ?></h5>
+            <p><?php echo "@{$row['Content']}" ?></p>
+
+                <hr>
+
+            <?php
+            }
+            ?>
         </section>
 
-        <hr>        <section>
-            <h3>News 1</h3>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque ducimus.</p>
-        </section>
-
-        <hr>        <section>
-            <h3>News 1</h3>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque ducimus.</p>
-        </section>
 
     </section>
 

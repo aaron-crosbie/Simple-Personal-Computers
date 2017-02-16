@@ -4,6 +4,7 @@ session_start();
 $filename ='blog';
 
 $title = 'Blog';
+
 $isLoggedIn = false;
 
 require_once __DIR__ . '/head.php';
@@ -24,16 +25,12 @@ if(mysqli_connect_errno()){
     echo "Failed to connect to database";
 }
 
-
-
-
 //Executes code when register button is selected
 // This is to add user's posts
 
 if(isset($_POST['commentData'])) {
     $newTime = date("Y/m/d");
     $sql="INSERT INTO blog (Username,Topic,Content,TimeSubmited) VALUES ('$_SESSION[username]','$_POST[topic]','$_POST[content]','$newTime')";//SQL statement to insert data in user database
-
     mysqli_query($connection, $sql);
 }
 
@@ -44,9 +41,9 @@ if(isset($_POST['commentData'])) {
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
 
 switch ($action){
-    case 'showH':
-        showH();
-        break;
+//    case 'showH':
+//        showH();
+//        break;
     case 'login':
         login();
         break;
@@ -54,38 +51,31 @@ switch ($action){
 
 
 
-function showH()
-{
-    //Database connection information
-    $hostname = "localhost";
-    $user = "root";
-    $pass = "";
-    $db = "test";
-
-    $connection = mysqli_connect($hostname, $user, $pass, $db);
-
-    $sql="SELECT ID FROM blog ORDER BY ID DESC ;";
-
-    $retval = mysqli_query($connection, $sql);
-
-
-    $ID = filter_input(INPUT_GET, 'ID', FILTER_SANITIZE_STRING);
-
-
-    if(!$retval )
-    {
-        die('Could not get data: ' );
-    }
-
-    while($row = mysqli_fetch_array($retval, 1));
-}
-
-//require_once __DIR__ . '/index.php'.$_GET['username'];
-
-
-
-
-
+//function showH()
+//{
+//    //Database connection information
+//    $hostname = "localhost";
+//    $user = "root";
+//    $pass = "";
+//    $db = "test";
+//
+//    $connection = mysqli_connect($hostname, $user, $pass, $db);
+//
+//    $sql="SELECT ID FROM blog ORDER BY ID DESC ;";
+//
+//    $retval = mysqli_query($connection, $sql);
+//
+//
+//    $ID = filter_input(INPUT_GET, 'ID', FILTER_SANITIZE_STRING);
+//
+//
+//    if(!$retval )
+//    {
+//        die('Could not get data: ' );
+//    }
+//
+//    while($row = mysqli_fetch_array($retval, 1));
+//}
 ?>
 
 
@@ -93,18 +83,26 @@ function showH()
 
 <div class="container">
 
-
     <div class="jumbotron">
+
         <header>
+
             <h1>Welcome to SPC Blog  </h1>
 
             <div>
+
                 <p>Advise | Help | Solve </p>
+
             </div>
+
             <div id="login">
+
                 <a>Create Post</a>
+
             </div>
+
         </header>
+
     </div>
 
 
@@ -114,72 +112,108 @@ function showH()
                 id="form1"
                 method="POST"
                 action="">
-            <h3><?php if(!$_SESSION['username'] == '')
-            {
-                        echo $_SESSION['username'] ;
+            <section id="hideIfNot" hidden>
+
+                <h3>
+                    <?php
+
+                    if(!isset($_SESSION['username']) == '') {
+
+                    echo $_SESSION['username'];
+
+                    ?>
+                    , be friendly to the community! Good luck!</h3>
+                <script>
+                    $("#hideIfNot").show(500);
+                </script>
+                <?php
+                } else
+                {
+                    ?>
+                    <script>
+                        $("#hideIfNot").hide(500);
+                        $("#login").click(function(){
+                            alert("Please login before you want to write a post!");
+                        });
+                    </script>
+                    <?php
+                }
                 ?>
-                , this is your first post! Good luck!</h3>
-            <?php
-                }else{
-            ?>
-            Please login!
-            <?php }
-            ?>
 
-            <br>
 
-            <label>Please specify your topic</label>
-            <br>
-            <br>
-            <input type="text" name="topic" id="topic">
 
-            <br>
-            <br>
-            <label>Content</label>
-            <br>
-            <p style="color: gray; margin-bottom: 0; padding-bottom: 0; font-size: 12px;">Max. 2000 characters</p>
-            <textarea cols="60" rows="10" id="content" name="content">
-            </textarea>
-            <br>
-            <br>
+                <br>
+                <label>Please specify your topic</label>
 
-            <input type="hidden" id="id" name="id">
-            <br>
-            <button type="submit" style="margin-left: auto; margin-right: auto;" name="commentData" value="submit" >Submit</button>
-            <br>
-            <br>
+                <br>
+                <br>
+
+                <input type="text" name="topic" id="topic">
+
+                <br>
+                <br>
+
+                <label>Content</label>
+
+                <br>
+
+                <p style="color: gray; margin-bottom: 0; padding-bottom: 0; font-size: 12px;">Max. 2000 characters</p>
+
+                <textarea cols="60" rows="10" id="content" name="content"></textarea>
+
+                <br>
+                <br>
+
+                <input type="hidden" id="id" name="id">
+
+                <br>
+
+                <button type="submit" style="margin-left: auto; margin-right: auto;" name="commentData" value="submit" >Submit</button>
+
+                <br>
+                <br>
+            </section>
         </form>
-
-
     </div>
 
     <div class="row">
+
         <aside>
 
             <h3>User123</h3>
-            <p>This is on the side panel</p>
-            <p>25/12/2016</p>
-            <hr>
 
-            <h3>User123</h3>
             <p>This is on the side panel</p>
+
             <p>25/12/2016</p>
 
             <hr>
 
             <h3>User123</h3>
+
             <p>This is on the side panel</p>
+
             <p>25/12/2016</p>
 
             <hr>
 
             <h3>User123</h3>
+
             <p>This is on the side panel</p>
+
+            <p>25/12/2016</p>
+
+            <hr>
+
+            <h3>User123</h3>
+
+            <p>This is on the side panel</p>
+
             <p>25/12/2016</p>
 
         </aside>
-            <div id="cntrol">
-<!--            <div style="width: 95%; height: 9%; overflow-y: hidden;">-->
+
+
+        <div id="cntrol">
 
             <?php
 
@@ -211,7 +245,7 @@ function showH()
                         <tr>
                             <td>
                                 <p><?php echo "{$row['Content']}" ?></p>
-                                    <br>
+                                <br>
                                 <p style="font-size: 12px; text-align: right"><?php echo "{$row['TimeSubmited']}" ?></p>
                             </td>
                         </tr>
@@ -219,30 +253,33 @@ function showH()
 
                         <tr>
                             <td><input type="submit" id="clickedForView" value="View">
-                                <input type="hidden" name="ID" value="<?php echo "{$row['ID']}" ?>">
+                                <input type="hidden" name="ID" value="">
                             </td>
                         </tr>
+
+                        <?php $_SESSION['ID'] == "{$row['ID']}"?>
 
 
                     </table>
                 </form>
-            <hr>
+                <hr>
                 <script>
                     $("#login").click(function(){
                         $("#post").show(500);
+
                     });
 
                     $("#clickedForView").click(function(){
                         $("#cntrol").hide(500);
                         $("#thisPost").show(500);
+
                     });
                 </script>
-            <?php
+                <?php
 
             }
-
             ?>
-            </div>
+        </div>
 
         <div id="thisPost" hidden>
             <?php

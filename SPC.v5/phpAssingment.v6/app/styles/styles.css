@@ -122,5 +122,9 @@
 
 #commentContents {
     border: none;
+}
 
+#form1 h3{
+    margin: 0;
+    padding: 20px;
 }

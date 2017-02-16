@@ -221,7 +221,7 @@ if($submission) {
             </table>
         </div>
         <div>
-            <img src="/images/case1.jpg" style="width: 80%; border-radius: 4px;">
+            <img src="/app/images/case1.jpg" style="width: 80%; border-radius: 4px;">
         </div>
     </div>
     <?php
