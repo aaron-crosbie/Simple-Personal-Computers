@@ -13,7 +13,7 @@ $title = ''
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,7 +41,9 @@ $title = ''
     <link rel="stylesheet" type="text/css" href="styles/script.css">
     <link rel="stylesheet" type="text/css" href="styles/build.css">
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
-<!--    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css" href="styles/vertical_carousal.min.css">
+
+    <!--    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
     <!-- Personal JS scripts -->
     <script src="script.js" type="text/javascript"></script>
     <script src="functionsDrag.js" type="text/javascript"></script>

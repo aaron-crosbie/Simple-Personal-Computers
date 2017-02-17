@@ -10,7 +10,6 @@ $isLoggedIn = false;
 require_once __DIR__ . '/head.php';
 require_once __DIR__ . '/nav.php';
 
-
 $clicked = filter_input(INPUT_GET, 'clickedForView');
 
 //Database connection information
@@ -20,66 +19,27 @@ $pass = "";
 $db = "test";
 
 $connection = mysqli_connect($hostname, $user, $pass, $db);
-//Check connection
+
 if(mysqli_connect_errno()){
     echo "Failed to connect to database";
 }
 
 //Executes code when register button is selected
 // This is to add user's posts
-
 if(isset($_POST['commentData'])) {
     $newTime = date("Y/m/d");
-    $sql="INSERT INTO blog (Username,Topic,Content,TimeSubmited) VALUES ('$_SESSION[username]','$_POST[topic]','$_POST[content]','$newTime')";//SQL statement to insert data in user database
+    $sql = "INSERT INTO blog (Username,Topic,Content,TimeSubmited) VALUES ('$_SESSION[username]','$_POST[topic]','$_POST[content]','$newTime')";//SQL statement to insert data in user database
     mysqli_query($connection, $sql);
 }
-
-//SELECT NOW() AS CurrentDateTime
-// This is to retrive given information
-
 
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
 
 switch ($action){
-//    case 'showH':
-//        showH();
-//        break;
     case 'login':
         login();
         break;
 }
-
-
-
-//function showH()
-//{
-//    //Database connection information
-//    $hostname = "localhost";
-//    $user = "root";
-//    $pass = "";
-//    $db = "test";
-//
-//    $connection = mysqli_connect($hostname, $user, $pass, $db);
-//
-//    $sql="SELECT ID FROM blog ORDER BY ID DESC ;";
-//
-//    $retval = mysqli_query($connection, $sql);
-//
-//
-//    $ID = filter_input(INPUT_GET, 'ID', FILTER_SANITIZE_STRING);
-//
-//
-//    if(!$retval )
-//    {
-//        die('Could not get data: ' );
-//    }
-//
-//    while($row = mysqli_fetch_array($retval, 1));
-//}
 ?>
-
-
-<body>
 
 <div class="container">
 
@@ -117,9 +77,9 @@ switch ($action){
                 <h3>
                     <?php
 
-                    if(!isset($_SESSION['username']) == '') {
+                        if(!isset($_SESSION['username']) == '') {
 
-                    echo $_SESSION['username'];
+                        echo $_SESSION['username'];
 
                     ?>
                     , be friendly to the community! Good luck!</h3>
@@ -127,8 +87,7 @@ switch ($action){
                     $("#hideIfNot").show(500);
                 </script>
                 <?php
-                } else
-                {
+                        } else {
                     ?>
                     <script>
                         $("#hideIfNot").hide(500);
@@ -137,7 +96,7 @@ switch ($action){
                         });
                     </script>
                     <?php
-                }
+                            }
                 ?>
 
 
@@ -219,9 +178,7 @@ switch ($action){
 
 
             $sql="SELECT * FROM blog ORDER BY ID DESC ;";
-
             $retval = mysqli_query($connection, $sql);
-            $ID = filter_input(INPUT_GET, 'ID', FILTER_SANITIZE_STRING);
 
             if(!$retval )
             {
@@ -253,49 +210,37 @@ switch ($action){
 
                         <tr>
                             <td><input type="submit" id="clickedForView" value="View">
-                                <input type="hidden" name="ID" value="">
+                                <input type="hidden" name="ID" value="<?php echo "{$row['ID']}" ?>">
                             </td>
                         </tr>
 
-                        <?php $_SESSION['ID'] == "{$row['ID']}"?>
-
-
                     </table>
                 </form>
-                <hr>
+
+            <hr>
                 <script>
-                    $("#login").click(function(){
+                    $("#login").click(function () {
                         $("#post").show(500);
 
                     });
 
-                    $("#clickedForView").click(function(){
+                    $("#clickedForView").click(function () {
                         $("#cntrol").hide(500);
                         $("#thisPost").show(500);
 
                     });
                 </script>
                 <?php
+                }
+            $thisID = "{$row['ID']}";
 
-            }
-            ?>
-        </div>
-
-        <div id="thisPost" hidden>
-            <?php
-
-            if ($row = mysqli_fetch_array($retval, 1))
+            if($thisID != $_SESSION['ID'])
             {
-                $temp = $row['ID'];
-                echo "Hello $temp";
-
-                $sql = "SELECT * FROM blog WHERE ID = $temp";
-                mysqli_query($connection, $sql);
-                echo "{$row['Content']}";
+                $thisID = $_SESSION['ID'];
             }
             ?>
         </div>
-    </div>
 
+    </div>
 </div>
 <?php require_once __DIR__ . '/footer.php'; ?>
