@@ -68,6 +68,34 @@ class DbManager {
 
     //End of Getters and Setters for Users DB
 
+    function generateComponents(){
+        $sql = "INSERT INTO components (motherboard,cpu,gpu,hdd,ssd) VALUE ('ASUS Z170 Pro','Intel Core i3-6100','Gigabyte GeForce GTX 1060 G1','1TB Samsung','256GB Evo Samsung')";
+        mysqli_query($this->con, $sql);
+    }
+
+    function addComponent($name, $price, $type){
+        if($type == "motherboard"){
+            $sql = "INSERT INTO motherboards (item,price) VALUES ('$name', '$price')";
+        }
+        else if($type == "cpu"){
+            $sql = "INSERT INTO cpu (item,price) VALUES ('$name', '$price')";
+        }
+        else if($type == "gpu"){
+            $sql = "INSERT INTO gpu (item,price) VALUES ('$name', '$price')";
+        }
+        else if($type == "hdd"){
+            $sql = "INSERT INTO hdd (item,price) VALUES ('$name', '$price')";
+        }
+        else if($type == "ssd"){
+            $sql = "INSERT INTO ssd (item,price) VALUES ('$name', '$price')";
+        }
+        else{
+            $sql = "INSERT INTO ram (item,price) VALUES ('$name', '$price')";
+        }
+
+        mysqli_query($this->con, $sql);
+    }
+
 }
 
 //Code to put unto registering.php which will register a user with the DB
