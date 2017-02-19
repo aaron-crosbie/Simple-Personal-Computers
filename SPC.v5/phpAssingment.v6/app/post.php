@@ -1,7 +1,7 @@
 <?php
 
 // Starting session for certain saved information
-session_start();
+//session_start();
 
 // File name for nav bar
 $filename ='post';
@@ -22,11 +22,10 @@ $db = "test";
 //Connecting to the database
 $connection = mysqli_connect($hostname, $user, $pass, $db);
 
-//Selecting infromation from the blog database
-$sql="SELECT ID FROM blog ORDER BY ID DESC ;";
 
-//Connecting using query
-mysqli_query($connection, $sql);
+echo $_SESSION['ID'];
+echo $_SESSION['username'];
+
 
 ?>
 
@@ -36,22 +35,16 @@ mysqli_query($connection, $sql);
 
     <?php
 
-
-
-        echo $_SESSION['ID'];
-
-
-
-    $sql = "SELECT * FROM blog WHERE ID = '$_SESSION[ID]'";
-
+    $sql="SELECT * FROM blog ORDER BY ID DESC ";
     $retval = mysqli_query($connection, $sql);
 
-    if(!$retval)
+    if(!$retval )
     {
-        die('Could not get data: dthfygvjuhbnkml' );
+        die('Could not get data: because ' );
     }
 
-    $row = mysqli_fetch_array($retval, 1);
+    while($row = mysqli_fetch_array($retval, 1))
+    {
     ?>
     <div class="jumbotron">
         <header style="text-align: right">
@@ -106,11 +99,11 @@ mysqli_query($connection, $sql);
                         </td>
                     </tr>
                 </table>
-                <input type="hidden" name="BLOGID" value="<?php echo "{$row['ID']}"  ?>">
+<!--                <input type="hidden" name="BLOGID" value="--><?php //echo "{$row['ID']}"  ?><!--">-->
 
                 <button type="button" id="writeComment">Comment</button>
             </form>
-
+<?php } ?>
             <hr>
 
             <!-- JS for neat l&f -->
