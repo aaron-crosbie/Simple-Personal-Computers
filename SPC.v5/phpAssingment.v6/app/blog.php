@@ -107,7 +107,7 @@ switch ($action){
                 <br>
                 <br>
 
-                <input type="text" name="topic" id="topic">
+                <input type="text" name="topic" id="topic" required>
 
                 <br>
                 <br>
@@ -118,7 +118,7 @@ switch ($action){
 
                 <p style="color: gray; margin-bottom: 0; padding-bottom: 0; font-size: 12px;">Max. 2000 characters</p>
 
-                <textarea cols="60" rows="10" id="content" name="content"></textarea>
+                <textarea cols="60" rows="10" id="content" name="content" required></textarea>
 
                 <br>
                 <br>
@@ -127,68 +127,84 @@ switch ($action){
 
                 <br>
 
-                <button type="submit" style="margin-left: auto; margin-right: auto;" name="commentData" value="submit" >Submit</button>
+                <button type="submit" style="margin-left: auto; margin-right: auto;" name="commentData" value="submit">Submit</button>
+                <button type="button" style="margin-left: auto; margin-right: auto;" id="backButton">Back</button>
+
 
                 <br>
                 <br>
             </section>
+            <script>
+                $("#backButton").click(function(){
+                    $("#hideIfNot").hide(500);
+                });
+            </script>
         </form>
     </div>
+
+
 
     <div class="row">
 
         <aside>
 
-            <h3>User123</h3>
+            <h3>Username</h3>
 
-            <p>This is on the side panel</p>
+            <p>Short description</p>
 
-            <p>25/12/2016</p>
+            <br>
 
-            <hr>
-
-            <h3>User123</h3>
-
-            <p>This is on the side panel</p>
-
-            <p>25/12/2016</p>
+            <p style="font-size: 12px; text-align: right">Time stamp</p>
 
             <hr>
 
-            <h3>User123</h3>
+            <h3>Username</h3>
 
-            <p>This is on the side panel</p>
+            <p>Short description</p>
 
-            <p>25/12/2016</p>
+            <br>
+
+            <p style="font-size: 12px; text-align: right">Time stamp</p>
 
             <hr>
+            <h3>Username</h3>
 
-            <h3>User123</h3>
+            <p>Short description</p>
 
-            <p>This is on the side panel</p>
+            <br>
 
-            <p>25/12/2016</p>
+            <p style="font-size: 12px; text-align: right">Time stamp</p>
 
+            <hr>
+            <h3>Username</h3>
+
+            <p>Short description</p>
+
+            <br>
+
+            <p style="font-size: 12px; text-align: right">Time stamp</p>
+
+            <hr>
         </aside>
 
-
         <div id="cntrol">
+        <?php
 
-            <?php
+
+        $sql="SELECT * FROM blog ORDER BY ID DESC ;";
+        $retval = mysqli_query($connection, $sql);
+
+        if(!$retval )
+        {
+            die('Could not get data: ' );
+        }
+
+        while($row = mysqli_fetch_array($retval, 1))
+        {
+
+        ?>
 
 
-            $sql="SELECT * FROM blog ORDER BY ID DESC ;";
-            $retval = mysqli_query($connection, $sql);
-
-            if(!$retval )
-            {
-                die('Could not get data: ' );
-            }
-
-            while($row = mysqli_fetch_array($retval, 1))
-            {
-
-                ?>
 
                 <form
                         action="post.php"
@@ -210,7 +226,7 @@ switch ($action){
 
                         <tr>
                             <td><input type="submit" id="clickedForView" value="View">
-                                <input type="hidden" name="ID" value="<?php echo "{$row['ID']}" ?>">
+                                <input type="hidden" id="blogID" name="blogID" value="<?php echo "{$row['ID']}" ?>">
                             </td>
                         </tr>
 
@@ -218,27 +234,32 @@ switch ($action){
                 </form>
 
             <hr>
-                <script>
-                    $("#login").click(function () {
-                        $("#post").show(500);
 
-                    });
-
-                    $("#clickedForView").click(function () {
-                        $("#cntrol").hide(500);
-                        $("#thisPost").show(500);
-
-                    });
-                </script>
-                <?php
-                }
-            $thisID = "{$row['ID']}";
-
-            if($thisID != $_SESSION['ID'])
-            {
-                $thisID = $_SESSION['ID'];
+            <?php
             }
+                $blogID = filter_input(INPUT_GET, 'blogID', FILTER_SANITIZE_STRING);
+                $blogID = stripslashes($blogID);
+                $blogID = mysqli_real_escape_string($connection, $_POST['ID']);
+        $sql = "SELECT * FROM blog WHERE ID='$blogID'";
+        $result = mysqli_query($connection, $sql);
+
+        if(!isset($_SESSION['ID']) == $result)
+                {
+                    $_SESSION['ID'] = $result;
+                }
             ?>
+            <script>
+                $("#login").click(function () {
+                    $("#post").show(500);
+
+                });
+
+                $("#clickedForView").click(function () {
+                    $("#cntrol").hide(500);
+                    $("#thisPost").show(500);
+
+                });
+            </script>
         </div>
 
     </div>

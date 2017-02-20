@@ -23,10 +23,10 @@ $db = "test";
 $connection = mysqli_connect($hostname, $user, $pass, $db);
 
 //Selecting infromation from the blog database
-$sql="SELECT ID FROM blog ORDER BY ID DESC ;";
+//$sql="SELECT ID FROM blog ORDER BY ID DESC ;";/
 
 //Connecting using query
-mysqli_query($connection, $sql);
+//mysqli_query($connection, $sql);
 
 ?>
 
@@ -39,10 +39,12 @@ mysqli_query($connection, $sql);
 
 
         echo $_SESSION['ID'];
+        echo $_SESSION['username'];
+
+        $newID = $_SESSION['ID'];
 
 
-
-    $sql = "SELECT * FROM blog WHERE ID = '$_SESSION[ID]'";
+    $sql = "SELECT * FROM blog WHERE ID = '$newID'";
 
     $retval = mysqli_query($connection, $sql);
 
@@ -106,7 +108,7 @@ mysqli_query($connection, $sql);
                         </td>
                     </tr>
                 </table>
-                <input type="hidden" name="BLOGID" value="<?php echo "{$row['ID']}"  ?>">
+<!--                <input type="hidden" name="BLOGID" value="--><?php //echo "{$row['ID']}"  ?><!--">-->
 
                 <button type="button" id="writeComment">Comment</button>
             </form>

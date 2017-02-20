@@ -5,7 +5,6 @@ $filename ='index';
 
 $title = 'Home';
 
-//$username = filter_input(INPUT_GET, 'username', FILTER_SANITIZE_STRING);
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
 
 require_once __DIR__ . '/head.php';
@@ -24,7 +23,6 @@ $_SESSION['loggedin'] = false;
 
 session_unset();
 session_destroy();
-//require_once __DIR__ . '\blog.php';
 }
 
 $hostname = "localhost";
@@ -33,8 +31,7 @@ $pass = "";
 $db = "test";
 
 
-
-    $connection = mysqli_connect($hostname, $user, $pass, $db);
+$connection = mysqli_connect($hostname, $user, $pass, $db);
 
 if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
@@ -43,74 +40,73 @@ if ($connection->connect_error) {
 ?>
 
 <div id="top">
-    <div style="text-align: right; ">
-        <a id="myBtn">Login</a>
-    </div>
-    <div id="heading">
-        <h1>SPC - Simple Personal Computers</h1>
-    </div>
 
-    <?php
+    <h1>SPC - Simple Personal Computers</h1>
 
+    <p style="text-align: right"><button id="myBtn">Login</button></p>
+</div>
 
-    function login()
-    {
-        $hostname = "localhost";
-        $user = "root";
-        $pass = "";
-        $db = "test";
+<div style="text-align: right">
 
-        $connection = mysqli_connect($hostname, $user, $pass, $db);
+<?php
+function login()
+{
+    $hostname = "localhost";
+    $user = "root";
+    $pass = "";
+    $db = "test";
 
-        if ($connection->connect_error) {
-            die("Connection failed: " . $connection->connect_error);
-        }
+    $connection = mysqli_connect($hostname, $user, $pass, $db);
 
-
-
-        // username and password sent from form
-        $username = filter_input(INPUT_GET, 'username', FILTER_SANITIZE_STRING);
-        $password = filter_input(INPUT_GET, 'password', FILTER_SANITIZE_STRING);
-
-        // To protect MySQL injection (more detail about MySQL injection)
-        $username = stripslashes($username);
-        $password = stripslashes($password);
-
-        $username = mysqli_real_escape_string($connection, $_POST['username']);
-        $password = mysqli_real_escape_string($connection, $_POST['password']);
-
-
-        $sql = "SELECT * FROM user WHERE Username='$username' and Pass='$password'";
-        $result = mysqli_query($connection, $sql);
-
-
-        // Mysql_num_row is counting table row
-        $count = mysqli_num_rows($result);
-
-
-        // If result matched $username and $password, table row must be 1 row
-        if ($count == 1) {
-            $_SESSION['loggedin'] = true;
-            $_SESSION['username'] = $username;
-        }
-
+    if ($connection->connect_error) {
+        die("Connection failed: " . $connection->connect_error);
     }
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        echo "Welcome <strong>" . $_SESSION['username'] . "</strong>!";
+
+
+
+    // username and password sent from form
+    $username = filter_input(INPUT_GET, 'username', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_GET, 'password', FILTER_SANITIZE_STRING);
+
+    // To protect MySQL injection (more detail about MySQL injection)
+    $username = stripslashes($username);
+    $password = stripslashes($password);
+
+    $username = mysqli_real_escape_string($connection, $_POST['username']);
+    $password = mysqli_real_escape_string($connection, $_POST['password']);
+
+
+    $sql = "SELECT * FROM user WHERE Username='$username' and Pass='$password'";
+    $result = mysqli_query($connection, $sql);
+
+
+    // Mysql_num_row is counting table row
+    $count = mysqli_num_rows($result);
+
+
+    // If result matched $username and $password, table row must be 1 row
+    if ($count == 1) {
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+    }
+
+}
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+
+    echo "Welcome <strong>" . $_SESSION['username'] . "</strong>!";
 
         ?>
+
         <script>
             $("#myBtn").hide();
             $("#heading").hide();
-    </script>
-        <div>
+        </script>
+
         <form
                 id="form3"
                 method="POST"
                 action="index.php?action=showHome">
-            <button type="submit" id="loginBtn"
-                    style="color: dodgerblue; margin-left: auto; margin-right: auto; margin-bottom: 1%; margin-top: 1%; text-align: center  ">Logout
-            </button>
+            <button type="submit" id="loginBtn">Logout</button>
         </form>
         </div>
         <?php
@@ -120,7 +116,6 @@ if ($connection->connect_error) {
 
     ?>
 
-</div>
 
 
 <div id="myModal" class="modal">
@@ -208,14 +203,17 @@ if ($connection->connect_error) {
     }
 </script>
 
+
 <div id="mainContent">
-    <section>
 
         <section>
+
             <h3>Check out new PC designs</h3>
+
             <iframe width="725" height="415"
                     src="https://www.youtube.com/embed/35FLXniqeFQ?autoplay=0">
             </iframe>
+
         </section>
 
 
@@ -223,39 +221,63 @@ if ($connection->connect_error) {
 
         <p style="text-align: center">Created by users</p>
 
-        <section style="text-align: center">
-            <img src="images/cooler.jpg">
-            <p>
-                <i>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                </i>
-            </p>
+        <section id="four">
+
+            <section>
+
+                <img src="images/cooler.jpg">
+
+                <p>
+                    <i>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </i>
+                </p>
+
+            </section>
+
+            <section>
+
+                <img src="images/cool.jpg">
+
+                <p>
+                    <i>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </i>
+                </p>
+
+            </section>
+
         </section>
 
         <hr>
 
-        <section style="text-align: center">
-            <img src="images/cool.jpg">
-            <p>
-                <i>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                </i>
-            </p>
+        <section id="four">
+
+            <section>
+
+                <img src="images/coolest.jpg">
+
+                <p>
+                    <i>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </i>
+                </p>
+
+            </section>
+
+            <section>
+
+                <img src="images/cool.jpg">
+
+                <p>
+                    <i>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </i>
+                </p>
+
+            </section>
+
         </section>
-
-        <hr>
-
-        <section style="text-align: center">
-            <img src="images/coolest.jpg" style="text-align: center">
-
-            <p>
-                <i>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                </i>
-            </p>
-        </section>
-
-    </section>
 
 
     <section id="news">

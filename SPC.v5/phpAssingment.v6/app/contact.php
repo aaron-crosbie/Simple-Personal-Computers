@@ -56,10 +56,10 @@ require_once __DIR__ . '/nav.php';
         height: 100%;
     }
 
-    p {
-        color: #fff;
-        font-size: 3em;
-    }
+    /*p {*/
+        /*color: #fff;*/
+        /*font-size: 3em;*/
+    /*}*/
 </style>
 <body>
 

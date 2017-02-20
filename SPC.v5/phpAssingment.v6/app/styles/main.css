@@ -1,11 +1,6 @@
 * {
     font-family: 'Raleway', sans-serif;
 }
-html, body, #myVerticalCarousel {
-    height: 100%;
-    margin: 0;
-    width: 100%;
-}
 
 body {
     background: url("../images/backtback.jpg")  no-repeat center center fixed;
@@ -14,6 +9,7 @@ body {
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
+    width: 70%;
 }
 
 #heading {
@@ -22,7 +18,6 @@ body {
 }
 
 #top {
-    /*display: flex;*/
     text-align: center;
 }
 
@@ -30,6 +25,9 @@ body {
     flex: 1;
 }
 
+#top h1 {
+    color: #1e1e1e;
+}
 #mainContent {
     background-color: #313131;
     padding: 5%;
@@ -41,7 +39,8 @@ body {
 }
 
 #mainContent section img {
-    width: 50%;
+    width: 250px;
+    height: 250px;
 }
 
 #mainContent section h3 {
@@ -85,5 +84,21 @@ body {
     text-decoration: underline;
     background-color: #888888;
     transition: 0.5s;
+}
+
+iframe {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#four {
+    display: flex;
+    text-align: center;
+}
+
+#four section {
+    display: block;
+    flex: 1;
 }
 
