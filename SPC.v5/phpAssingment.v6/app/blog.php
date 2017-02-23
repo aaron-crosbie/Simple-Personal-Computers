@@ -38,7 +38,41 @@ switch ($action){
     case 'login':
         login();
         break;
+    case 'getID':
+        getID();
+        break;
 }
+
+
+function getID(){
+
+    //Database connection information
+    $hostname = "localhost";
+    $user = "root";
+    $pass = "";
+    $db = "test";
+
+    $connection = mysqli_connect($hostname, $user, $pass, $db);
+
+    $blogID = filter_input(INPUT_GET, 'blogID', FILTER_SANITIZE_STRING);
+
+    $blogID = stripslashes($blogID);
+
+    $blogID = mysqli_real_escape_string($connection, $_POST['blogID']);
+
+    $sql = "SELECT * FROM blog WHERE ID='$blogID'";
+
+    $result = mysqli_query($connection, $sql);
+
+    $count = mysqli_num_rows($result);
+
+    if ($count == 1) {
+        $_SESSION['ID'] = $blogID;
+//        require __DIR__. '/post.php';
+    }
+
+}
+
 ?>
 
 <div class="container">
@@ -207,7 +241,7 @@ switch ($action){
 
 
                 <form
-                        action="post.php"
+                        action="blog.php?action=getID"
                         method="POST">
                     <table>
                         <tr>
@@ -237,16 +271,7 @@ switch ($action){
 
             <?php
             }
-                $blogID = filter_input(INPUT_GET, 'blogID', FILTER_SANITIZE_STRING);
-                $blogID = stripslashes($blogID);
-                $blogID = mysqli_real_escape_string($connection, $_POST['ID']);
-        $sql = "SELECT * FROM blog WHERE ID='$blogID'";
-        $result = mysqli_query($connection, $sql);
 
-        if(!isset($_SESSION['ID']) == $result)
-                {
-                    $_SESSION['ID'] = $result;
-                }
             ?>
             <script>
                 $("#login").click(function () {

@@ -30,7 +30,6 @@ $user = "root";
 $pass = "";
 $db = "test";
 
-
 $connection = mysqli_connect($hostname, $user, $pass, $db);
 
 if ($connection->connect_error) {
@@ -111,9 +110,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         </div>
         <?php
     }
-
-
-
     ?>
 
 
