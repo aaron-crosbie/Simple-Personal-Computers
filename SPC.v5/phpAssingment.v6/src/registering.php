@@ -137,6 +137,6 @@ if(isset($_POST['submit'])){
 
 <hr style="background-color: red;">
 
-<?=require_once __DIR__ . '/footer.php';?>
+<?= require_once __DIR__ . '/footer.php';?>
 </body>
 </html>

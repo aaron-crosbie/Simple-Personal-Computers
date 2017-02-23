@@ -32,16 +32,16 @@ $title = ''
     <meta name="theme-color" content="#2F3BA2">
 
     <!-- Personal css style sheets -->
-    <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <link rel="stylesheet" type="text/css" href="styles/nav.css">
-    <link rel="stylesheet" type="text/css" href="styles/footer.css">
-    <link rel="stylesheet" type="text/css" href="styles/modal.css">
-    <link rel="stylesheet" type="text/css" href="styles/forms.css">
-    <link rel="stylesheet" type="text/css" href="styles/reviews.css">
-    <link rel="stylesheet" type="text/css" href="styles/script.css">
-    <link rel="stylesheet" type="text/css" href="styles/build.css">
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
-    <link rel="stylesheet" type="text/css" href="styles/vertical_carousal.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/modal.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/forms.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/reviews.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/script.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/build.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/vertical_carousal.min.css">
 
     <!--    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
     <!-- Personal JS scripts -->

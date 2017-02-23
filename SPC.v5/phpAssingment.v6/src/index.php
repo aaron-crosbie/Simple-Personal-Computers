@@ -221,7 +221,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
             <section>
 
-                <img src="images/cooler.jpg">
+                <img src="../public/images/cooler.jpg">
 
                 <p>
                     <i>
@@ -233,7 +233,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
             <section>
 
-                <img src="images/cool.jpg">
+                <img src="../public/images/cool.jpg">
 
                 <p>
                     <i>
@@ -251,7 +251,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
             <section>
 
-                <img src="images/coolest.jpg">
+                <img src="../public/images/coolest.jpg">
 
                 <p>
                     <i>
@@ -263,7 +263,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
             <section>
 
-                <img src="images/cool.jpg">
+                <img src="../public/images/cool.jpg">
 
                 <p>
                     <i>
