@@ -73,6 +73,12 @@ class DbManager {
         mysqli_query($this->con, $sql);
     }
 
+    /**
+     * Checks type of component then adds item name and price to table associated with components of the same type
+     * @param $name
+     * @param $price
+     * @param $type
+     */
     function addComponent($name, $price, $type){
         if($type == "motherboard"){
             $sql = "INSERT INTO motherboards (item,price) VALUES ('$name', '$price')";
