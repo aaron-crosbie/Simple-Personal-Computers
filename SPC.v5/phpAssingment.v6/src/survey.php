@@ -64,7 +64,7 @@ if($submission) {
     <script src="myscripts.js"></script>
     <meta charset="UTF-8">
     <title>Survey</title>
-    <link rel="stylesheet" type="text/css" href="styles/reviews.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/reviews.css">
 
 </head>
 <body>

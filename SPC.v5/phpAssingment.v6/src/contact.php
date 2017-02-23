@@ -10,7 +10,7 @@ require_once __DIR__ . '/nav.php';
 
 ?>
 
-<link rel="stylesheet" type="text/css" href="styles/vertical_carousal.min.css">
+<link rel="stylesheet" type="text/css" href="../public/css/vertical_carousal.min.css">
 
 <style>
 

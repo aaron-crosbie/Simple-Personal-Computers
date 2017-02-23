@@ -1,0 +1,10 @@
+{
+  "autoload":{
+    "psr-4":{
+      "Itb\\":"src/"
+    }
+  },
+  "require": {
+    "twig/twig": "^2.1"
+  }
+}
