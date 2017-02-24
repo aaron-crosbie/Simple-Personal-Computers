@@ -10,6 +10,9 @@ class Ssd
 {
     private $name;
     private $price;
+    private $storage;
+    private $manufacturer;
+
     function __construct(){
     }
 
@@ -27,4 +30,26 @@ class Ssd
     function getPrice(){
         return $this->price;
     }
+
+    public function getStorage()
+    {
+        return $this->storage;
+    }
+
+    public function setStorage($storage)
+    {
+        $this->storage = $storage;
+    }
+
+    public function getManufacturer()
+    {
+        return $this->manufacturer;
+    }
+
+    public function setManufacturer($manufacturer)
+    {
+        $this->manufacturer = $manufacturer;
+    }
+
+
 }

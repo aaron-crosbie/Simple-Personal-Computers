@@ -10,6 +10,9 @@ class Ram
 {
     private $name;
     private $price;
+    private $size;
+    private $manufacturer;
+
     function __construct(){
     }
     
@@ -27,5 +30,25 @@ class Ram
 
     function getPrice(){
         return $this->price;
+    }
+
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    public function setSize($size)
+    {
+        $this->size = $size;
+    }
+
+    public function getManufacturer()
+    {
+        return $this->manufacturer;
+    }
+
+    public function setManufacturer($manufacturer)
+    {
+        $this->manufacturer = $manufacturer;
     }
 }

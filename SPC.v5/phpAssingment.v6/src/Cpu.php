@@ -10,6 +10,8 @@ class Cpu
 {
     private $name;
     private $price;
+    private $manufacturer;
+
     function __construct(){
     }
 
@@ -27,4 +29,16 @@ class Cpu
     function getPrice(){
         return $this->price;
     }
+
+    public function getManufacturer()
+    {
+        return $this->manufacturer;
+    }
+
+    public function setManufacturer($manufacturer)
+    {
+        $this->manufacturer = $manufacturer;
+    }
+
+
 }

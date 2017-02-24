@@ -10,12 +10,9 @@ class Motherboard
 {
     private $name;
     private $price;
-//    function __construct(){
-//        $this->name = "NULL";
-//        $this->price = "NULL";
-//    }
-    function __construct()
-    {
+    private $manufacturer;
+
+    function __construct(){
     }
 
     function getName(){
@@ -34,6 +31,14 @@ class Motherboard
         $this-> price = $price;
     }
 
+    public function getManufacturer()
+    {
+        return $this->manufacturer;
+    }
 
+    public function setManufacturer($manufacturer)
+    {
+        $this->manufacturer = $manufacturer;
+    }
 
 }

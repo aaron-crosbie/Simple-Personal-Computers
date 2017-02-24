@@ -10,6 +10,9 @@ class Hdd
 {
     private $name;
     private $price;
+    private $storage;
+    private $manufactuerer;
+
     function __construct(){
     }
 
@@ -27,4 +30,25 @@ class Hdd
     function getPrice(){
         return $this->price;
     }
+
+    public function getStorage()
+    {
+        return $this->storage;
+    }
+
+    public function setStorage($storage)
+    {
+        $this->storage = $storage;
+    }
+
+    public function getManufactuerer()
+    {
+        return $this->manufactuerer;
+    }
+
+    public function setManufactuerer($manufactuerer)
+    {
+        $this->manufactuerer = $manufactuerer;
+    }
+
 }
