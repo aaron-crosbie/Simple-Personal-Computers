@@ -102,6 +102,36 @@ class DbManager {
         mysqli_query($this->con, $sql);
     }
 
+    /**
+     * Function to return desired component from database
+     * @param $name
+     * @param $type
+     * @return bool|\mysqli_result
+     */
+    function getComponent($name, $type){
+        if($type == "motherboard"){
+            $sql = "SELECT itemName FROM motherboards WHERE itemName = $name";
+        }
+        else if($type == "cpu"){
+            $sql = "SELECT itemName FROM cpus WHERE itemName = $name";
+        }
+        else if($type == "gpu"){
+            $sql = "SELECT itemName FROM gpus WHERE itemName = $name";
+        }
+        else if($type == "hdd"){
+            $sql = "SELECT itemName FROM hdd WHERE itemName = $name";
+        }
+        else if($type == "ssd"){
+            $sql = "SELECT itemName FROM ssd WHERE itemName = $name";
+        }
+        else{
+            $sql = "SELECT itemName FROM ram WHERE itemName = $name";
+        }
+
+        $comp = mysqli_query($this->con, $sql);
+        return $comp;
+    }
+
 }
 
 //Code to put unto registering.php which will register a user with the DB
