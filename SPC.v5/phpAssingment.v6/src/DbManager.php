@@ -135,17 +135,17 @@ class DbManager {
     function generateDatabase(){
         $sql = "CREATE TABLE components(motherboard varchar(45), cpu varchar(45), gpu varchar(45), hdd varchar(45), ssd varchar(45));";
         mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE motherboards(itemName varchar(45), price varchar(45));";
+        $sql = "CREATE TABLE motherboards(itemName varchar(45), price varchar(45), manufacturer varchar(45));";
         mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE cpus(itemName varchar(45), price varchar(45));";
+        $sql = "CREATE TABLE cpus(itemName varchar(45), price varchar(45), manufacturer varchar(45));";
         mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE gpus(itemName varchar(45), price varchar(45));";
+        $sql = "CREATE TABLE gpus(itemName varchar(45), price varchar(45), manufacturer varchar(45));";
         mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE hdd(itemName varchar(45), price varchar(45));";
+        $sql = "CREATE TABLE hdd(itemName varchar(45), price varchar(45), storage varchar(45), manufacturer varchar(45));";
         mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE ssd(itemName varchar(45), price varchar(45));";
+        $sql = "CREATE TABLE ssd(itemName varchar(45), price varchar(45), storage varchar(45), manufacturer varchar(45));";
         mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE ram(itemName varchar(45), price varchar(45));";
+        $sql = "CREATE TABLE ram(itemName varchar(45), price varchar(45), size varchar(45) manufacturer varchar(45));";
         mysqli_query($this->con, $sql);
         $sql = "CREATE TABLE users(username varchar(45), firstname varchar(45), tel varchar(45), email varchar(45), dob varchar(45), address1 varchar(45),address2 varchar(45), address3 varchar(45), pass varchar(45));";
         mysqli_query($this->con, $sql);
