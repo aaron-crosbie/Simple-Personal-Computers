@@ -6,7 +6,7 @@ $title = 'Tutorials';
 
 
 require_once __DIR__ . '/head.php';
-require_once __DIR__ . '/nav.php';
+require_once __DIR__ . '/nav.php.twig';
 ?>
 <div style="text-align: center">
 <h1>Tutorials</h1>

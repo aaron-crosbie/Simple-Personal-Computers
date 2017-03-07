@@ -10,17 +10,17 @@ namespace itb;
 
 
 class DbManager {
-    private $hostname;
-    private $user;
-    private $pass;
-    private $db;
-    private $con;
+    public $hostname;
+    public $user;
+    public $pass;
+    public $db;
+    public $con;
 
     function __construct(){
         $this->hostname = "localhost";
         $this->user = "root";
-        $this->pass = "root";//May not need this if password is not set up for localhost
-        $this->db = "spcdb";//Change to what ever your test db's name is :)
+        $this->pass = "";//May not need this if password is not set up for localhost
+        $this->db = "test";//Change to what ever your test db's name is :)
         $this->con = mysqli_connect($this->hostname, $this->user, $this->pass, $this->db);
 
         if(mysqli_connect_errno()){

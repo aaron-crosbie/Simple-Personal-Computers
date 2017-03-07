@@ -9,7 +9,7 @@ $title = 'Home';
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
 
 require_once __DIR__ . '/head.php';
-require_once __DIR__ . '/nav.php';
+require_once __DIR__ . '/nav.php.twig';
 require_once __DIR__ . '/DbManager.php';
 
 switch ($action){
@@ -25,17 +25,6 @@ $_SESSION['loggedin'] = false;
 
 session_unset();
 session_destroy();
-}
-
-$hostname = "localhost";
-$user = "root";
-$pass = "root";
-$db = "test";
-
-$connection = mysqli_connect($hostname, $user, $pass, $db);
-
-if ($connection->connect_error) {
-    die("Connection failed: " . $connection->connect_error);
 }
 
 $dbm = new DbManager();
@@ -55,17 +44,8 @@ $dbm->generateDatabase();
 <?php
 function login()
 {
-    $hostname = "localhost";
-    $user = "root";
-    $pass = "";
-    $db = "test";
-
-    $connection = mysqli_connect($hostname, $user, $pass, $db);
-
-    if ($connection->connect_error) {
-        die("Connection failed: " . $connection->connect_error);
-    }
-
+    $dbm = new DbManager();
+    $dbm->generateDatabase();
 
 
     // username and password sent from form
@@ -76,28 +56,28 @@ function login()
     $username = stripslashes($username);
     $password = stripslashes($password);
 
-    $username = mysqli_real_escape_string($connection, $_POST['username']);
-    $password = mysqli_real_escape_string($connection, $_POST['password']);
+    $username = mysqli_real_escape_string($dbm->con, $_POST['username']);
+    $password = mysqli_real_escape_string($dbm->con, $_POST['password']);
 
 
     $sql = "SELECT * FROM user WHERE Username='$username' and Pass='$password'";
-    $result = mysqli_query($connection, $sql);
+    $result = mysqli_query($dbm->con, $sql);
 
 
     // Mysql_num_row is counting table row
-    $count = mysqli_num_rows($result);
-
+//    $count = mysqli_num_rows($result);
 
     // If result matched $username and $password, table row must be 1 row
-    if ($count == 1) {
-        $_SESSION['loggedin'] = true;
+    if ($result != null &&  $_SESSION['username'] = $username) {
         $_SESSION['username'] = $username;
+        $_SESSION['loggedin'] = true;
     }
 
 }
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
-    echo "Welcome <strong>" . $_SESSION['username'] . "</strong>!";
+if (isset($_SESSION['loggedin'])) {
+
+    echo "Welcome <strong>" . $_SESSION['username'] ."</strong>!";
 
         ?>
 

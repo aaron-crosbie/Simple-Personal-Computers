@@ -12,7 +12,7 @@ $filename ='login';
 $title = 'Login';
 
 require_once __DIR__ . '/head.php';
-require_once __DIR__ . '/nav.php';
+require_once __DIR__ . '/nav.php.twig';
 
 
 

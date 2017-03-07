@@ -8,7 +8,7 @@ $title = 'Blog';
 $isLoggedIn = false;
 
 require_once __DIR__ . '/head.php';
-require_once __DIR__ . '/nav.php';
+require_once __DIR__ . '/nav.php.twig';
 
 $clicked = filter_input(INPUT_GET, 'clickedForView');
 
