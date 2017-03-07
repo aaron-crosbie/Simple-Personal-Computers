@@ -27,6 +27,7 @@ class ComposerStaticInit87e97630d16ed31089197536ccf89c5d
         ),
         'I' => 
         array (
+            'Itb\\Model\\' => 10,
             'Itb\\' => 4,
         ),
     );
@@ -63,6 +64,10 @@ class ComposerStaticInit87e97630d16ed31089197536ccf89c5d
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Itb\\Model\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/model',
         ),
         'Itb\\' => 
         array (

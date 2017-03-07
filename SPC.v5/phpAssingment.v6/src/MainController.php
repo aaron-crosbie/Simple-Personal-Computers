@@ -1,0 +1,44 @@
+<?php
+namespace Itb;
+use Itb;
+class MainController
+{
+    private $app;
+    public function __construct(WebApplication $app)
+    {
+        $this->app = $app;
+    }
+    // action for route:    /
+    public function indexAction()
+    {
+        // add to args array
+        // ------------
+        $argsArray = [];
+        // render (draw) template
+        // ------------
+        $templateName = 'index';
+        return $this->app['twig']->render($templateName . '.html.twig', $argsArray);
+    }
+    // action for route:    /contact
+    public function contactAction()
+    {
+        // add to args array
+        // ------------
+        $argsArray = [];
+        // render (draw) template
+        // ------------
+        $templateName = 'contact';
+        return $this->app['twig']->render($templateName . '.html.twig', $argsArray);
+    }
+    // action for route:    /blog
+    public function blogAction()
+    {
+        // add to args array
+        // ------------
+        $argsArray = [];
+        // render (draw) template
+        // ------------
+        $templateName = 'blog';
+        return $this->app['twig']->render($templateName . '.html.twig', $argsArray);
+    }
+}

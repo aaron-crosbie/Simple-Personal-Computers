@@ -13,7 +13,7 @@ class ModuleController
 //        $_SESSION['loggedin'] = false;
 //        session_unset();
 //        session_destroy();
-        require_once __DIR__ . 'blog.php';
+        require_once __DIR__ . 'blog.html.twig';
     }
 
     /**
@@ -141,7 +141,7 @@ class ModuleController
         //$modules = Module::getAll();
 
         // get the appropriate template to OUTPUT the data (in a nice way)
-        require_once __DIR__ . '/../templates/index.php';
+        require_once __DIR__ . '/../templates/index.html.twig';
     }
 
     /**

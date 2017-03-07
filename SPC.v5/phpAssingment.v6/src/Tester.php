@@ -13,7 +13,7 @@ class Tester
         $isLoggedIn = $this->isLoggedInFromSession();
         $username = $this->usernameFromSession();
 
-        require_once __DIR__ . '../app/index.php';
+        require_once __DIR__ . '../app/index.html.twig';
     }
 
     /**
