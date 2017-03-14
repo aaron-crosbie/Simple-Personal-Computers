@@ -61,7 +61,7 @@ if($submission) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="myscripts.js"></script>
+    <script src="../public/scripts/myscripts.js"></script>
     <meta charset="UTF-8">
     <title>Survey</title>
     <link rel="stylesheet" type="text/css" href="../public/css/reviews.css">

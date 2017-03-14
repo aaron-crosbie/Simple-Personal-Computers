@@ -21,7 +21,7 @@
 
     <div id="cu">
         <p>
-            <a href="contact.php" style="text-decoration: underline; color: #313131; ">Logo</a>
+            <a href="contact.html.twig" style="text-decoration: underline; color: #313131; ">Logo</a>
         </p>
     </div>
 </footer>

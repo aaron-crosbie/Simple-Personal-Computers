@@ -74,7 +74,7 @@ class ModuleController
 //    public function showContact(){
 //        $isLoggedIn = $this->isLoggedInFromSession();
 //        $username = $this->usernameFromSession();
-//        require_once __DIR__ . '/../templates/contact.php';
+//        require_once __DIR__ . '/../templates/contact.html.twig';
 //    }
 
     /**

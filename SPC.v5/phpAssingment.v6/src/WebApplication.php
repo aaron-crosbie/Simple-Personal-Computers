@@ -18,10 +18,22 @@ class WebApplication extends Application
         // setup Session and Service controller provider
         $this->register(new Provider\SessionServiceProvider());
         $this->register(new Provider\ServiceControllerServiceProvider());
+        $this->register(new Provider\AssetServiceProvider(), array(
+            'assets.version' => 'v1',
+            'assets.version_format' => '%s?version=%s',
+            'assets.named_packages' => array(
+                'css' => array('version' => 'css', 'base_path' => '../public/css'),
+//                'images' => array('base_urls' => array('https://img.example.com')),
+            ),
+        ));
         $this['debug'] = true;
         $this->setupTwig();
         $this->addRoutes();
     }
+
+    /**
+     *
+     */
     public function setupTwig()
     {
         // register Twig with Silex
@@ -47,15 +59,15 @@ class WebApplication extends Application
         //==============================
         // -- main --
         $this->get('/', 'main.controller:indexAction');
-        $this->get('/build','main.controller:contactAction');
+        $this->get('/build','main.controller:buildAction');
         $this->get('/blog','main.controller:blogAction');
         // ------ login routes GET and POST ------------
         $this->get('/login', 'user.controller:loginAction');
         $this->post('/login', 'user.controller:processLoginAction');
-        // ------ logout route GET ------------
+//        // ------ logout route GET ------------
         $this->get('/logout', 'user.controller:logoutAction');
-        // ------ SECURE PAGES ----------
-        $this->get('/admin',  'admin.controller:indexAction');
-        $this->get('/admin/codes',  'admin.controller:codesAction');
+//        // ------ SECURE PAGES ----------
+//        $this->get('/admin',  'admin.controller:indexAction');
+//        $this->get('/admin/codes',  'admin.controller:codesAction');
     }
 }

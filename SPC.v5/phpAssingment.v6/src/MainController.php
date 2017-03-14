@@ -4,6 +4,7 @@ use Itb;
 class MainController
 {
     private $app;
+
     public function __construct(WebApplication $app)
     {
         $this->app = $app;
@@ -20,14 +21,14 @@ class MainController
         return $this->app['twig']->render($templateName . '.html.twig', $argsArray);
     }
     // action for route:    /contact
-    public function contactAction()
+    public function buildAction()
     {
         // add to args array
         // ------------
         $argsArray = [];
         // render (draw) template
         // ------------
-        $templateName = 'contact';
+        $templateName = 'build';
         return $this->app['twig']->render($templateName . '.html.twig', $argsArray);
     }
     // action for route:    /blog

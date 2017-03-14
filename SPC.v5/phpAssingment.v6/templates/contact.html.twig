@@ -1,0 +1,72 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}
+Contact
+{% endblock %}
+
+{% block body %}
+<div id="myVerticalCarousel" class="vertical-carousel" data-urlLock="false" data-rests-indicators="#navbar-collapse li">
+
+    <ol class="vertical-carousel-indicators hidden-xs">
+        <li data-target="#myVerticalCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myVerticalCarousel" data-slide-to="1"></li>
+        <li data-target="#myVerticalCarousel" data-slide-to="2"></li>
+        <li data-target="#myVerticalCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <div class="vertical-carousel-box">
+
+        <div id="a" class="item active">
+            <span></span>
+            <p>Contact Us</p>
+        </div>
+
+        <div id="b" class="item">
+            <span></span>
+            <p>Just fill in the form</p>
+        </div>
+
+        <div id="c" class="item">
+            <span></span>
+            <p>Name:</p>
+            <input type="text" size="20" id="name">
+        </div>
+
+        <div id="d" class="item">
+            <span></span>
+            <p>
+                <p>Contact number:</p>
+                <input type="tel" size="20" id="tel">
+            </p>
+        </div>
+
+        <div id="e" class="item">
+            <span></span>
+            <p>
+            <p>Email:</p>
+            <input type="email" size="20" id="email">
+            </p>
+        </div>
+
+        <div id="f" class="item">
+            <span></span>
+            <p>
+            <p>Concern:</p>
+            <input type="text" id="text">
+            </p>
+        </div>
+
+        <div id="g" class="item">
+            <span></span>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+{% endblock %}
+

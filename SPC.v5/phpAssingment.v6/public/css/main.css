@@ -3,7 +3,7 @@
 }
 
 body {
-    /*background: url("../images/backtback.jpg")  no-repeat center center fixed;*/
+    background: url("../images/IMG_64191.jpg")  no-repeat center center fixed;
     background-size: cover;
     font-family: 'Raleway', sans-serif;
     margin-top: 0;
@@ -20,6 +20,8 @@ body {
 #heading {
     color: #007399;
     text-shadow: #1e1e1e 10px;
+    border-top: 1px groove #2e2e2e;
+
 }
 
 #top {
@@ -41,13 +43,14 @@ body {
     text-shadow: #000 2px;
     height: inherit;
     margin: 0;
+    background-color: #f9f9f9;
 }
 iframe {
     max-width: 100%;
 }
 
 #video {
-    background: #f2f2f2; /* For browsers that do not support gradients */
+    background: #f9f9f9; /* For browsers that do not support gradients */
     background: -webkit-radial-gradient(#000000, #787877, #f2f2f2,#ffffff); /* Safari */
     background: -o-radial-gradient( #000000, #787877, #f2f2f2,#ffffff); /* Opera 11.6 to 12.0 */
     background: -moz-radial-gradient(#000000, #787877, #f2f2f2,#ffffff); /* Firefox 3.6 to 15 */

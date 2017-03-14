@@ -24,7 +24,7 @@ require_once __DIR__ . '/nav.html.twig';
         function countdown() {
             var i = document.getElementById('counter');
             if (parseInt(i.innerHTML)<=0) {
-                location.href = 'Login.php';
+                location.href = '../src/Login.php';
             }
             i.innerHTML = parseInt(i.innerHTML)-1;
         }
