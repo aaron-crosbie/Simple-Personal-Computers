@@ -46,8 +46,8 @@ $title = ''
     <!--    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
     <!-- Personal JS scripts -->
     <script src="script.js" type="text/javascript"></script>
-    <script src="functionsDrag.js" type="text/javascript"></script>
-
+<!--    <script src="functionsDrag.js" type="text/javascript"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.debug.js"></script>
     <!-- Google selected fonts -->
 <!--    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">-->
 <!--    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">-->

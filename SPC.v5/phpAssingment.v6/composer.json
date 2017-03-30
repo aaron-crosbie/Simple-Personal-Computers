@@ -5,6 +5,6 @@
     }
   },
   "require": {
-    "twig/twig": "^2.1"
+    "twig/twig": "^2.3"
   }
 }

@@ -1,4 +1,4 @@
-$( function() {
+( function() {
     $( "#sortable1, #sortable2, #sortable3, #sortable4, #sortable5, #sortable6, #sortable7, #sortable8, #sortable9, #sortable10, #sortable11, #sortable12").sortable({
         connectWith: ".connectedSortable",
         placeholder: "ui-state-highlight",
