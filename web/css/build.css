@@ -1,0 +1,111 @@
+#sortable1, #sortable2, #sortable3, #sortable4, #sortable5, #sortable6, #sortable7, #sortable8, #sortable9, #sortable10, #sortable11, #sortable12, #sortable13{
+    border: 2px solid black;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0 0 0;
+    float: left;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: lightgray;
+}
+#sortable1 li, #sortable2 li, #sortable3 li, #sortable4 li, #sortable5 li,
+#sortable6 li, #sortable7 li, #sortable8 li, #sortable9 li, #sortable10 li,
+#sortable11 li, #sortable12 li, #sortable13 li{
+    margin: 0 5px 5px 5px;
+    padding: 5px;
+    font-size: 1.2em;
+    width: 80%;
+}
+
+#sortable13{
+    background-color: #191919;
+    margin-left: 10px;
+}
+
+#components{
+    flex-grow: 1;
+
+}
+
+footer{
+    width: 100%;
+}
+
+#componentsBut{
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    width: 30%;
+    float: left;
+}
+
+#allComp{
+    width: 100%;
+    display: flex;
+}
+
+#componentsBut button{
+    background-color: #313131;
+    color: white;
+    border: 1px white solid;
+    padding: 10px;
+    width: 100%;
+}
+
+#componentsBut button:hover{
+    background-color: white;
+    color: #222222;
+    animation-name: colorChangeList;
+    animation-duration: 0.5s;
+}
+#componentsBut button:focus{
+    background-color: #313131;
+    color: #60cff7;
+}
+
+.ui-state-disabled{
+    opacity: 1;
+    border-radius: 5px;
+}
+
+#displayUl{
+    list-style-type: none;
+}
+
+#displayUl li{
+    list-style-type: none;
+}
+
+@keyframes colorChangeList {
+    from{
+        color: white;
+        background-color: #222222;
+    }
+    to{
+        color: #222222;
+        background-color: white;
+    }
+}
+
+/*******************************************************************/
+
+.portlet-header {
+    padding: 3px;
+    margin-bottom: 0.5em;
+    position: relative;
+}
+.portlet-toggle {
+    top: 50%;
+    right: 0;
+    margin-top: -8px;
+    padding-left: 3px;
+}
+
+.portlet-placeholder {
+    border: 1px dotted white;
+    margin: 0 1em 1em 0;
+    height: 50px;
+    background-color: #60cff7;
+}

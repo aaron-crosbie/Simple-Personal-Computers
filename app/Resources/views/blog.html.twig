@@ -1,0 +1,201 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{%  endblock %}
+
+{% block body %}
+
+<div id="mainContent">
+
+<div class="container">
+
+    <div class="jumbotron">
+
+        <header>
+
+            <h1>Welcome to SPC Blog  </h1>
+
+            <div>
+
+                <p>Advise | Help | Solve </p>
+
+            </div>
+
+            <div id="login">
+
+                <a>Create Post</a>
+
+            </div>
+
+        </header>
+
+    </div>
+
+
+    <div id="post" hidden>
+
+        <form
+                method="post"
+                action="/blog">
+            <section id="hideIfNot" hidden>
+                {% if app.session.get('username') != '' %}
+
+                <h3>
+
+                  {{ app.session.get('username') }} , be friendly to <strong>SPC's</strong> community! Good luck!</h3>
+                <script>
+                    $("#hideIfNot").show(500);
+                </script>
+                {% else %}
+
+                <script>
+                    $("#hideIfNot").hide(500);
+                    $("#login").click(function(){
+                        alert("Please login before you want to write a post!");
+                    });
+                </script>
+                {% endif %}
+
+                <br>
+                <label>Please specify your topic</label>
+
+                <br>
+                <br>
+
+                <input type="text" name="topic" id="topic" required>
+
+                <br>
+                <br>
+
+                <label>Content</label>
+
+                <br>
+
+                <p style="color: gray; margin-bottom: 0; padding-bottom: 0; font-size: 12px;">Max. 255 characters</p>
+
+                <textarea cols="60" rows="10" id="content" name="content" required maxlength="255"></textarea>
+
+                <br>
+                <br>
+
+                <input type="hidden" id="id" name="id">
+
+                <br>
+
+                <button type="submit" style="margin-left: auto; margin-right: auto;" id="commentData" name="commentData">Submit</button>
+                <button type="button" style="margin-left: auto; margin-right: auto;" id="backButton">Back</button>
+
+
+                <br>
+                <br>
+            </section>
+            <script>
+                $("#backButton").click(function(){
+                    $("#hideIfNot").hide(500);
+                });
+            </script>
+        </form>
+    </div>
+
+
+
+    <div class="row">
+
+        <aside>
+
+            <h3>{{ app.session.get('username')}}</h3>
+
+            <p>Short description</p>
+
+            <br>
+
+            <p style="font-size: 12px; text-align: right">Time stamp</p>
+
+            <hr>
+
+            <h3>Username</h3>
+
+            <p>Short description</p>
+
+            <br>
+
+            <p style="font-size: 12px; text-align: right">Time stamp</p>
+
+            <hr>
+            <h3>Username</h3>
+
+            <p>Short description</p>
+
+            <br>
+
+            <p style="font-size: 12px; text-align: right">Time stamp</p>
+
+            <hr>
+            <h3>Username</h3>
+
+            <p>Short description</p>
+
+            <br>
+
+            <p style="font-size: 12px; text-align: right">Time stamp</p>
+
+            <hr>
+        </aside>
+
+        <div id="cntrol">
+
+            <form
+                    method="post"
+                    action="" >
+                <table>
+
+                    {% for blogPost in blogPosts|sort|slice(0, 5) %}
+
+                    <tr>
+                        <td><h3 style="text-decoration: underline; font-size: 18px;">{{ blogPost.title }} <p style="font-size: 15px;  text-align: right">@{{ blogPost.user }}</p></h3>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <p>{{ blogPost.content }}</p>
+                            <br>
+                            <p style="font-size: 14px; text-align: right">{{ blogPost.createdAt|date('Y-m-d\\ H:i:s') }}</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><input type="submit" id="clickedForView" value="View">
+                            <input type="hidden" id="blogID" name="blogID" value="ID">
+                            <hr>
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </table>
+            </form>
+
+            <hr>
+
+            <script>
+                $("#login").click(function () {
+                    $("#post").show(500);
+
+                });
+
+                $("#clickedForView").click(function () {
+                    $("#cntrol").hide(500);
+                    $("#thisPost").show(500);
+
+                });
+            </script>
+        </div>
+
+    </div>
+</div>
+</div>
+
+{% endblock %}

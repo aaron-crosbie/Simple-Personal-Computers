@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ app.session.get('username')}}'s account{%  endblock %}
+
+{% block body %}
+<div id="mainContent">
+
+    <div id="holder">
+        <div>
+            <h2>Welcome {{ app.session.get('username')}}</h2>
+            <p style="color: #6E6E6E">
+                You can adjust your profile here!
+            </p>
+        </div>
+        <div>
+            <img id="accountImg" src="images/default_account.png" style="width: 25%">
+        </div>
+    </div>
+
+    <div>
+        <form>
+
+            <h4>Username</h4> <input type="text" id="name" value="{{ app.session.get('username')}}" contenteditable="false" disabled>
+
+            {#<h4>Name</h4> <input type="text" id="name" value="{{ app.session.get('username')}}" contenteditable="false">#}
+
+            <p>The google tracking code is: {{ ga_tracking }}</p>
+        </form>
+
+    </div>
+</div>
+{% endblock %}
