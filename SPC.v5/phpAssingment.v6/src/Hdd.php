@@ -9,46 +9,93 @@
 class Hdd
 {
     private $name;
-    private $price;
+    private $manufacturer;
     private $storage;
-    private $manufactuerer;
+    private $watts;
+    private $price;
 
     function __construct(){
     }
 
-    public function setName($name){
-        $this->name = $name;
-    }
-
-    public function setPrice($price){
-        $this->price = $price;
-    }
-    function getName(){
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
         return $this->name;
     }
 
-    function getPrice(){
-        return $this->price;
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getManufacturer()
+    {
+        return $this->manufacturer;
+    }
+
+    /**
+     * @param mixed $manufacturer
+     */
+    public function setManufacturer($manufacturer)
+    {
+        $this->manufacturer = $manufacturer;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getStorage()
     {
         return $this->storage;
     }
 
+    /**
+     * @param mixed $storage
+     */
     public function setStorage($storage)
     {
         $this->storage = $storage;
     }
 
-    public function getManufactuerer()
+    /**
+     * @return mixed
+     */
+    public function getWatts()
     {
-        return $this->manufactuerer;
+        return $this->watts;
     }
 
-    public function setManufactuerer($manufactuerer)
+    /**
+     * @param mixed $watts
+     */
+    public function setWatts($watts)
     {
-        $this->manufactuerer = $manufactuerer;
+        $this->watts = $watts;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
 
 }

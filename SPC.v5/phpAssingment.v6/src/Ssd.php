@@ -9,46 +9,92 @@
 class Ssd
 {
     private $name;
-    private $price;
-    private $storage;
     private $manufacturer;
+    private $storage;
+    private $watts;
+    private $price;
 
     function __construct(){
     }
 
-    public function setName($name){
-        $this->name = $name;
-    }
-
-    public function setPrice($price){
-        $this->price = $price;
-    }
-    function getName(){
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
         return $this->name;
     }
 
-    function getPrice(){
-        return $this->price;
-    }
-
-    public function getStorage()
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
     {
-        return $this->storage;
+        $this->name = $name;
     }
 
-    public function setStorage($storage)
-    {
-        $this->storage = $storage;
-    }
-
+    /**
+     * @return mixed
+     */
     public function getManufacturer()
     {
         return $this->manufacturer;
     }
 
+    /**
+     * @param mixed $manufacturer
+     */
     public function setManufacturer($manufacturer)
     {
         $this->manufacturer = $manufacturer;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStorage()
+    {
+        return $this->storage;
+    }
+
+    /**
+     * @param mixed $storage
+     */
+    public function setStorage($storage)
+    {
+        $this->storage = $storage;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWatts()
+    {
+        return $this->watts;
+    }
+
+    /**
+     * @param mixed $watts
+     */
+    public function setWatts($watts)
+    {
+        $this->watts = $watts;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
     }
 
 
