@@ -14,7 +14,7 @@ require_once('Hdd.php');
 require_once('Ram.php');
 require_once('Ssd.php');
 
-class Controller
+class ComponentController
 {
     //***************DEFAULT VARIABLES FOR EACH CLASS******************
     protected $price;

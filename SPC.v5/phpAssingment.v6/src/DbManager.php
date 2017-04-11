@@ -19,8 +19,8 @@ class DbManager {
     function __construct(){
         $this->hostname = "localhost";
         $this->user = "root";
-        $this->pass = "";//May not need this if password is not set up for localhost
-        $this->db = "test";//Change to what ever your test db's name is :)
+        $this->pass = "root";//May not need this if password is not set up for localhost
+        $this->db = "spcdb";//Change to what ever your test db's name is :)
         $this->con = mysqli_connect($this->hostname, $this->user, $this->pass, $this->db);
 
         if(mysqli_connect_errno()){
@@ -132,24 +132,24 @@ class DbManager {
         return $comp;
     }
 
-    function generateDatabase(){
-        $sql = "CREATE TABLE components(motherboard varchar(45), cpu varchar(45), gpu varchar(45), hdd varchar(45), ssd varchar(45));";
-        mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE motherboards(itemName varchar(45), price varchar(45), manufacturer varchar(45));";
-        mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE cpus(itemName varchar(45), price varchar(45), manufacturer varchar(45));";
-        mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE gpus(itemName varchar(45), price varchar(45), manufacturer varchar(45));";
-        mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE hdd(itemName varchar(45), price varchar(45), storage varchar(45), manufacturer varchar(45));";
-        mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE ssd(itemName varchar(45), price varchar(45), storage varchar(45), manufacturer varchar(45));";
-        mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE ram(itemName varchar(45), price varchar(45), size varchar(45) manufacturer varchar(45));";
-        mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE users(username varchar(45), firstname varchar(45), tel varchar(45), email varchar(45), dob varchar(45), address1 varchar(45),address2 varchar(45), address3 varchar(45), pass varchar(45));";
-        mysqli_query($this->con, $sql);
-    }
+//    function generateDatabase(){
+//        $sql = "CREATE TABLE components(motherboard varchar(45), cpu varchar(45), gpu varchar(45), hdd varchar(45), ssd varchar(45));";
+//        mysqli_query($this->con, $sql);
+//        $sql = "CREATE TABLE motherboards(itemName varchar(45), price varchar(45), manufacturer varchar(45));";
+//        mysqli_query($this->con, $sql);
+//        $sql = "CREATE TABLE cpus(itemName varchar(45), price varchar(45), manufacturer varchar(45));";
+//        mysqli_query($this->con, $sql);
+//        $sql = "CREATE TABLE gpus(itemName varchar(45), price varchar(45), manufacturer varchar(45));";
+//        mysqli_query($this->con, $sql);
+//        $sql = "CREATE TABLE hdd(itemName varchar(45), price varchar(45), storage varchar(45), manufacturer varchar(45));";
+//        mysqli_query($this->con, $sql);
+//        $sql = "CREATE TABLE ssd(itemName varchar(45), price varchar(45), storage varchar(45), manufacturer varchar(45));";
+//        mysqli_query($this->con, $sql);
+//        $sql = "CREATE TABLE ram(itemName varchar(45), price varchar(45), size varchar(45) manufacturer varchar(45));";
+//        mysqli_query($this->con, $sql);
+//        $sql = "CREATE TABLE users(username varchar(45), firstname varchar(45), tel varchar(45), email varchar(45), dob varchar(45), address1 varchar(45),address2 varchar(45), address3 varchar(45), pass varchar(45));";
+//        mysqli_query($this->con, $sql);
+//    }
 
 }
 

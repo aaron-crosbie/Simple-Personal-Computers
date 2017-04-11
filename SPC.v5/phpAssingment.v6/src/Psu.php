@@ -1,21 +1,15 @@
 <?php
 
-/**
- * Created by IntelliJ IDEA.
- * User: Sir Crobie
- * Date: 06/12/2016
- * Time: 10:51
- */
-class Motherboard
+class Psu
 {
     private $name;
     private $manufacturer;
-    private $pcie;
-    private $pci;
-    private $format;
+    private $formFactor;
+    private $watts;
     private $price;
 
-    function __construct(){
+    function __construct()
+    {
     }
 
     /**
@@ -53,49 +47,33 @@ class Motherboard
     /**
      * @return mixed
      */
-    public function getPcie()
+    public function getFormFactor()
     {
-        return $this->pcie;
+        return $this->formFactor;
     }
 
     /**
-     * @param mixed $pcie
+     * @param mixed $formFactor
      */
-    public function setPcie($pcie)
+    public function setFormFactor($formFactor)
     {
-        $this->pcie = $pcie;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPci()
-    {
-        return $this->pci;
-    }
-
-    /**
-     * @param mixed $pci
-     */
-    public function setPci($pci)
-    {
-        $this->pci = $pci;
+        $this->formFactor = $formFactor;
     }
 
     /**
      * @return mixed
      */
-    public function getFormat()
+    public function getWatts()
     {
-        return $this->format;
+        return $this->watts;
     }
 
     /**
-     * @param mixed $format
+     * @param mixed $watts
      */
-    public function setFormat($format)
+    public function setWatts($watts)
     {
-        $this->format = $format;
+        $this->watts = $watts;
     }
 
     /**

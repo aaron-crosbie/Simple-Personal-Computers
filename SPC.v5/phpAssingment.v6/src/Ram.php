@@ -9,46 +9,94 @@
 class Ram
 {
     private $name;
-    private $price;
-    private $size;
     private $manufacturer;
+    private $memory;
+    private $type;
+    private $price;
+
 
     function __construct(){
     }
-    
-    public function setName($name){
-        $this->name = $name;
-    }
-    
-    public function setPrice($price){
-        $this->price = $price;
-    }
 
-    function getName(){
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
         return $this->name;
     }
 
-    function getPrice(){
-        return $this->price;
-    }
-
-    public function getSize()
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
     {
-        return $this->size;
+        $this->name = $name;
     }
 
-    public function setSize($size)
-    {
-        $this->size = $size;
-    }
-
+    /**
+     * @return mixed
+     */
     public function getManufacturer()
     {
         return $this->manufacturer;
     }
 
+    /**
+     * @param mixed $manufacturer
+     */
     public function setManufacturer($manufacturer)
     {
         $this->manufacturer = $manufacturer;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getMemory()
+    {
+        return $this->memory;
+    }
+
+    /**
+     * @param mixed $memory
+     */
+    public function setMemory($memory)
+    {
+        $this->memory = $memory;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+    
+
 }
