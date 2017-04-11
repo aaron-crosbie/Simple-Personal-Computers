@@ -1,9 +1,8 @@
 <?php
-require_once("Controller.php");
+require_once __DIR__ . '/../src/ComponentController.php';
 
 session_start();
 $submission = false;
-//$highEnd = new TestSurveyComponents("asusHighEnd", 400);
 if(isset($_POST['gamesubmit'])) {
     $_SESSION["price"] = $_POST['price'];
     $_SESSION["motherboard"] = $_POST['motherboard'];
@@ -12,16 +11,8 @@ if(isset($_POST['gamesubmit'])) {
     $_SESSION["ram"] = $_POST['ram'];
     $_SESSION["hdd"] = $_POST['hdd'];
     $_SESSION["ssd"] = $_POST['ssd'];
-    $_SESSION["periph"] = $_POST['periph'];
     $submission = true;
 
-//************JSON FILE CREATION******************
-//    $data[] = array('price'=> $_SESSION["price"], 'motherboard'=> $_SESSION["motherboard"]);
-//    $response['data'] = $data;
-//
-//    $fp = fopen('result.json', 'w');
-//    fwrite($fp, json_encode($response));
-//    fclose($fp);
 }
 if(isset($_POST['officeSubmit'])) {
     echo "for choosing an office build...";
@@ -61,7 +52,7 @@ if($submission) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="../public/scripts/myscripts.js"></script>
+    <script src="myscripts.js"></script>
     <meta charset="UTF-8">
     <title>Survey</title>
     <link rel="stylesheet" type="text/css" href="../public/css/reviews.css">
@@ -142,10 +133,9 @@ if(!$submission) {
                     <option value="4">4GB</option>
                     <option value="8">8GB</option>
                     <option value="16">16GB</option>
-                    <option value="32">32GB</option>
                 </select>
                 <br><br>
-                Storage space requried?<br>
+                Storage space required?<br>
                 <select name="hdd" required>
                     <option value="1">1TB</option>
                     <option value="2">2TB</option>
@@ -161,11 +151,6 @@ if(!$submission) {
                     <option value="512">512GB</option>
                 </select>
                 <br><br>
-                <br>
-                Would you like peripherals included in the price? (Monitor, keyboard, mouse ect.)<br>
-                <input type="radio" name="periph" value="yes" required> Yes<br>
-                <input type="radio" name="periph" value="no"> No<br>
-                <br>
                 <span class="surveyButtons"><input type="submit" value="Submit" name="gamesubmit"> <input type="reset"
                                                                                                           value="Reset"
                                                                                                           name="reset"></span>
