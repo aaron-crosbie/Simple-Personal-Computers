@@ -68,69 +68,106 @@ class DbManager {
 
     //End of Getters and Setters for Users DB
 
-    function generateComponents(){
-        $sql = "INSERT INTO components (motherboard,cpu,gpu,hdd,ssd) VALUE ('ASUS Z170 Pro','Intel Core i3-6100','Gigabyte GeForce GTX 1060 G1','1TB Samsung','256GB Evo Samsung')";
+    function addMotherboard($name, $manufacturer, $pcie, $pci, $format, $price){
+        $sql = "INSERT INTO motherboards (itemName, manufacturer, pcie, pci, format, price) VALUES ('$name','$manufacturer','$pcie','$pci','$format','$price')";
         mysqli_query($this->con, $sql);
     }
 
-    /**
-     * Checks type of component then adds item name and price to table associated with components of the same type
-     * @param $name
-     * @param $price
-     * @param $type
-     */
-    function addComponent($name, $price, $type){
-        if($type == "motherboard"){
-            $sql = "INSERT INTO motherboards (item,price) VALUES ('$name', '$price')";
-        }
-        else if($type == "cpu"){
-            $sql = "INSERT INTO cpu (item,price) VALUES ('$name', '$price')";
-        }
-        else if($type == "gpu"){
-            $sql = "INSERT INTO gpu (item,price) VALUES ('$name', '$price')";
-        }
-        else if($type == "hdd"){
-            $sql = "INSERT INTO hdd (item,price) VALUES ('$name', '$price')";
-        }
-        else if($type == "ssd"){
-            $sql = "INSERT INTO ssd (item,price) VALUES ('$name', '$price')";
-        }
-        else{
-            $sql = "INSERT INTO ram (item,price) VALUES ('$name', '$price')";
-        }
-
+    function addCpu($name, $manufacturer, $cores, $frequency, $watts, $price){
+        $sql = "INSERT INTO cpus (itemName, manufacturer, cores, frequency, watts, price) VALUES ('$name','$manufacturer','$cores','$frequency','$watts','$price')";
         mysqli_query($this->con, $sql);
     }
 
-    /**
-     * Function to return desired component from database
-     * @param $name
-     * @param $type
-     * @return bool|\mysqli_result
-     */
-    function getComponent($name, $type){
-        if($type == "motherboard"){
-            $sql = "SELECT itemName FROM motherboards WHERE itemName = $name";
-        }
-        else if($type == "cpu"){
-            $sql = "SELECT itemName FROM cpus WHERE itemName = $name";
-        }
-        else if($type == "gpu"){
-            $sql = "SELECT itemName FROM gpus WHERE itemName = $name";
-        }
-        else if($type == "hdd"){
-            $sql = "SELECT itemName FROM hdd WHERE itemName = $name";
-        }
-        else if($type == "ssd"){
-            $sql = "SELECT itemName FROM ssd WHERE itemName = $name";
-        }
-        else{
-            $sql = "SELECT itemName FROM ram WHERE itemName = $name";
-        }
-
-        $comp = mysqli_query($this->con, $sql);
-        return $comp;
+    function addGpu($name, $manufacturer, $memory, $processorClock, $cardBus, $formFactor, $watts, $price){
+        $sql = "INSERT INTO gpus (itemName, manufacturer, memory, processor clock, card bus, form factor, watts, price) VALUES ('$name','$manufacturer','$memory','$processorClock','$cardBus','$formFactor','$watts','$price')";
+        mysqli_query($this->con, $sql);
     }
+
+    function addRam($name, $manufacturer, $memory, $type, $price){
+        $sql = "INSERT INTO ram (itemName, manufacturer, memory, itemType, price) VALUES ('$name','$manufacturer','$memory','$type','$price')";
+        mysqli_query($this->con, $sql);
+    }
+
+    function addPsu($name, $manufacturer, $formFactor, $watts, $price){
+        $sql = "INSERT INTO psus (itemName, manufacturer, form factor, watts, price) VALUES ($name, $manufacturer, $formFactor, $watts, $price)";
+        mysqli_query($this->con, $sql);
+    }
+
+    function addHdd($name, $storage, $watts, $price){
+        $sql = "INSERT INTO hdds (itemName, storage, watts, price) VALUES ($name, $storage, $watts, $price)";
+        mysqli_query($this->con, $sql);
+    }
+
+    function addSsd($name, $storage, $watts, $price){
+        $sql = "INSERT INTO ssds (itemName, storage, watts, price) VALUES ($name, $storage, $watts, $price)";
+        mysqli_query($this->con, $sql);
+    }
+
+
+
+//    function generateComponents(){
+//        $sql = "INSERT INTO components (motherboard,cpu,gpu,hdd,ssd) VALUE ('ASUS Z170 Pro','Intel Core i3-6100','Gigabyte GeForce GTX 1060 G1','1TB Samsung','256GB Evo Samsung')";
+//        mysqli_query($this->con, $sql);
+//    }
+
+//    /**
+//     * Checks type of component then adds item name and price to table associated with components of the same type
+//     * @param $name
+//     * @param $price
+//     * @param $type
+//     */
+//    function addComponent($name, $price, $type){
+//        if($type == "motherboard"){
+//            $sql = "INSERT INTO motherboards (item,price) VALUES ('$name', '$price')";
+//        }
+//        else if($type == "cpu"){
+//            $sql = "INSERT INTO cpu (item,price) VALUES ('$name', '$price')";
+//        }
+//        else if($type == "gpu"){
+//            $sql = "INSERT INTO gpu (item,price) VALUES ('$name', '$price')";
+//        }
+//        else if($type == "hdd"){
+//            $sql = "INSERT INTO hdd (item,price) VALUES ('$name', '$price')";
+//        }
+//        else if($type == "ssd"){
+//            $sql = "INSERT INTO ssd (item,price) VALUES ('$name', '$price')";
+//        }
+//        else{
+//            $sql = "INSERT INTO ram (item,price) VALUES ('$name', '$price')";
+//        }
+//
+//        mysqli_query($this->con, $sql);
+//    }
+
+//    /**
+//     * Function to return desired component from database
+//     * @param $name
+//     * @param $type
+//     * @return bool|\mysqli_result
+//     */
+//    function getComponent($name, $type){
+//        if($type == "motherboard"){
+//            $sql = "SELECT itemName FROM motherboards WHERE itemName = $name";
+//        }
+//        else if($type == "cpu"){
+//            $sql = "SELECT itemName FROM cpus WHERE itemName = $name";
+//        }
+//        else if($type == "gpu"){
+//            $sql = "SELECT itemName FROM gpus WHERE itemName = $name";
+//        }
+//        else if($type == "hdd"){
+//            $sql = "SELECT itemName FROM hdd WHERE itemName = $name";
+//        }
+//        else if($type == "ssd"){
+//            $sql = "SELECT itemName FROM ssd WHERE itemName = $name";
+//        }
+//        else{
+//            $sql = "SELECT itemName FROM ram WHERE itemName = $name";
+//        }
+//
+//        $comp = mysqli_query($this->con, $sql);
+//        return $comp;
+//    }
 
 //    function generateDatabase(){
 //        $sql = "CREATE TABLE components(motherboard varchar(45), cpu varchar(45), gpu varchar(45), hdd varchar(45), ssd varchar(45));";
