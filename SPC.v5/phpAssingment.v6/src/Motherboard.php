@@ -18,6 +18,21 @@ class Motherboard
     function __construct(){
     }
 
+//    public function setAllComponent(Motherboard $motherboard){
+//        $this->name = $motherboard->getName();
+//        $this->
+//    }
+
+    public function setAllVariables($name, $manufacturer, $pcie, $pci, $formFactor, $price){
+        $this->name = $name;
+        $this->manufacturer = $manufacturer;
+        $this->pcie = $pcie;
+        $this->pci = $pci;
+        $this->format = $formFactor;
+        $this->price = $price;
+        echo "Variables assigned!!!<br><hr>";
+    }
+
     /**
      * @return mixed
      */

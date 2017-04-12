@@ -7,6 +7,7 @@
  */
 
 namespace itb;
+require_once('Motherboard.php');
 
 
 class DbManager {
@@ -68,39 +69,103 @@ class DbManager {
 
     //End of Getters and Setters for Users DB
 
+    //Functions to add components to database
+    /**
+     * @param $name
+     * @param $manufacturer
+     * @param $pcie
+     * @param $pci
+     * @param $format
+     * @param $price
+     */
     function addMotherboard($name, $manufacturer, $pcie, $pci, $format, $price){
         $sql = "INSERT INTO motherboards (itemName, manufacturer, pcie, pci, format, price) VALUES ('$name','$manufacturer','$pcie','$pci','$format','$price')";
         mysqli_query($this->con, $sql);
     }
 
+    /**
+     * @param $name
+     * @param $manufacturer
+     * @param $cores
+     * @param $frequency
+     * @param $watts
+     * @param $price
+     */
     function addCpu($name, $manufacturer, $cores, $frequency, $watts, $price){
         $sql = "INSERT INTO cpus (itemName, manufacturer, cores, frequency, watts, price) VALUES ('$name','$manufacturer','$cores','$frequency','$watts','$price')";
         mysqli_query($this->con, $sql);
     }
 
+    /**
+     * @param $name
+     * @param $manufacturer
+     * @param $memory
+     * @param $processorClock
+     * @param $cardBus
+     * @param $formFactor
+     * @param $watts
+     * @param $price
+     */
     function addGpu($name, $manufacturer, $memory, $processorClock, $cardBus, $formFactor, $watts, $price){
-        $sql = "INSERT INTO gpus (itemName, manufacturer, memory, processor clock, card bus, form factor, watts, price) VALUES ('$name','$manufacturer','$memory','$processorClock','$cardBus','$formFactor','$watts','$price')";
+        $sql = "INSERT INTO gpus (itemName, manufacturer, memoryCap, processorClock, cardBus, formFactor, watts, price) VALUES ('$name','$manufacturer','$memory','$processorClock','$cardBus','$formFactor','$watts','$price')";
         mysqli_query($this->con, $sql);
     }
 
+    /**
+     * @param $name
+     * @param $manufacturer
+     * @param $memory
+     * @param $type
+     * @param $price
+     */
     function addRam($name, $manufacturer, $memory, $type, $price){
-        $sql = "INSERT INTO ram (itemName, manufacturer, memory, itemType, price) VALUES ('$name','$manufacturer','$memory','$type','$price')";
+        $sql = "INSERT INTO ram (itemName, manufacturer, memoryCap, itemType, price) VALUES ('$name','$manufacturer','$memory','$type','$price')";
         mysqli_query($this->con, $sql);
     }
 
+    /**
+     * @param $name
+     * @param $manufacturer
+     * @param $formFactor
+     * @param $watts
+     * @param $price
+     */
     function addPsu($name, $manufacturer, $formFactor, $watts, $price){
-        $sql = "INSERT INTO psus (itemName, manufacturer, form factor, watts, price) VALUES ($name, $manufacturer, $formFactor, $watts, $price)";
+        $sql = "INSERT INTO psus (itemName, manufacturer, formFactor, watts, price) VALUES ($name, $manufacturer, $formFactor, $watts, $price)";
         mysqli_query($this->con, $sql);
     }
 
+    /**
+     * @param $name
+     * @param $storage
+     * @param $watts
+     * @param $price
+     */
     function addHdd($name, $storage, $watts, $price){
-        $sql = "INSERT INTO hdds (itemName, storage, watts, price) VALUES ($name, $storage, $watts, $price)";
+        $sql = "INSERT INTO hdds (itemName, storageCap, watts, price) VALUES ($name, $storage, $watts, $price)";
         mysqli_query($this->con, $sql);
     }
 
+    /**
+     * @param $name
+     * @param $storage
+     * @param $watts
+     * @param $price
+     */
     function addSsd($name, $storage, $watts, $price){
-        $sql = "INSERT INTO ssds (itemName, storage, watts, price) VALUES ($name, $storage, $watts, $price)";
+        $sql = "INSERT INTO ssds (itemName, storageCap, watts, price) VALUES ($name, $storage, $watts, $price)";
         mysqli_query($this->con, $sql);
+    }
+
+    function chooseMotherboard($manufacturer, $price){
+        $motherboard = new \Motherboard();
+        $spendable = $price/5;
+        $sql = "SELECT itemName, manufacturer, pcie, pci, formFactor, price FROM motherboards WHERE price <= '$spendable' && manufacturer = '$manufacturer'";
+        $result = mysqli_query($this->con, $sql);
+        $row = $result->fetch_array(MYSQLI_BOTH);
+        //echo "Name: " . $row[0] . "<br>Manufacturer: " . $row[1] . "<br>Price: " . $spendable;
+        $motherboard->setAllVariables($row[0], $row[1], $row[2], $row[3], $row[4], $row[5]);
+        return $motherboard;
     }
 
 
@@ -110,34 +175,6 @@ class DbManager {
 //        mysqli_query($this->con, $sql);
 //    }
 
-//    /**
-//     * Checks type of component then adds item name and price to table associated with components of the same type
-//     * @param $name
-//     * @param $price
-//     * @param $type
-//     */
-//    function addComponent($name, $price, $type){
-//        if($type == "motherboard"){
-//            $sql = "INSERT INTO motherboards (item,price) VALUES ('$name', '$price')";
-//        }
-//        else if($type == "cpu"){
-//            $sql = "INSERT INTO cpu (item,price) VALUES ('$name', '$price')";
-//        }
-//        else if($type == "gpu"){
-//            $sql = "INSERT INTO gpu (item,price) VALUES ('$name', '$price')";
-//        }
-//        else if($type == "hdd"){
-//            $sql = "INSERT INTO hdd (item,price) VALUES ('$name', '$price')";
-//        }
-//        else if($type == "ssd"){
-//            $sql = "INSERT INTO ssd (item,price) VALUES ('$name', '$price')";
-//        }
-//        else{
-//            $sql = "INSERT INTO ram (item,price) VALUES ('$name', '$price')";
-//        }
-//
-//        mysqli_query($this->con, $sql);
-//    }
 
 //    /**
 //     * Function to return desired component from database
@@ -169,24 +206,6 @@ class DbManager {
 //        return $comp;
 //    }
 
-//    function generateDatabase(){
-//        $sql = "CREATE TABLE components(motherboard varchar(45), cpu varchar(45), gpu varchar(45), hdd varchar(45), ssd varchar(45));";
-//        mysqli_query($this->con, $sql);
-//        $sql = "CREATE TABLE motherboards(itemName varchar(45), price varchar(45), manufacturer varchar(45));";
-//        mysqli_query($this->con, $sql);
-//        $sql = "CREATE TABLE cpus(itemName varchar(45), price varchar(45), manufacturer varchar(45));";
-//        mysqli_query($this->con, $sql);
-//        $sql = "CREATE TABLE gpus(itemName varchar(45), price varchar(45), manufacturer varchar(45));";
-//        mysqli_query($this->con, $sql);
-//        $sql = "CREATE TABLE hdd(itemName varchar(45), price varchar(45), storage varchar(45), manufacturer varchar(45));";
-//        mysqli_query($this->con, $sql);
-//        $sql = "CREATE TABLE ssd(itemName varchar(45), price varchar(45), storage varchar(45), manufacturer varchar(45));";
-//        mysqli_query($this->con, $sql);
-//        $sql = "CREATE TABLE ram(itemName varchar(45), price varchar(45), size varchar(45) manufacturer varchar(45));";
-//        mysqli_query($this->con, $sql);
-//        $sql = "CREATE TABLE users(username varchar(45), firstname varchar(45), tel varchar(45), email varchar(45), dob varchar(45), address1 varchar(45),address2 varchar(45), address3 varchar(45), pass varchar(45));";
-//        mysqli_query($this->con, $sql);
-//    }
 
 }
 

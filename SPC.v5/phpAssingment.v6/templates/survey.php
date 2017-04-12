@@ -39,14 +39,14 @@ if(isset($_POST['videoEditSubmit'])) {
 //    echo "<br>";
     //*****************DISPLAYING COMPONENTS TO SCREEN*************************
 if($submission) {
-    $cont = new Controller($_SESSION['price'], $_SESSION['motherboard'], $_SESSION['cpuPref'], $_SESSION['gpuPref'], $_SESSION['ram'], $_SESSION['hdd'], $_SESSION['ssd']);
+    $cont = new ComponentController($_SESSION['price'], $_SESSION['motherboard'], $_SESSION['cpuPref'], $_SESSION['gpuPref'], $_SESSION['ram'], $_SESSION['hdd'], $_SESSION['ssd']);
     $test = $cont->surveyAnalysis();
-    $testMotherboard = $cont->getMotherboardName();
-    $testCpu = $cont->getCpuName();
-    $testGpu = $cont->getGpuName();
-    $testRam = $cont->getRamName();
-    $testHdd = $cont->getHddName();
-    $testSsd = $cont->getSsdName();
+//    $testMotherboard = $cont->getMotherboardName();
+//    $testCpu = $cont->getCpuName();
+//    $testGpu = $cont->getGpuName();
+//    $testRam = $cont->getRamName();
+//    $testHdd = $cont->getHddName();
+//    $testSsd = $cont->getSsdName();
 }
 ?>
 <!DOCTYPE html>
@@ -146,9 +146,9 @@ if(!$submission) {
                 SSD storage?<br>
                 <select name="ssd" required>
                     <option value="0">No SSD needed</option>
-                    <option value="128">128GB</option>
-                    <option value="256">256GB</option>
-                    <option value="512">512GB</option>
+                    <option value="128">120GB</option>
+                    <option value="256">250GB</option>
+                    <option value="512">500GB</option>
                 </select>
                 <br><br>
                 <span class="surveyButtons"><input type="submit" value="Submit" name="gamesubmit"> <input type="reset"

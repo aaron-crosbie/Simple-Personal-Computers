@@ -1,3 +1,5 @@
 /.idea/
 workspace.iml
 Simple-Personal-Computers.iml
+.gitignore
+vendor/
