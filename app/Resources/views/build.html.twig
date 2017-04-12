@@ -3,24 +3,155 @@
 
 {% block stylesheets %}
     <style>
+        .ui-state-highlight{ background: #66ff66 !important;
+            border: 1px solid #777620 !important;
+            color: #777620 !important;
+            height: 50px;}
+
         #tut{ width: 100%;}
         #dropInt{width: 100%}
         #draggable, #draggable2, #draggable3, #draggable4,
         #draggable5, #draggable6, #draggable7, #draggable8,
-        #draggable9, #draggable10, #draggable11, #draggable12 { width: 10%; height: 80px; padding: 0.5em; display: inline-block; margin: 10px; overflow: auto;}
+        #draggable9, #draggable10, #draggable11, #draggable12 { width: 13%; height: 80px; padding: 0.5em; display: inline-block; margin: 10px; overflow: auto;}
 
         #droppable, #droppable2, #droppable3, #droppable4,
         #droppable5, #droppable6, #droppable7, #droppable8,
-        #droppable9, #droppable10, #droppable11, #droppable12{ width: 10%; height: 100px; padding: 0.5em; display: inline-block; margin: 10px; }
+        #droppable9, #droppable10, #droppable11, #droppable12{ width: 10%; height: 100px; padding: 0.5em; display: inline-block; margin: 10px; text-align: center;}
 
         #dragText{word-wrap: break-word;}
 
-        #quizHnD{ width: 100%}
-        #quizHnD h1{width: 11%; margin: auto; display: inline-block;}
+        #quizHnD1, #quizHnD2{ width: 100%}
+        #quizHnD1 h1, #quizHnD2 h1{width: 11%; margin: auto; display: inline-block;}
 
-        #quizHnD h3{width: 89%; margin:auto; display: inline-block;}
+        #quizHnD1 h3, #quizHnD2 h3{width: 89%; margin:auto; display: inline-block;}
 
-        #start1{
+        .row{
+            width: 100%;
+        }
+
+        #case_side{
+            border: 2px solid black;
+        }
+        #caseMap{
+            position: relative;
+        }
+        #droppableCase1{
+            position: absolute;
+            top: 145px;
+            left: 130px;
+
+
+            background-color: lightblue;
+
+            width: 60px;
+            height: 60px;
+            border: 2px solid black;
+        }
+        #droppableCase2{
+            position: absolute;
+            top: 100px;
+            left: 215px;
+
+            width: 40px;
+            height: 140px;
+            border: 2px solid black;
+        }
+        #droppableCase3{
+            position: absolute;
+            top: 275px;
+            left: 25px;
+
+            width: 280px;
+            height: 100px;
+            border: 2px solid black;
+        }
+
+        #droppableCase4{
+            position: absolute;
+            top: 430px;
+            left: 25px;
+
+            width: 200px;
+            height: 100px;
+            border: 2px solid black;
+        }
+
+        #droppableCase5{
+            position: absolute;
+            top: 70px;
+            left: 25px;
+
+            width: 20px;
+            height: 180px;
+            border: 2px solid black;
+        }
+
+        #droppableCase6{
+            position: absolute;
+            top: 50px;
+            left: 50px;
+
+            width: 300px;
+            height: 35px;
+            border: 2px solid black;
+        }
+
+        #droppableCase7{
+            position: absolute;
+            top: 280px;
+            left: 400px;
+
+            width: 140px;
+            height: 35px;
+            border: 2px solid black;
+        }
+
+        #droppableCase8{
+            position: absolute;
+            top: 410px;
+            left: 400px;
+
+            width: 130px;
+            height: 25px;
+            border: 2px solid black;
+        }
+
+        #droppableCase9{
+            position: absolute;
+            top: 70px;
+            left: 400px;
+
+            width: 140px;
+            height: 200px;
+            border: 2px solid black;
+        }
+
+        #droppableCase10{
+            position: absolute;
+            top: 140px;
+            left: 270px;
+
+            background-color: transparent;
+            border: none;
+            width: 30px;
+            height: 30px;
+
+            -ms-transform: rotate(70deg); /* IE 9 */
+            -webkit-transform: rotate(70deg); /* Chrome, Safari, Opera */
+            transform: rotate(70deg);
+        }
+
+        #droppableCase11{
+            position: absolute;
+            top: 210px;
+            left: 280px;
+
+            width: 100px;
+            height: 40px;
+            border: 2px solid black;
+        }
+
+        #start1, #start2{
             height: 50%;
             text-decoration: none;
             color: aliceblue;
@@ -29,10 +160,7 @@
             padding: 10px 40px 10px 40px;
             background-color: #0077b3;
         }
-
-        .ui-state-highlight{ background-color: #66ff66; border: 1px solid #777620;}
     </style>
-
 {% endblock %}
 
 
@@ -53,310 +181,345 @@
 <div id="shown">
     <div>
         <a href="#" id="componentThat"><h2>Learn</h2></a>
-        <p>Check out our videos on how to build your computer from scratch!</p>
+        <p style="text-align: center">Check out our videos on how to build your computer from scratch!</p>
 
     </div>
     <div>
         <a href="#" id="buildThis"><h2>Build</h2></a>
-        <p>Choose your components for your future build!</p>
+        <p style="text-align: center">Choose your components for your future build!</p>
     </div>
 </div>
 
     <!--   Tutorials  -->
 <div id="tut" hidden>
 
-
-
     <div id="dropInt" >
-        <div id="quizHnD">
-            <h1>Quiz 1 </h1><h3>- easy drag and drop quiz</h3></div>
-        <button id="start1">Start</button>
+        <div id="quizHnD1">
+            <h1>Quiz 1</h1><h3>- easy drag and drop quiz</h3>
+        </div>
+            <button id="start1">Start</button>
+        <br><br>
+        <div id="quizHnD2">
+            <h1>Quiz 2</h1><h3>- drag onto case</h3>
+        </div>
+            <button id="start2">Start</button>
     </div>
         <div id="quiz1" hidden>
             <div><h3>Time Left <span id="time">5</span> seconds!</h3></div>
+            <div class="row">
+                <div id="draggable" class="ui-widget-content" data-id-group="cpuQuiz1">
+                    <p id="dragText">Processor</p>
+                </div>
 
-        <div id="draggable" class="ui-widget-content" data-id-group="cpuQuiz1">
-            <p id="dragText">Processor</p>
+                <div id="draggable2" class="ui-widget-content" data-id-group="moboQuiz1">
+                    <p id="dragText">Motherboard</p>
+                </div>
+
+                <div id="draggable3" class="ui-widget-content" data-id-group="ssdQuiz1">
+                    <p id="dragText">SSD</p>
+                </div>
+
+                <div id="draggable4" class="ui-widget-content" data-id-group="gpuQuiz1">
+                    <p  id="dragText">Graphics<br>Card</p>
+                </div>
+
+                <div id="draggable5" class="ui-widget-content" data-id-group="hddQuiz1">
+                    <p  id="dragText">HDD</p>
+                </div>
+
+                <div id="draggable6" class="ui-widget-content" data-id-group="moniQuiz1">
+                    <p  id="dragText">Monitor</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="draggable7" class="ui-widget-content" data-id-group="ramQuiz1">
+                    <p  id="dragText">RAM</p>
+                </div>
+
+                <div id="draggable8" class="ui-widget-content" data-id-group="miceQuiz1">
+                    <p  id="dragText">Mouse</p>
+                </div>
+
+                <div id="draggable9" class="ui-widget-content" data-id-group="psuQuiz1">
+                    <p  id="dragText">Power Supply</p>
+                </div>
+
+                <div id="draggable10" class="ui-widget-content" data-id-group="keyQuiz1">
+                    <p  id="dragText">Keyboard</p>
+                </div>
+
+                <div id="draggable11" class="ui-widget-content" data-id-group="caseQuiz1">
+                    <p  id="dragText">Case</p>
+                </div>
+
+                <div id="draggable12" class="ui-widget-content" data-id-group="coolingQuiz1">
+                    <p  id="dragText">Cooling</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="droppable" class="ui-widget-header" data-id-group="gpuQuiz1">
+                    <p><img src="images/gpu.png"></p>
+                </div>
+
+                <div id="droppable2" class="ui-widget-header" data-id-group="coolingQuiz1">
+                    <p><img src="images/cooling.png"></p>
+                </div>
+
+                <div id="droppable3" class="ui-widget-header" data-id-group="keyQuiz1">
+                    <p><img src="images/keyboard.png"></p>
+                </div>
+
+                <div id="droppable4" class="ui-widget-header" data-id-group="cpuQuiz1">
+                    <p><img src="images/cpu.png"></p>
+                </div>
+
+                <div id="droppable5" class="ui-widget-header" data-id-group="psuQuiz1">
+                    <p><img src="images/psu.png"></p>
+                </div>
+
+                <div id="droppable6" class="ui-widget-header" data-id-group="ssdQuiz1">
+                    <p><img src="images/ssd.png"></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="droppable7" class="ui-widget-header" data-id-group="moboQuiz1">
+                    <p><img src="images/mobo.png"></p>
+                </div>
+
+                <div id="droppable8" class="ui-widget-header" data-id-group="caseQuiz1">
+                    <p><img src="images/case.png"></p>
+                </div>
+
+                <div id="droppable9" class="ui-widget-header" data-id-group="moniQuiz1">
+                    <p><img src="images/monitor.png"></p>
+                </div>
+
+                <div id="droppable10" class="ui-widget-header" data-id-group="miceQuiz1">
+                    <p><img src="images/mouse.png"></p>
+                </div>
+
+                <div id="droppable11" class="ui-widget-header" data-id-group="hddQuiz1">
+                    <p><img src="images/hdd.png"></p>
+                </div>
+
+                <div id="droppable12" class="ui-widget-header" data-id-group="ramQuiz1">
+                    <p><img src="images/ram.png"></p>
+                </div>
+            </div>
         </div>
-
-        <div id="draggable2" class="ui-widget-content" data-id-group="moboQuiz1">
-            <p id="dragText">Motherboard</p>
-        </div>
-
-        <div id="draggable3" class="ui-widget-content" data-id-group="ssdQuiz1">
-            <p id="dragText">SSD</p>
-        </div>
-
-        <div id="draggable4" class="ui-widget-content" data-id-group="gpuQuiz1">
-            <p  id="dragText">Graphics<br>Card</p>
-        </div>
-
-        <div id="draggable5" class="ui-widget-content" data-id-group="hddQuiz1">
-            <p  id="dragText">HDD</p>
-        </div>
-
-        <div id="draggable6" class="ui-widget-content" data-id-group="moniQuiz1">
-            <p  id="dragText">Monitor</p>
-        </div>
-
-        <div id="draggable7" class="ui-widget-content" data-id-group="ramQuiz1">
-            <p  id="dragText">RAM</p>
-        </div>
-
-        <div id="draggable8" class="ui-widget-content" data-id-group="miceQuiz1">
-            <p  id="dragText">Mouse</p>
-        </div>
-
-        <div id="draggable9" class="ui-widget-content" data-id-group="psuQuiz1">
-            <p  id="dragText">Power Supply</p>
-        </div>
-
-        <div id="draggable10" class="ui-widget-content" data-id-group="keyQuiz1">
-            <p  id="dragText">Keyboard</p>
-        </div>
-
-        <div id="draggable11" class="ui-widget-content" data-id-group="caseQuiz1">
-            <p  id="dragText">Case</p>
-        </div>
-
-        <div id="draggable12" class="ui-widget-content" data-id-group="coolingQuiz1">
-            <p  id="dragText">Cooling</p>
-        </div>
-
-
-
-        <div id="droppable" class="ui-widget-header" data-id-group="gpuQuiz1">
-            <p><img src="images/gpu.png"></p>
-        </div>
-
-        <div id="droppable2" class="ui-widget-header" data-id-group="coolingQuiz1">
-            <p><img src="images/cooling.png"></p>
-        </div>
-
-        <div id="droppable3" class="ui-widget-header" data-id-group="keyQuiz1">
-            <p><img src="images/keyboard.png"></p>
-        </div>
-
-        <div id="droppable4" class="ui-widget-header" data-id-group="cpuQuiz1">
-            <p><img src="images/cpu.png"></p>
-        </div>
-
-        <div id="droppable5" class="ui-widget-header" data-id-group="psuQuiz1">
-            <p><img src="images/psu.png"></p>
-        </div>
-
-        <div id="droppable6" class="ui-widget-header" data-id-group="ssdQuiz1">
-            <p><img src="images/ssd.png"></p>
-        </div>
-
-        <div id="droppable7" class="ui-widget-header" data-id-group="moboQuiz1">
-            <p><img src="images/mobo.png"></p>
-        </div>
-
-        <div id="droppable8" class="ui-widget-header" data-id-group="caseQuiz1">
-            <p><img src="images/case.png"></p>
-        </div>
-
-        <div id="droppable9" class="ui-widget-header" data-id-group="moniQuiz1">
-            <p><img src="images/monitor.png"></p>
-        </div>
-
-        <div id="droppable10" class="ui-widget-header" data-id-group="miceQuiz1">
-            <p><img src="images/mouse.png"></p>
-        </div>
-
-        <div id="droppable11" class="ui-widget-header" data-id-group="hddQuiz1">
-            <p><img src="images/hdd.png"></p>
-        </div>
-
-        <div id="droppable12" class="ui-widget-header" data-id-group="ramQuiz1">
-            <p><img src="images/ram.png"></p>
-        </div>
+        <div id="quiz2" hidden>
+            <button id="backPls">Back</button>
+            <div id="draggableCase1" class="ui-widget-content" data-id-group="cpuQuiz2" style="position: relative;">
+                <p id="dragText">Processor</p>
+            </div>
+            <div id="caseMap">
+                <img src="images/case_side.png" id="case_side">
+                <div id="droppableCase1" class="ui-widget-header" data-id-group="cpuQuiz2"></div>
+                <div id="droppableCase2" class="ui-widget-header"></div>
+                <div id="droppableCase3" class="ui-widget-header"></div>
+                <div id="droppableCase4" class="ui-widget-header"></div>
+                <div id="droppableCase5" class="ui-widget-header"></div>
+                <div id="droppableCase6" class="ui-widget-header"></div>
+                <div id="droppableCase7" class="ui-widget-header"></div>
+                <div id="droppableCase8" class="ui-widget-header"></div>
+                <div id="droppableCase9" class="ui-widget-header"></div>
+                <div id="droppableCase10" class="ui-widget-header"><img src="images/arrow.png"></div>
+                <div id="droppableCase11" class="ui-widget-header"></div>
+            </div>
         </div>
     </div>
 
-    <!--  Build it! -->
-    <div id="buildIt" hidden>
+<!--  Build it! -->
+<div id="buildIt" hidden>
+    <h1>Build your SPC!</h1>
+    <p style="text-align: center; background-color: white">Easy - Fast - Simple</p>
+    <div id="allComp">
+        <ul id="componentsBut">
+            <li><button id="buttonPro" name="buttonPro" data-id-button-group="proc">Processors</button></li>
+            <li><button id="buttonGpu" data-id-button-group="gpu">Graphics Cards</button></li>
+            <li><button id="buttonMobo" data-id-button-group="mobo">Motherboards</button></li>
+            <li><button id="buttonCool" data-id-button-group="cool">Cooling</button></li>
+            <li><button id="buttonRam" data-id-button-group="ram">RAM</button></li>
+            <li><button id="buttonPsu" data-id-button-group="psu">Power Supply</button></li>
+            <li><button id="buttonSsd" data-id-button-group="ssd">SSDs</button></li>
+            <li><button id="buttonHdd" data-id-button-group="hdd">HDDs</button></li>
+            <li><button id="buttonCase" data-id-button-group="case">Cases</button></li>
+            <li><button id="buttonMoni" data-id-button-group="moni">Monitor</button></li>
+            <li><button id="buttonKey" data-id-button-group="key">Keyboards</button></li>
+            <li><button id="buttonMice" data-id-button-group="mice">Mice</button></li>
 
+        </ul>
 
-        <h1>Build your SPC!</h1>
-        <p style="text-align: center; background-color: white">Easy - Fast - Simple</p>
-        <div id="allComp">
-            <ul id="componentsBut">
-                <li><button id="buttonPro" value="Processors" name="buttonPro" data-id-button-group="proc"><a href="/cpu">Processors</a></button></li>
-                <li><button id="buttonGpu" data-id-button-group="gpu">Graphics Cards</button></li>
-                <li><button id="buttonMobo" data-id-button-group="mobo">Motherboards</button></li>
-                <li><button id="buttonCool" data-id-button-group="cool">Cooling</button></li>
-                <li><button id="buttonRam" data-id-button-group="ram">RAM</button></li>
-                <li><button id="buttonPsu" data-id-button-group="psu">Power Supply</button></li>
-                <li><button id="buttonSsd" data-id-button-group="ssd">SSDs</button></li>
-                <li><button id="buttonHdd" data-id-button-group="hdd">HDDs</button></li>
-                <li><button id="buttonCase" data-id-button-group="case">Cases</button></li>
-                <li><button id="buttonMoni" data-id-button-group="moni">Monitor</button></li>
-                <li><button id="buttonKey" data-id-button-group="key">Keyboards</button></li>
-                <li><button id="buttonMice" data-id-button-group="mice">Mice</button></li>
+        <div id="components" >
+            <div id="processors" style="display: none" data-id-button-group="proc">
+                <ul id="sortable1" class="connectedSortable">
+                    <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Processors</li>
+                    <li class="ui-state-default" data-item-type="procItem"><p>Intel Core i7</p></li>
+                    <li class="ui-state-default" data-item-type="procItem"><p>Intel Core i5</p></li>
+                    <li class="ui-state-default" data-item-type="procItem"><p>Intel Core i3</p></li>
+                    <li class="ui-state-default" data-item-type="procItem"><p>AMD FX8350</p></li>
+                    <li class="ui-state-default" data-item-type="procItem"><p>AMD FX6300</p></li>
+                </ul>
+            </div>
 
+            <div id="gpus" style="display: none" data-id-button-group="gpu">
+                <ul id="sortable2" class="connectedSortable">
+                    <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Graphic Cards</li>
+                    <li class="ui-state-default" data-item-type="gpuItem"><p>Nvidia Titan X</p></li>
+                    <li class="ui-state-default" data-item-type="gpuItem"><p>EVGA GeForce GTX 1080</p></li>
+                    <li class="ui-state-default" data-item-type="gpuItem"><p>Zotac GeForce GTX 980Ti</p></li>
+                    <li class="ui-state-default" data-item-type="gpuItem"><p>Gigabyte Radeon R9 Fury X</p></li>
+                    <li class="ui-state-default" data-item-type="gpuItem"><p>Sapphire Radeon R9 Nano</p></li>
+                </ul>
+            </div>
+
+            <div id="motherboards" style="display: none" data-id-button-group="mobo">
+                <ul id="sortable3" class="connectedSortable">
+                    <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Motherboards</li>
+                    <li class="ui-state-default" data-item-type="moboItem"><p>Asus Strix</p></li>
+                    <li class="ui-state-default" data-item-type="moboItem"><p>Gigabyte ROG</p></li>
+                    <li class="ui-state-default" data-item-type="moboItem"><p>Zotac GeForce GTX 980Ti</p></li>
+                    <li class="ui-state-default" data-item-type="moboItem"><p>Gigabyte Radeon R9 Fury X</p></li>
+                    <li class="ui-state-default" data-item-type="moboItem"><p>Sapphire Radeon R9 Nano</p></li>
+                </ul>
+            </div>
+
+            <div id="cooling" style="display: none" data-id-button-group="cool">
+                <ul id="sortable4" class="connectedSortable">
+                    <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Cooling</li>
+                    <li class="ui-state-default"><p>Cool Master</p></li>
+                    <li class="ui-state-default"><p>Corsair</p></li>
+                    <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
+                    <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
+                    <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
+                </ul>
+            </div>
+
+            <div id="ram" style="display: none" data-id-button-group="ram">
+                <ul id="sortable5" class="connectedSortable">
+                    <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">RAM</li>
+                    <li class="ui-state-default"><p>Kingston</p></li>
+                    <li class="ui-state-default"><p>HyperX</p></li>
+                    <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
+                    <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
+                    <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
+                </ul>
+            </div>
+
+            <div id="psu" style="display: none" data-id-button-group="psu">
+                <ul id="sortable6" class="connectedSortable">
+                    <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Power Supply</li>
+                    <li class="ui-state-default" data-item-type="psuItem"><p>Corsair</p></li>
+                    <li class="ui-state-default" data-item-type="psuItem"><p>EVGA</p></li>
+                    <li class="ui-state-default" data-item-type="psuItem"><p>Zotac GeForce GTX 980Ti</p></li>
+                    <li class="ui-state-default" data-item-type="psuItem"><p>Gigabyte Radeon R9 Fury X</p></li>
+                    <li class="ui-state-default" data-item-type="psuItem"><p>Sapphire Radeon R9 Nano</p></li>
+                </ul>
+            </div>
+
+            <div id="ssd" style="display: none" data-id-button-group="ssd">
+                <ul id="sortable7" class="connectedSortable">
+                    <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">SSDs</li>
+                    <li class="ui-state-default"><p>Samsung</p></li>
+                    <li class="ui-state-default"><p>EVGA GeForce GTX 1080</p></li>
+                    <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
+                    <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
+                    <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
+                </ul>
+            </div>
+
+            <div id="hdd" style="display: none" data-id-button-group="hdd">
+                <ul id="sortable8" class="connectedSortable">
+                    <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">HDDs</li>
+                    <li class="ui-state-default"><p>Samsung</p></li>
+                    <li class="ui-state-default"><p>Kingston</p></li>
+                    <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
+                    <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
+                    <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
+                </ul>
+            </div>
+
+            <div id="cases" style="display: none" data-id-button-group="case">
+                <ul id="sortable9" class="connectedSortable">
+                    <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Cases</li>
+                    <li class="ui-state-default" data-item-type="caseItem"><p>Corsair</p></li>
+                    <li class="ui-state-default" data-item-type="caseItem"><p>Cool Master</p></li>
+                    <li class="ui-state-default" data-item-type="caseItem"><p>Zotac GeForce GTX 980Ti</p></li>
+                    <li class="ui-state-default" data-item-type="caseItem"><p>Gigabyte Radeon R9 Fury X</p></li>
+                    <li class="ui-state-default" data-item-type="caseItem"><p>Sapphire Radeon R9 Nano</p></li>
+                </ul>
+            </div>
+
+            <div id="monitors" style="display: none" data-id-button-group="moni">
+                <ul id="sortable10" class="connectedSortable">
+                    <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Monitors</li>
+                    <li class="ui-state-default"><p>Samsung</p></li>
+                    <li class="ui-state-default"><p>LG</p></li>
+                    <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
+                    <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
+                    <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
+                </ul>
+            </div>
+
+            <div id="keyboards" style="display: none" data-id-button-group="key">
+                <ul id="sortable11" class="connectedSortable">
+                    <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Keyboards</li>
+                    <li class="ui-state-default"><p>Corsair</p></li>
+                    <li class="ui-state-default"><p>Razor</p></li>
+                    <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
+                    <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
+                    <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
+                </ul>
+            </div>
+
+            <div id="mice" style="display: none" data-id-button-group="mice">
+                <ul id="sortable12" class="connectedSortable">
+                    <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Mice</li>
+                    <li class="ui-state-default"><p>Razor</p></li>
+                    <li class="ui-state-default"><p>EVGA GeForce GTX 1080</p></li>
+                    <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
+                    <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
+                    <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="selectItems">
+            <h1 id="dragText">Drag Here</h1>
+            <ul id="sortable13" style="min-height: 50px;" class="connectedSortable">
+                {#<li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;"><button>Mice</button></li>#}
             </ul>
-
-            <div id="components" >
-                <div id="processors" style="display: none" data-id-button-group="proc">
-                    <ul id="sortable1" class="connectedSortable">
-                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Processors</li>
-                        <li class="ui-state-default"><p>Intel Core i7</p></li>
-                        <li class="ui-state-default"><p>Intel Core i5</p></li>
-                        <li class="ui-state-default"><p>Intel Core i3</p></li>
-                        <li class="ui-state-default"><p>AMD FX8350</p></li>
-                        <li class="ui-state-default"><p>AMD FX6300</p></li>
-                    </ul>
-                </div>
-
-                <div id="gpus" style="display: none" data-id-button-group="gpu">
-                    <ul id="sortable2" class="connectedSortable">
-                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Graphic Cards</li>
-                        <li class="ui-state-default"><p>Nvidia Titan X</p></li>
-                        <li class="ui-state-default"><p>EVGA GeForce GTX 1080</p></li>
-                        <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
-                        <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
-                        <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
-                    </ul>
-                </div>
-
-                <div id="motherboards" style="display: none" data-id-button-group="mobo">
-                    <ul id="sortable3" class="connectedSortable">
-                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Motherboards</li>
-                        <li class="ui-state-default"><p>Asus Strix</p></li>
-                        <li class="ui-state-default"><p>Gigabyte ROG</p></li>
-                        <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
-                        <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
-                        <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
-                    </ul>
-                </div>
-
-                <div id="cooling" style="display: none" data-id-button-group="cool">
-                    <ul id="sortable4" class="connectedSortable">
-                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Cooling</li>
-                        <li class="ui-state-default"><p>Cool Master</p></li>
-                        <li class="ui-state-default"><p>Corsair</p></li>
-                        <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
-                        <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
-                        <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
-                    </ul>
-                </div>
-
-                <div id="ram" style="display: none" data-id-button-group="ram">
-                    <ul id="sortable5" class="connectedSortable">
-                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">RAM</li>
-                        <li class="ui-state-default"><p>Kingston</p></li>
-                        <li class="ui-state-default"><p>HyperX</p></li>
-                        <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
-                        <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
-                        <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
-                    </ul>
-                </div>
-
-                <div id="psu" style="display: none" data-id-button-group="psu">
-                    <ul id="sortable6" class="connectedSortable">
-                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Power Supply</li>
-                        <li class="ui-state-default"><p>Corsair</p></li>
-                        <li class="ui-state-default"><p>EVGA</p></li>
-                        <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
-                        <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
-                        <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
-                    </ul>
-                </div>
-
-                <div id="ssd" style="display: none" data-id-button-group="ssd">
-                    <ul id="sortable7" class="connectedSortable">
-                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">SSDs</li>
-                        <li class="ui-state-default"><p>Samsung</p></li>
-                        <li class="ui-state-default"><p>EVGA GeForce GTX 1080</p></li>
-                        <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
-                        <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
-                        <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
-                    </ul>
-                </div>
-
-                <div id="hdd" style="display: none" data-id-button-group="hdd">
-                    <ul id="sortable8" class="connectedSortable">
-                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">HDDs</li>
-                        <li class="ui-state-default"><p>Samsung</p></li>
-                        <li class="ui-state-default"><p>Kingston</p></li>
-                        <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
-                        <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
-                        <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
-                    </ul>
-                </div>
-
-                <div id="cases" style="display: none" data-id-button-group="case">
-                    <ul id="sortable9" class="connectedSortable">
-                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Cases</li>
-                        <li class="ui-state-default"><p>Corsair</p></li>
-                        <li class="ui-state-default"><p>Cool Master</p></li>
-                        <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
-                        <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
-                        <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
-                    </ul>
-                </div>
-
-                <div id="monitors" style="display: none" data-id-button-group="moni">
-                    <ul id="sortable10" class="connectedSortable">
-                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Monitors</li>
-                        <li class="ui-state-default"><p>Samsung</p></li>
-                        <li class="ui-state-default"><p>LG</p></li>
-                        <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
-                        <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
-                        <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
-                    </ul>
-                </div>
-
-                <div id="keyboards" style="display: none" data-id-button-group="key">
-                    <ul id="sortable11" class="connectedSortable">
-                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Keyboards</li>
-                        <li class="ui-state-default"><p>Corsair</p></li>
-                        <li class="ui-state-default"><p>Razor</p></li>
-                        <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
-                        <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
-                        <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
-                    </ul>
-                </div>
-
-                <div id="mice" style="display: none" data-id-button-group="mice">
-                    <ul id="sortable12" class="connectedSortable">
-                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Mice</li>
-                        <li class="ui-state-default"><p>Razor</p></li>
-                        <li class="ui-state-default"><p>EVGA GeForce GTX 1080</p></li>
-                        <li class="ui-state-default"><p>Zotac GeForce GTX 980Ti</p></li>
-                        <li class="ui-state-default"><p>Gigabyte Radeon R9 Fury X</p></li>
-                        <li class="ui-state-default"><p>Sapphire Radeon R9 Nano</p></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div id="selectItems">
-                <h1 id="dragText">Drag Here</h1>
-                <ul id="sortable13" style="min-height: 50px" class="connectedSortable"></ul>
-            </div>
-
-            <div id="display">
-                <button id="cont">Continue</button>
-                <div id="toPdf">
-                    <ul id="displayUl"></ul>
-                </div>
-                <div id="editor"></div>
-            </div>
         </div>
     </div>
-
-
+    <div id="contDiv"><button id="cont">Continue</button></div>
+    <div id="display" hidden>
+        <div id="toPdf">
+            <h2 id="buildText" hidden>Your Build</h2>
+            <ul id="displayUl"></ul>
+        </div>
+        <div id="editor"></div>
+        <button id='pdfButton'>Save To PDF</button>
+        <button id='backBuild'>Back To Build</button>
+    </div>
+</div>
 </div>
     {% block javascripts %}
 
 
         <script type="text/javascript">
-            $( function() {
 
                 var counter = 0;
                 var timeCount;
+
+                $("#draggableCase1").draggable({revert: "invalid"}).css("position", "relative");
+                $( "#droppableCase1" ).droppable({
+                    drop: function( event, ui ) {
+                        $( this ).addClass( "ui-state-highlight" );
+                    }
+                });
 
                 var allDragComp = $("#draggable, #draggable2, #draggable3, #draggable4, " +
                     "#draggable5, #draggable6, #draggable7, #draggable8,"+
@@ -367,7 +530,7 @@
 
                 var allDropComp = $("#droppable, #droppable2, #droppable3, #droppable4, " +
                     "#droppable5, #droppable6, #droppable7, #droppable8,"+
-                    "#droppable9, #droppable10, #droppable11, #droppable12" );
+                    "#droppable9, #droppable10, #droppable11, #droppable12, #droppableCase1" );
 
                 function startTimer(duration, display) {
                     var timer = duration, minutes, seconds;
@@ -380,11 +543,10 @@
                         display.textContent = seconds;
 
                         if (--timer < 0){
-                            //timer = 0;
                             alert("Quiz Failed.\nScore: "+ counter +"/12\nTry Again.");
                             counter = 0;
                             $("#quiz1").hide(500);
-                            $("#start1").show();
+                            $("#start1, #quizHnD2, #start2").show(500);
                             clearInterval(timeCount);
                             display.textContent = "5";
                             allDragComp.css({"left": "0", "top": "0"});
@@ -407,16 +569,15 @@
                         return id_group_drop == id_group_drag;
                     },
                     drop: function( event, ui ) {
-                        $(this)
-                            .addClass("ui-state-highlight");
+                        $(this).addClass('ui-state-highlight');
                         counter++;
                         if(counter == 12){
                             clearInterval(timeCount);
                             alert("Success!\nScore: "+counter+"/12");
                             //$("#droppable").draggable({revert:true});
                             counter = 0;
-                            $("#quiz1").hide();
-                            $("#start1").show();
+                            $("#quiz1").hide(500);
+                            $("#start1, #quizHnD2, #start2").show(500);
                             allDragComp.css({"left": "0", "top": "0"});
                             allDropComp.removeClass("ui-state-highlight");
                         }
@@ -426,22 +587,74 @@
 
                 $( "#start1" ).click(function() {
                     $("#quiz1").show(500);
-                    $("#start1").hide();
+                    $("#start1, #quizHnD2, #start2").hide(500);
                     var fiveMinutes = 5,
                         display = document.querySelector('#time');
                     startTimer(fiveMinutes, display);
                 });
 
-            } );
+                $( "#start2" ).click(function() {
+                    $("#quiz2").show(500);
+                    $("#start2, #quizHnD1, #start1").hide(500);
+                });
 
-            $( function() {
+                $( "#backPls" ).click(function() {
+                    $("#quiz2").hide(500);
+                    $("#start2, #quizHnD1, #start1").show(500);
+                });
+
+            var hasProc = false;
+            var hasMobo = false;
+            var hasPsu = false;
+            var hasCase = false;
+            var hasGpu = 0;
+
                 $( "#sortable1, #sortable2, #sortable3, #sortable4, #sortable5, #sortable6, #sortable7, #sortable8, #sortable9, #sortable10, #sortable11, #sortable12").sortable({
                     connectWith: ".connectedSortable",
                     placeholder: "ui-state-highlight",
                     items: "li:not(.ui-state-disabled)",
                     remove: function(event, ui) {
-                        ui.item.clone().append( "<button class='cancelBut'>Remove</button>" ).appendTo('#sortable13');
-                        $(this).sortable('cancel');
+                        if($("#sortable13").has("li[data-item-type='procItem']") && ui.item.attr("data-item-type") === "procItem"){
+                            ui.item.clone().append( "<button class='cancelBut'>Remove</button>" ).appendTo('#sortable13');
+                            $(this).sortable('cancel');
+                            hasProc = true;
+                            $("#sortable1").find("li").addClass('ui-state-disabled');
+                        }
+                        else if($("#sortable13").find("li[data-item-type='gpuItem']") && ui.item.attr("data-item-type") === "gpuItem"){
+
+                            if($("#sortable13").find("li[data-item-type='gpuItem']").length > 1 && ui.item.attr("data-item-type") === "gpuItem"){
+                                ui.item.clone().append( "<button class='cancelBut'>Remove</button>" ).appendTo('#sortable13');
+                                $(this).sortable('cancel');
+                                $("#sortable2").find("li").addClass('ui-state-disabled');
+                            }else{
+                                ui.item.clone().append( "<button class='cancelBut'>Remove</button>" ).appendTo('#sortable13');
+                                $(this).sortable('cancel');
+                                hasGpu++;
+                            }
+                        }
+                        else if($("#sortable13").has("li[data-item-type='moboItem']") && ui.item.attr("data-item-type") === "moboItem"){
+                            ui.item.clone().append( "<button class='cancelBut'>Remove</button>" ).appendTo('#sortable13');
+                            $(this).sortable('cancel');
+                            hasMobo = true;
+                            $("#sortable3").find("li").addClass('ui-state-disabled');
+                        }
+                        else if($("#sortable13").has("li[data-item-type='psuItem']") && ui.item.attr("data-item-type") === "psuItem"){
+                            ui.item.clone().append( "<button class='cancelBut'>Remove</button>" ).appendTo('#sortable13');
+                            $(this).sortable('cancel');
+                            hasPsu = true;
+                            $("#sortable6").find("li").addClass('ui-state-disabled');
+                        }
+                        else if($("#sortable13").has("li[data-item-type='caseItem']") && ui.item.attr("data-item-type") === "caseItem"){
+                            ui.item.clone().append( "<button class='cancelBut'>Remove</button>" ).appendTo('#sortable13');
+                            $(this).sortable('cancel');
+                            hasCase = true;
+                            $("#sortable9").find("li").addClass('ui-state-disabled');
+                        }
+                        else{
+                            ui.item.clone().append( "<button class='cancelBut'>Remove</button>" ).appendTo('#sortable13');
+                            $(this).sortable('cancel');
+                        }
+
                     }
                 }).disableSelection();
 
@@ -452,7 +665,6 @@
                     cancel: "li"
                 }).disableSelection();
 
-                //$("#sortable13").find("li").css("color","blue");
 
                 $( "#buttonPro, #buttonGpu, #buttonMobo, #buttonCool," +
                     "#buttonRam, #buttonPsu, #buttonSsd, #buttonHdd," +
@@ -464,18 +676,48 @@
                 });
 
                 $(document).on('click', '.cancelBut', function() {
-                    $(this).parent().remove();
+                    if(hasProc){
+                        $("#sortable1").find("li[data-item-type='procItem']").removeClass('ui-state-disabled');
+                        hasProc = false;
+                        $(this).parent().remove();
+                    }
+                    else if(hasMobo){
+                        $("#sortable3").find("li[data-item-type='moboItem']").removeClass('ui-state-disabled');
+                        hasMobo = false;
+                        $(this).parent().remove();
+                    }
+                    else if(hasPsu){
+                        $("#sortable6").find("li[data-item-type='psuItem']").removeClass('ui-state-disabled');
+                        hasPsu = false;
+                        $(this).parent().remove();
+                    }
+                    else if(hasCase){
+                        $("#sortable9").find("li[data-item-type='caseItem']").removeClass('ui-state-disabled');
+                        hasCase = false;
+                        $(this).parent().remove();
+                    }
+                    else if(hasGpu < 2){
+                        $("#sortable2").find("li[data-item-type='gpuItem']").removeClass('ui-state-disabled');
+                        hasGpu--;
+                        $(this).parent().remove();
+                    }
+                    else{
+                        $(this).parent().remove();
+                    }
                 });
 
 
-//        $(document).on('click', '#cont', function() {
-//            $(this).parent().remove();
-//        });
-
                 $( "#cont" ).click(function() {
                     $( "#sortable13" ).contents().clone().appendTo("#display ul").find(".cancelBut").remove();
-                    $( "<button id='pdfD'>Save To PDF</button>" ).appendTo('#display');
+                    $("#buildText").show();
+                    $("#components, #componentsBut, #selectItems, #cont").hide(500);
+                    $("#display").show(500);
+                });
 
+                $(document).on('click', '#backBuild', function(){
+                    $("#display").hide(500);
+                    $("#display ul").contents().remove();
+                    $("#components, #componentsBut, #selectItems, #cont").show(500);
                 });
 
                 var doc = new jsPDF();
@@ -485,16 +727,13 @@
                     }
                 };
 
-                $(document).on('click', '#pdfD', function () {
+                $(document).on('click', '#pdfButton', function () {
                     doc.fromHTML($('#toPdf').html(), 15, 15, {
                         'width': 170,
                         'elementHandlers': specialElementHandlers
                     });
                     doc.save('sample-file.pdf');
-                    //$("#sortable1").css("background-color", "red");
                 });
-
-            });
 
             $("#componentThat").click(function(){
                 $("#buildIt").hide(500);
