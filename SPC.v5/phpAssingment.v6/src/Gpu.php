@@ -20,6 +20,17 @@ class Gpu
     function __construct(){
     }
 
+    public function setAllVariables($name, $manufacturer, $memory, $processor, $cardBus, $formFactor, $watts, $price){
+        $this->name = $name;
+        $this->manufacturer = $manufacturer;
+        $this->memory = $memory;
+        $this->processor = $processor;
+        $this->cardBus = $cardBus;
+        $this->formFactor = $formFactor;
+        $this->watts = $watts;
+        $this->price = $price;
+    }
+
     /**
      * @return mixed
      */
@@ -39,7 +50,7 @@ class Gpu
     /**
      * @return mixed
      */
-    public function getManufactuer()
+    public function getManufacturer()
     {
         return $this->manufacturer;
     }

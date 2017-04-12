@@ -8,6 +8,9 @@
 
 namespace itb;
 require_once('Motherboard.php');
+require_once('Cpu.php');
+require_once('Gpu.php');
+require_once('Ram.php');
 
 
 class DbManager {
@@ -160,6 +163,7 @@ class DbManager {
     function chooseMotherboard($manufacturer, $price){
         $motherboard = new \Motherboard();
         $spendable = $price/5;
+        echo "<br><b>" . $spendable . "</b><br>";
         $sql = "SELECT itemName, manufacturer, pcie, pci, formFactor, price FROM motherboards WHERE price <= '$spendable' && manufacturer = '$manufacturer'";
         $result = mysqli_query($this->con, $sql);
         $row = $result->fetch_array(MYSQLI_BOTH);
@@ -168,7 +172,28 @@ class DbManager {
         return $motherboard;
     }
 
+    function chooseCpu($manufacturer, $price){
+        $cpu = new \Cpu();
+        $spendable = $price/5;
+        echo "<br><b>" . $spendable . "</b><br>";
+        $sql = "SELECT itemName, manufacturer, cores, frequency, watts, price FROM cpus WHERE price <= '$spendable' && manufacturer = '$manufacturer'";
+        $result = mysqli_query($this->con, $sql);
+        $row = $result->fetch_array(MYSQLI_BOTH);
+        $cpu->setAllVariables($row[0], $row[1], $row[2], $row[3], $row[4], $row[5]);
+        //echo $row[0] . $row[1] . $row[2] . $row[3] . $row[4] . $row[5] . "<br>Hallo<br>" . $spendable;
+        return $cpu;
+    }
 
+    function chooseGpu($manufacturer, $price){
+        $gpu = new \Gpu();
+        $spendable = $price/4;
+        echo "<br><b>" . $spendable . "</b><br>";
+        $sql = "SELECT itemName, manufacturer, memoryCap, processorClock, cardBus, formFactor, watts, price FROM gpus WHERE price <='$spendable' && manufacturer = '$manufacturer'";
+        $result = mysqli_query($this->con, $sql);
+        $row = $result->fetch_array(MYSQLI_BOTH);
+        $gpu->setAllVariables($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7]);
+        return $gpu;
+    }
 
 //    function generateComponents(){
 //        $sql = "INSERT INTO components (motherboard,cpu,gpu,hdd,ssd) VALUE ('ASUS Z170 Pro','Intel Core i3-6100','Gigabyte GeForce GTX 1060 G1','1TB Samsung','256GB Evo Samsung')";

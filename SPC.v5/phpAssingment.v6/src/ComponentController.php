@@ -78,16 +78,20 @@ class ComponentController
     function setMotherboard($motherboard){
         $this->motherboard = $motherboard;
         echo "<b>Motherboard:</b><br>Name: " . $this->motherboard->getName() . "<br>Manufacturer: " . $this->motherboard->getManufacturer()
-            . "<br>Price: " . $this->motherboard->getPrice();
+            . "<br>Form Factor: " . $this->motherboard->getFormat() . "<br>Price: " . $this->motherboard->getPrice() . "<hr>";
     }
 
 
     function setCpu($cpu){
-
+        $this->cpu = $cpu;
+        echo "<b>CPU:</b><br>Name: " . $this->cpu->getName() . "<br>Manufacturer: " . $this->cpu->getManufacturer()
+            . "<br>Cores: " . $this->cpu->getCores() . "<br>Price: " . $this->cpu->getPrice();
     }
 
     function setGpu($gpu){
-
+        $this->gpu = $gpu;
+        echo "<br><b>GPU:</b><br>Name: " . $this->gpu->getName() . "<br>Manufacturer: " . $this->gpu->getManufacturer()
+            . "<br>Form Factor: " . $this->gpu->getFormFactor() . "<br>Price: " . $this->gpu->getPrice();
     }
 
     function setRam($ram){
@@ -195,24 +199,8 @@ class ComponentController
      * Calls method to assemble components & returns price
      */
     function surveyAnalysis(){
-        //$msg = "hello";
-        if($this->price == "800"){
-            $price = 800;
-            $this->buildComputer($price);
-        }
-        else if($this->price == "1000"){
-            $price = 1000;
-            $this->buildComputer($price);
-        }
-//        else if($this->price == "1200"){
-//            $price = 1200;
-//            $msg = $this->highEnd($price);
-//        }
-//        else if($this->price == "1200" || $this->price == "2000"){
-//            $price = 2000;
-//            $msg = $this->highEnd($price);
-//        }
-        //return $msg;
+        $price = (int)$this->price;
+        $this->buildComputer($price);
     }
 
     function buildComputer($price){
@@ -220,6 +208,9 @@ class ComponentController
         $maxPrice = $price;
 
         $this->setMotherboard($this->dbMgr->chooseMotherboard($this->motherboardPref, $maxPrice));
+        $this->setCpu($this->dbMgr->chooseCpu($this->cpuPref, $maxPrice));
+        $this->setGpu($this->dbMgr->chooseGpu($this->gpuPref, $maxPrice));
+
     }
 
 //    /**
