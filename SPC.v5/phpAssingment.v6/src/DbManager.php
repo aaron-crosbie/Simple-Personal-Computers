@@ -219,6 +219,23 @@ class DbManager {
         return $hdd;
     }
 
+    function chooseSsd($size){
+        $ssd = new \Ssd();
+        $ssdSize = $size . "GB";
+        echo "<b><br>" . $ssdSize . "</b>";
+        $sql = "SELECT itemName, storageCap, watts, price FROM ssds WHERE storageCap = '$ssdSize'";
+        $result = mysqli_query($this->con, $sql);
+        $row = $result->fetch_array(MYSQLI_BOTH);
+        $ssd->setAllVariables($row[0], $row[1], $row[2], $row[3]);
+        return $ssd;
+    }
+
+    function choosePsu($watts, $price){
+        $psu = new \Psu();
+
+        return $psu;
+    }
+
     function getComponentNames($component){
         $sql = "SELECT itemName FROM $component";
         $result = mysqli_query($this->con, $sql);

@@ -17,6 +17,13 @@ class Ssd
     function __construct(){
     }
 
+    public function setAllVariables($name, $storage, $watts, $price){
+        $this->name = $name;
+        $this->storage = $storage;
+        $this->watts = $watts;
+        $this->price = $price;
+    }
+
     /**
      * @return mixed
      */

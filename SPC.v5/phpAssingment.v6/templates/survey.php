@@ -146,9 +146,9 @@ if(!$submission) {
                 SSD storage?<br>
                 <select name="ssd" required>
                     <option value="0">No SSD needed</option>
-                    <option value="128">120GB</option>
-                    <option value="256">250GB</option>
-                    <option value="512">500GB</option>
+                    <option value="120">120GB</option>
+                    <option value="250">250GB</option>
+                    <option value="500">500GB</option>
                 </select>
                 <br><br>
                 <span class="surveyButtons"><input type="submit" value="Submit" name="gamesubmit"> <input type="reset"

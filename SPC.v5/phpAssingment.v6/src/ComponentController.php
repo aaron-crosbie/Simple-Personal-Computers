@@ -107,7 +107,9 @@ class ComponentController
     }
 
     function setSsd($ssd){
-
+        $this->ssd = $ssd;
+        echo "<br><b>SSD:</b><br>Name: " . $this->ssd->getName() . "<br>Storage: " . $this->ssd->getStorage()
+            . "<br>Price: " . $this->ssd->getPrice();
     }
 
     function setPsu($psu){
@@ -210,12 +212,26 @@ class ComponentController
     function buildComputer($price){
         $tempPrice = 0;
         $maxPrice = $price;
+        $currentWattage = 0;
 
         $this->setMotherboard($this->dbMgr->chooseMotherboard($this->motherboardPref, $maxPrice));
+        $tempPrice += $this->motherboard->getPrice();
         $this->setCpu($this->dbMgr->chooseCpu($this->cpuPref, $maxPrice));
+        $tempPrice += $this->cpu->getPrice();
+        $currentWattage += $this->cpu->getWatts();
         $this->setGpu($this->dbMgr->chooseGpu($this->gpuPref, $maxPrice));
+        $tempPrice += $this->gpu->getPrice();
+        $currentWattage += $this->gpu->getWatts();
         $this->setRam($this->dbMgr->chooseRam($this->motherboard->getRamType(), $this->ramPref));
+        $tempPrice += $this->ram->getPrice();
         $this->setHdd($this->dbMgr->chooseHdd($this->hddSize));
+        $tempPrice += $this->hdd->getPrice();
+        $currentWattage += $this->hdd->getWatts();
+        $this->setSsd($this->dbMgr->chooseSsd($this->ssdSize));
+        $tempPrice += $this->ssd->getPrice();
+        $currentWattage += $this->ssd->getWatts();
+        $this->setPsu($this->dbMgr->choosePsu($currentWattage, $maxPrice));
+        echo "<hr><b>" . $tempPrice . "</b><hr>";
+        //$tempPrice += $this->psu->getPrice();
     }
-
 }
