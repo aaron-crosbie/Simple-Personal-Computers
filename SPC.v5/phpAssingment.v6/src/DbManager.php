@@ -11,6 +11,9 @@ require_once('Motherboard.php');
 require_once('Cpu.php');
 require_once('Gpu.php');
 require_once('Ram.php');
+require_once('Hdd.php');
+require_once('Ssd.php');
+require_once('Psu.php');
 
 
 class DbManager {
@@ -164,11 +167,11 @@ class DbManager {
         $motherboard = new \Motherboard();
         $spendable = $price/5;
         echo "<br><b>" . $spendable . "</b><br>";
-        $sql = "SELECT itemName, manufacturer, pcie, pci, formFactor, price FROM motherboards WHERE price <= '$spendable' && manufacturer = '$manufacturer'";
+        $sql = "SELECT itemName, manufacturer, pcie, pci, ramType, formFactor, price FROM motherboards WHERE price <= '$spendable' && manufacturer = '$manufacturer'";
         $result = mysqli_query($this->con, $sql);
         $row = $result->fetch_array(MYSQLI_BOTH);
         //echo "Name: " . $row[0] . "<br>Manufacturer: " . $row[1] . "<br>Price: " . $spendable;
-        $motherboard->setAllVariables($row[0], $row[1], $row[2], $row[3], $row[4], $row[5]);
+        $motherboard->setAllVariables($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6]);
         return $motherboard;
     }
 
@@ -193,6 +196,20 @@ class DbManager {
         $row = $result->fetch_array(MYSQLI_BOTH);
         $gpu->setAllVariables($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7]);
         return $gpu;
+    }
+
+    function chooseRam($type, $size){
+        $ram = new \Ram();
+        $ramSize = $size . "GB";
+        $sql = "SELECT itemName, manufacturer, memoryCap, itemType, price FROM ram WHERE itemType = '$type' && memoryCap = '$ramSize'";
+        $result = mysqli_query($this->con, $sql);
+        $row = $result->fetch_array(MYSQLI_BOTH);
+        $ram->setAllVariables($row[0], $row[1], $row[2], $row[3], $row[4]);
+        return $ram;
+    }
+
+    function chooseHdd(){
+
     }
 
 //    function generateComponents(){

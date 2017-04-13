@@ -9,12 +9,18 @@
 class Hdd
 {
     private $name;
-    private $manufacturer;
     private $storage;
     private $watts;
     private $price;
 
     function __construct(){
+    }
+
+    public function setAllVariables($name, $storage, $watts, $price){
+        $this->name = $name;
+        $this->storage = $storage;
+        $this->watts = $watts;
+        $this->price = $price;
     }
 
     /**
@@ -31,22 +37,6 @@ class Hdd
     public function setName($name)
     {
         $this->name = $name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getManufacturer()
-    {
-        return $this->manufacturer;
-    }
-
-    /**
-     * @param mixed $manufacturer
-     */
-    public function setManufacturer($manufacturer)
-    {
-        $this->manufacturer = $manufacturer;
     }
 
     /**

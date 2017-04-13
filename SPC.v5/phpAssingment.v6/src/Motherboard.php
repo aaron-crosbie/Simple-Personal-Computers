@@ -12,6 +12,7 @@ class Motherboard
     private $manufacturer;
     private $pcie;
     private $pci;
+    private $ramType;
     private $format;
     private $price;
 
@@ -26,11 +27,12 @@ class Motherboard
      * @param $formFactor
      * @param $price
      */
-    public function setAllVariables($name, $manufacturer, $pcie, $pci, $formFactor, $price){
+    public function setAllVariables($name, $manufacturer, $pcie, $pci, $ramType, $formFactor, $price){
         $this->name = $name;
         $this->manufacturer = $manufacturer;
         $this->pcie = $pcie;
         $this->pci = $pci;
+        $this->ramType = $ramType;
         $this->format = $formFactor;
         $this->price = $price;
     }
@@ -129,6 +131,22 @@ class Motherboard
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRamType()
+    {
+        return $this->ramType;
+    }
+
+    /**
+     * @param mixed $ramType
+     */
+    public function setRamType($ramType)
+    {
+        $this->ramType = $ramType;
     }
 
 

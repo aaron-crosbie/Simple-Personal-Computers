@@ -95,7 +95,9 @@ class ComponentController
     }
 
     function setRam($ram){
-
+        $this->ram = $ram;
+        echo "<br><b>Ram:</b><br>Name: " . $this->ram->getName() . "<br>Manufacturer: " . $this->ram->getManufacturer()
+            . "<br>Ram Type: " . $this->ram->getType() . "<br>Price: " . $this->ram->getPrice();
     }
 
     function setPsu($psu){
@@ -210,7 +212,8 @@ class ComponentController
         $this->setMotherboard($this->dbMgr->chooseMotherboard($this->motherboardPref, $maxPrice));
         $this->setCpu($this->dbMgr->chooseCpu($this->cpuPref, $maxPrice));
         $this->setGpu($this->dbMgr->chooseGpu($this->gpuPref, $maxPrice));
-
+        $this->setRam($this->dbMgr->chooseRam($this->motherboard->getRamType(), $this->ramPref));
+        $this->setHdd($this->dbMgr->chooseHdd());
     }
 
 //    /**

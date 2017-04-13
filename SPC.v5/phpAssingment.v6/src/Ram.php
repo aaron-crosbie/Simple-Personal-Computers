@@ -18,6 +18,14 @@ class Ram
     function __construct(){
     }
 
+    public function setAllVariables($name, $manufacturer, $memory, $type, $price){
+        $this->name = $name;
+        $this->manufacturer = $manufacturer;
+        $this->memory = $memory;
+        $this->type = $type;
+        $this->price = $price;
+    }
+
     /**
      * @return mixed
      */
