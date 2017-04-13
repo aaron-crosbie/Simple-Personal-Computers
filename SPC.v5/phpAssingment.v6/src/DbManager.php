@@ -208,49 +208,30 @@ class DbManager {
         return $ram;
     }
 
-    function chooseHdd(){
-
+    function chooseHdd($size){
+        $hdd = new \Hdd();
+        $hddSize = $size . "TB";
+        echo "<b><br>" . $hddSize . "</b>";
+        $sql = "SELECT itemName, storageCap, watts, price FROM hdds WHERE storageCap = '$hddSize'";
+        $result = mysqli_query($this->con, $sql);
+        $row = $result->fetch_array(MYSQLI_BOTH);
+        $hdd->setAllVariables($row[0], $row[1], $row[2], $row[3]);
+        return $hdd;
     }
 
-//    function generateComponents(){
-//        $sql = "INSERT INTO components (motherboard,cpu,gpu,hdd,ssd) VALUE ('ASUS Z170 Pro','Intel Core i3-6100','Gigabyte GeForce GTX 1060 G1','1TB Samsung','256GB Evo Samsung')";
-//        mysqli_query($this->con, $sql);
-//    }
+    function getComponentNames($component){
+        $sql = "SELECT itemName FROM $component";
+        $result = mysqli_query($this->con, $sql);
+        $columns = array();
+        while($rows = mysqli_fetch_assoc($result)){
+           array_push($columns, $rows['itemName']);
+        }
+//        foreach($columns as $val){
+//            echo $val . "<hr>";
+//        }
+        //for each statement which prints off all results
 
-
-//    /**
-//     * Function to return desired component from database
-//     * @param $name
-//     * @param $type
-//     * @return bool|\mysqli_result
-//     */
-//    function getComponent($name, $type){
-//        if($type == "motherboard"){
-//            $sql = "SELECT itemName FROM motherboards WHERE itemName = $name";
-//        }
-//        else if($type == "cpu"){
-//            $sql = "SELECT itemName FROM cpus WHERE itemName = $name";
-//        }
-//        else if($type == "gpu"){
-//            $sql = "SELECT itemName FROM gpus WHERE itemName = $name";
-//        }
-//        else if($type == "hdd"){
-//            $sql = "SELECT itemName FROM hdd WHERE itemName = $name";
-//        }
-//        else if($type == "ssd"){
-//            $sql = "SELECT itemName FROM ssd WHERE itemName = $name";
-//        }
-//        else{
-//            $sql = "SELECT itemName FROM ram WHERE itemName = $name";
-//        }
-//
-//        $comp = mysqli_query($this->con, $sql);
-//        return $comp;
-//    }
-
+        return $columns;
+    }
 
 }
-
-//Code to put unto registering.php which will register a user with the DB
-//  $dbm = new \itb\DbManager();
-//  $dbm->addUser($_POST['username'],$_POST['name1'],$_POST['tel'],$_POST['email'],$_POST['date'],$_POST['addresslineone'],$_POST['addresslinetwo'],$_POST['addresslinethree'],$_POST['password']);
