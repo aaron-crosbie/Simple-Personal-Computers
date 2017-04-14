@@ -232,7 +232,9 @@ class DbManager {
 
     function choosePsu($watts, $price){
         $psu = new \Psu();
-
+        $overhead = round($watts*1.5);
+        echo "<hr>WATTAGE: " . $watts . "<br>OVERHEAD: " . $overhead;
+        //LEFT OFF HERE YA GROSS GREEN FUCK!!!!!!!!
         return $psu;
     }
 
