@@ -22,6 +22,7 @@ class ComponentController
 {
     //***************DEFAULT VARIABLES FOR EACH CLASS******************
     protected $price;
+    protected $spent;
     protected $motherboard;
     protected $cpu;
     protected $gpu;
@@ -201,6 +202,20 @@ class ComponentController
     }
 
     /**
+     * @param $spent
+     */
+    function setSpent($spent){
+        $this->spent = $spent;
+    }
+
+    /**
+     * @return mixed
+     */
+    function getSpent(){
+        return $this->spent;
+    }
+
+    /**
      * @return string
      * Calls method to assemble components & returns price
      */
@@ -216,22 +231,31 @@ class ComponentController
 
         $this->setMotherboard($this->dbMgr->chooseMotherboard($this->motherboardPref, $maxPrice));
         $tempPrice += $this->motherboard->getPrice();
+
         $this->setCpu($this->dbMgr->chooseCpu($this->cpuPref, $maxPrice));
         $tempPrice += $this->cpu->getPrice();
         $currentWattage += $this->cpu->getWatts();
+
         $this->setGpu($this->dbMgr->chooseGpu($this->gpuPref, $maxPrice));
         $tempPrice += $this->gpu->getPrice();
         $currentWattage += $this->gpu->getWatts();
+
         $this->setRam($this->dbMgr->chooseRam($this->motherboard->getRamType(), $this->ramPref));
         $tempPrice += $this->ram->getPrice();
+        $currentWattage += $this->ram->getWatts();
+
         $this->setHdd($this->dbMgr->chooseHdd($this->hddSize));
         $tempPrice += $this->hdd->getPrice();
         $currentWattage += $this->hdd->getWatts();
+
         $this->setSsd($this->dbMgr->chooseSsd($this->ssdSize));
         $tempPrice += $this->ssd->getPrice();
         $currentWattage += $this->ssd->getWatts();
+
         $this->setPsu($this->dbMgr->choosePsu($currentWattage, $maxPrice));
         echo "<hr><b>" . $tempPrice . "</b><hr>";
+
+        $this->setSpent($tempPrice);
         //$tempPrice += $this->psu->getPrice();
     }
 }

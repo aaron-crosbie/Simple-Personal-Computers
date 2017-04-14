@@ -24,6 +24,7 @@ class Motherboard
      * @param $manufacturer
      * @param $pcie
      * @param $pci
+     * @param $ramType
      * @param $formFactor
      * @param $price
      */
@@ -148,6 +149,5 @@ class Motherboard
     {
         $this->ramType = $ramType;
     }
-
 
 }

@@ -41,12 +41,13 @@ if(isset($_POST['videoEditSubmit'])) {
 if($submission) {
     $cont = new ComponentController($_SESSION['price'], $_SESSION['motherboard'], $_SESSION['cpuPref'], $_SESSION['gpuPref'], $_SESSION['ram'], $_SESSION['hdd'], $_SESSION['ssd']);
     $test = $cont->surveyAnalysis();
-//    $testMotherboard = $cont->getMotherboardName();
-//    $testCpu = $cont->getCpuName();
-//    $testGpu = $cont->getGpuName();
-//    $testRam = $cont->getRamName();
-//    $testHdd = $cont->getHddName();
-//    $testSsd = $cont->getSsdName();
+    $testMotherboard = $cont->getMotherboardName();
+    $testCpu = $cont->getCpuName();
+    $testGpu = $cont->getGpuName();
+    $testRam = $cont->getRamName();
+    $testHdd = $cont->getHddName();
+    $testSsd = $cont->getSsdName();
+    $testSpent = $cont->getSpent();
 }
 ?>
 <!DOCTYPE html>
@@ -174,18 +175,18 @@ if($submission) {
     <div id="buildDisplay">
         <div>
             <table style="margin-bottom: 20px;">
-                <caption>Your Build</caption>
+                <caption><b>Your Build</b></caption>
                 <tr>
                     <th>Motherboard: </th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>CPU: </th>
                     <td><?php echo "$testMotherboard"; ?></td>
                 </tr>
                 <tr>
-                    <th>GPU: </th>
+                    <th>CPU: </th>
                     <td><?php echo "$testCpu"; ?></td>
+                </tr>
+                <tr>
+                    <th>GPU: </th>
+                    <td><?php echo "$testGpu"; ?></td>
                 </tr>
                 <tr>
                     <th>RAM: </th>
@@ -193,7 +194,7 @@ if($submission) {
                 </tr>
                 <tr>
                     <th>HDD: </th>
-                    <td><?php echo "$testGpu"; ?></td>
+                    <td><?php echo "$testHdd"; ?></td>
                 </tr>
                 <tr>
                     <th>SSD: </th>
@@ -201,12 +202,12 @@ if($submission) {
                 </tr>
                 <tr>
                     <th>Price: </th>
-                    <td><?php echo "$test"; ?></td>
+                    <td><?php echo "$testSpent"; ?></td>
                 </tr>
             </table>
         </div>
         <div>
-            <img src="/app/images/case1.jpg" style="width: 80%; border-radius: 4px;">
+            <img src="../public/images/case1.jpg" style="width: 80%; border-radius: 4px;">
         </div>
     </div>
     <?php

@@ -201,10 +201,10 @@ class DbManager {
     function chooseRam($type, $size){
         $ram = new \Ram();
         $ramSize = $size . "GB";
-        $sql = "SELECT itemName, manufacturer, memoryCap, itemType, price FROM ram WHERE itemType = '$type' && memoryCap = '$ramSize'";
+        $sql = "SELECT itemName, manufacturer, memoryCap, itemType, watts, price FROM ram WHERE itemType = '$type' && memoryCap = '$ramSize'";
         $result = mysqli_query($this->con, $sql);
         $row = $result->fetch_array(MYSQLI_BOTH);
-        $ram->setAllVariables($row[0], $row[1], $row[2], $row[3], $row[4]);
+        $ram->setAllVariables($row[0], $row[1], $row[2], $row[3], $row[4], $row[5]);
         return $ram;
     }
 
@@ -234,7 +234,7 @@ class DbManager {
         $psu = new \Psu();
         $overhead = round($watts*1.5);
         echo "<hr>WATTAGE: " . $watts . "<br>OVERHEAD: " . $overhead;
-        //LEFT OFF HERE YA GROSS GREEN FUCK!!!!!!!!
+
         return $psu;
     }
 

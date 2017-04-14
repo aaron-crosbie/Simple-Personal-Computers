@@ -12,17 +12,19 @@ class Ram
     private $manufacturer;
     private $memory;
     private $type;
+    private $watts;
     private $price;
 
 
     function __construct(){
     }
 
-    public function setAllVariables($name, $manufacturer, $memory, $type, $price){
+    public function setAllVariables($name, $manufacturer, $memory, $type, $watts, $price){
         $this->name = $name;
         $this->manufacturer = $manufacturer;
         $this->memory = $memory;
         $this->type = $type;
+        $this->watts = $watts;
         $this->price = $price;
     }
 
@@ -105,6 +107,21 @@ class Ram
     {
         $this->price = $price;
     }
-    
+
+    /**
+     * @return mixed
+     */
+    public function getWatts()
+    {
+        return $this->watts;
+    }
+
+    /**
+     * @param mixed $watts
+     */
+    public function setWatts($watts)
+    {
+        $this->watts = $watts;
+    }
 
 }
