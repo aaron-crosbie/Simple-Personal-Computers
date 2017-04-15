@@ -114,7 +114,7 @@ class ComponentController
     }
 
     function setPsu($psu){
-
+        $this->psu = $psu;
     }
 
     /**
@@ -225,37 +225,80 @@ class ComponentController
     }
 
     function buildComputer($price){
-        $tempPrice = 0;
+        $spent = 0;
         $maxPrice = $price;
         $currentWattage = 0;
 
         $this->setMotherboard($this->dbMgr->chooseMotherboard($this->motherboardPref, $maxPrice));
-        $tempPrice += $this->motherboard->getPrice();
+        $spent += $this->motherboard->getPrice();
 
         $this->setCpu($this->dbMgr->chooseCpu($this->cpuPref, $maxPrice));
-        $tempPrice += $this->cpu->getPrice();
+        $spent += $this->cpu->getPrice();
         $currentWattage += $this->cpu->getWatts();
 
         $this->setGpu($this->dbMgr->chooseGpu($this->gpuPref, $maxPrice));
-        $tempPrice += $this->gpu->getPrice();
+        $spent += $this->gpu->getPrice();
         $currentWattage += $this->gpu->getWatts();
 
         $this->setRam($this->dbMgr->chooseRam($this->motherboard->getRamType(), $this->ramPref));
-        $tempPrice += $this->ram->getPrice();
+        $spent += $this->ram->getPrice();
         $currentWattage += $this->ram->getWatts();
 
         $this->setHdd($this->dbMgr->chooseHdd($this->hddSize));
-        $tempPrice += $this->hdd->getPrice();
+        $spent += $this->hdd->getPrice();
         $currentWattage += $this->hdd->getWatts();
 
         $this->setSsd($this->dbMgr->chooseSsd($this->ssdSize));
-        $tempPrice += $this->ssd->getPrice();
+        $spent += $this->ssd->getPrice();
         $currentWattage += $this->ssd->getWatts();
 
-        $this->setPsu($this->dbMgr->choosePsu($currentWattage, $maxPrice));
-        echo "<hr><b>" . $tempPrice . "</b><hr>";
+        $this->setPsu($this->dbMgr->choosePsu($currentWattage, $this->getMotherboardPrice()));
 
-        $this->setSpent($tempPrice);
+        if($spent > $maxPrice) {
+            $this->setSpent($spent);
+        }
+        else{
+            $ssdSizes = $this->dbMgr->getSsdSizes();
+            $spent -= $this->ssd->getPrice();
+            list($chosenSsd) = explode("GB", $this->ssd->getStorage());
+            foreach($ssdSizes as $currSize){
+                list($size) = explode("GB", $currSize);
+                if($size == $chosenSsd){
+                    $size = (int)$size;
+                    if($size > 250){
+                        $size = $size/2;
+                        $size = (string)$size;
+                        $this->setSsd($this->dbMgr->chooseSsd($size));
+                        $spent += $this->ssd->getPrice();
+                    }
+                    $size = (int)$size;
+                    if($size > 120 && $spent > $maxPrice){
+                        $spent -= $this->ssd->getPrice();
+                        $size = 120;
+                        $size = (string)$size;
+                        $this->setSsd($this->dbMgr->chooseSsd($size));
+                        $spent += $this->ssd->getPrice();
+                    }
+                    if($size <= 120 && $spent < $maxPrice){
+                        $spent -= $this->ssd->getPrice();
+                        echo "<hr>GOT HERE<hr>";
+                        $this->ssd->setAllVariables("null", "null", 0, 0);
+                    }
+
+                }
+                else{
+                }
+            }
+            while($spent > $maxPrice){
+
+            }
+        }
+        echo "<hr><b>" . $spent . "</b><hr>";
+
+//        $temp = $this->dbMgr->getSsdSizes();
+//        foreach($temp as $val){
+//            echo $val . "<hr>";
+//        }
         //$tempPrice += $this->psu->getPrice();
     }
 }

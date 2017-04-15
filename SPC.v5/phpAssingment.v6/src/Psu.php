@@ -12,6 +12,14 @@ class Psu
     {
     }
 
+    public function setAllVariables($name, $manufacturer, $formFactor, $watts, $price){
+        $this->name = $name;
+        $this->manufacturer = $manufacturer;
+        $this->formFactor = $formFactor;
+        $this->watts = $watts;
+        $this->price = $price;
+    }
+
     /**
      * @return mixed
      */

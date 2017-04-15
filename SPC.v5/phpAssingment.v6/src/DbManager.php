@@ -230,8 +230,17 @@ class DbManager {
         return $ssd;
     }
 
-    function choosePsu($watts, $price){
+    function choosePsu($watts, $motherboardPrice){
         $psu = new \Psu();
+        define("REGULAR_MOTHERBOARD", 40);
+        define("HIGH_END_MOTHERBOARD", 80);
+
+        if($motherboardPrice <= 150){
+            $watts += constant("REGULAR_MOTHERBOARD");
+        }
+        else if($motherboardPrice >= 151){
+            $watts += constant("HIGH_END_MOTHERBOARD");
+        }
         $overhead = round($watts*1.5);
         echo "<hr>WATTAGE: " . $watts . "<br>OVERHEAD: " . $overhead;
 
@@ -250,6 +259,16 @@ class DbManager {
 //        }
         //for each statement which prints off all results
 
+        return $columns;
+    }
+
+    function getSsdSizes(){
+        $sql = "SELECT storageCap FROM ssds ORDER BY storageCap DESC";
+        $result = mysqli_query($this->con, $sql);
+        $columns = array();
+        while($rows = mysqli_fetch_assoc($result)){
+            array_push($columns, $rows['storageCap']);
+        }
         return $columns;
     }
 
