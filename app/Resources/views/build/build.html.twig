@@ -1,0 +1,359 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Build{%  endblock %}
+
+{% block body %}
+
+<div id="mainContent">
+    <div id="shown">
+        <div>
+            <a href="#" id="componentThat"><h2>Learn</h2></a>
+            <p style="text-align: center">Check out our quizes which will help you to build your own PC!</p>
+        </div>
+        <div>
+            <a href="#" id="buildThis"><h2>Build</h2></a>
+            <p style="text-align: center">Choose your components for your future build!</p>
+        </div>
+    </div>
+
+        <!--   Tutorials  -->
+    <div id="tut" hidden>
+        <div id="dropInt" >
+            <div id="quizHnD1">
+                <h1>Quiz 1</h1><h3>- easy drag and drop quiz</h3>
+            </div>
+                <button id="start1">Start</button>
+            <br><br>
+            <div id="quizHnD2">
+                <h1>Quiz 2</h1><h3>- drag onto a case</h3>
+            </div>
+                <button id="start2">Start</button>
+        </div>
+
+        <!-- Quiz 1  -->
+        <div id="quiz1" hidden>
+            <div><button id="quitQuiz1">Quit</button></div>
+            <div><h3>Time Left <span id="timeQuiz1">60</span> seconds!</h3></div>
+            <!-- Drag and Drop for Quiz 1  -->
+            <div class="row">
+                <div id="draggable" class="ui-widget-content" data-id-group="cpuQuiz1">
+                    <p id="dragText">Processor</p>
+                </div>
+
+                <div id="draggable2" class="ui-widget-content" data-id-group="moboQuiz1">
+                    <p id="dragText">Motherboard</p>
+                </div>
+
+                <div id="draggable3" class="ui-widget-content" data-id-group="ssdQuiz1">
+                    <p id="dragText">SSD</p>
+                </div>
+
+                <div id="draggable4" class="ui-widget-content" data-id-group="gpuQuiz1">
+                    <p  id="dragText">Graphics<br>Card</p>
+                </div>
+
+                <div id="draggable5" class="ui-widget-content" data-id-group="hddQuiz1">
+                    <p  id="dragText">HDD</p>
+                </div>
+
+                <div id="draggable6" class="ui-widget-content" data-id-group="moniQuiz1">
+                    <p  id="dragText">Monitor</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="draggable7" class="ui-widget-content" data-id-group="ramQuiz1">
+                    <p  id="dragText">RAM</p>
+                </div>
+
+                <div id="draggable8" class="ui-widget-content" data-id-group="miceQuiz1">
+                    <p  id="dragText">Mouse</p>
+                </div>
+
+                <div id="draggable9" class="ui-widget-content" data-id-group="psuQuiz1">
+                    <p  id="dragText">Power Supply</p>
+                </div>
+
+                <div id="draggable10" class="ui-widget-content" data-id-group="keyQuiz1">
+                    <p  id="dragText">Keyboard</p>
+                </div>
+
+                <div id="draggable11" class="ui-widget-content" data-id-group="caseQuiz1">
+                    <p  id="dragText">Case</p>
+                </div>
+
+                <div id="draggable12" class="ui-widget-content" data-id-group="coolingQuiz1">
+                    <p  id="dragText">Cooling</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="droppable" class="ui-widget-header" data-id-group="gpuQuiz1">
+                    <p><img src="/images/gpu.png"></p>
+                </div>
+
+                <div id="droppable2" class="ui-widget-header" data-id-group="coolingQuiz1">
+                    <p><img src="/images/cooling.png"></p>
+                </div>
+
+                <div id="droppable3" class="ui-widget-header" data-id-group="keyQuiz1">
+                    <p><img src="/images/keyboard.png"></p>
+                </div>
+
+                <div id="droppable4" class="ui-widget-header" data-id-group="cpuQuiz1">
+                    <p><img src="/images/cpu.png"></p>
+                </div>
+
+                <div id="droppable5" class="ui-widget-header" data-id-group="psuQuiz1">
+                    <p><img src="/images/psu.png"></p>
+                </div>
+
+                <div id="droppable6" class="ui-widget-header" data-id-group="ssdQuiz1">
+                    <p><img src="/images/ssd.png"></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="droppable7" class="ui-widget-header" data-id-group="moboQuiz1">
+                    <p><img src="/images/mobo.png"></p>
+                </div>
+
+                <div id="droppable8" class="ui-widget-header" data-id-group="caseQuiz1">
+                    <p><img src="/images/case.png"></p>
+                </div>
+
+                <div id="droppable9" class="ui-widget-header" data-id-group="moniQuiz1">
+                    <p><img src="/images/monitor.png"></p>
+                </div>
+
+                <div id="droppable10" class="ui-widget-header" data-id-group="miceQuiz1">
+                    <p><img src="/images/mouse.png"></p>
+                </div>
+
+                <div id="droppable11" class="ui-widget-header" data-id-group="hddQuiz1">
+                    <p><img src="/images/hdd.png"></p>
+                </div>
+
+                <div id="droppable12" class="ui-widget-header" data-id-group="ramQuiz1">
+                    <p><img src="/images/ram.png"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz 2  -->
+        <div id="quiz2" hidden>
+            <button id="quitQuiz2">Quit</button>
+            <div><h3>Time Left <span id="timeQuiz2">60</span> seconds!</h3></div>
+            <!-- Drag and Drop for Quiz 2  -->
+            <div class="row">
+                <div id="draggableCase1" class="ui-widget-content" data-id-group="cpuQuiz2">
+                    <p id="dragText">CPU</p>
+                </div>
+                <div id="draggableCase2" class="ui-widget-content" data-id-group="ramQuiz2">
+                    <p id="dragText">RAM</p>
+                </div>
+                <div id="draggableCase3" class="ui-widget-content" data-id-group="gpuQuiz2">
+                    <p id="dragText">GPU</p>
+                </div>
+                <div id="draggableCase4" class="ui-widget-content" data-id-group="psuQuiz2">
+                    <p id="dragText">PSU</p>
+                </div>
+                <div id="draggableCase5" class="ui-widget-content" data-id-group="fanQuiz2">
+                    <p id="dragText">Fan Cooling</p>
+                </div>
+            </div>
+            <div class="row">
+                <div id="draggableCase6" class="ui-widget-content" data-id-group="coolQuiz2">
+                    <p id="dragText">Liquid Cooling</p>
+                </div>
+                <div id="draggableCase7" class="ui-widget-content" data-id-group="hddQuiz2">
+                    <p id="dragText">HDD</p>
+                </div>
+                <div id="draggableCase8" class="ui-widget-content" data-id-group="ssdQuiz2">
+                    <p id="dragText">SSD</p>
+                </div>
+                <div id="draggableCase9" class="ui-widget-content" data-id-group="cdQuiz2">
+                    <p id="dragText">CD/DVD-ROM</p>
+                </div>
+                <div id="draggableCase10" class="ui-widget-content" data-id-group="moboQuiz2">
+                    <p id="dragText">Motherboard</p>
+                </div>
+            </div>
+            <div id="caseMap">
+                <img src="/images/case_side.png" id="case_side">
+                <div id="droppableCase1" class="ui-widget-header" data-id-group="cpuQuiz2"></div>
+                <div id="droppableCase2" class="ui-widget-header" data-id-group="ramQuiz2"></div>
+                <div id="droppableCase3" class="ui-widget-header" data-id-group="gpuQuiz2"></div>
+                <div id="droppableCase4" class="ui-widget-header" data-id-group="psuQuiz2"></div>
+                <div id="droppableCase5" class="ui-widget-header" data-id-group="fanQuiz2"></div>
+                <div id="droppableCase6" class="ui-widget-header" data-id-group="coolQuiz2"></div>
+                <div id="droppableCase7" class="ui-widget-header" data-id-group="hddQuiz2"></div>
+                <div id="droppableCase8" class="ui-widget-header" data-id-group="ssdQuiz2"></div>
+                <div id="droppableCase9" class="ui-widget-header" data-id-group="cdQuiz2"></div>
+                <div id="droppableCase10" class="ui-widget-header"><img src="/images/arrow.png"></div>
+                <div id="droppableCase11" class="ui-widget-header" data-id-group="moboQuiz2"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Build it! -->
+    <div id="buildIt" hidden>
+        <h1>Build your SPC!</h1>
+        <p style="text-align: center; background-color: white">Easy - Fast - Simple</p>
+
+        <div id="allComp">
+            <!-- Button list to display lists of components -->
+            <ul id="componentsBut">
+                <li><button id="buttonPro" name="buttonPro" data-id-button-group="proc">Processors</button></li>
+                <li><button id="buttonGpu" data-id-button-group="gpu">Graphics Cards</button></li>
+                <li><button id="buttonMobo" data-id-button-group="mobo">Motherboards</button></li>
+                <li><button id="buttonCool" data-id-button-group="cool">Cooling</button></li>
+                <li><button id="buttonRam" data-id-button-group="ram">RAM</button></li>
+                <li><button id="buttonPsu" data-id-button-group="psu">Power Supply</button></li>
+                <li><button id="buttonSsd" data-id-button-group="ssd">SSDs</button></li>
+                <li><button id="buttonHdd" data-id-button-group="hdd">HDDs</button></li>
+                <li><button id="buttonCase" data-id-button-group="case">Cases</button></li>
+                <li><button id="buttonMoni" data-id-button-group="moni">Monitors</button></li>
+                <li><button id="buttonKey" data-id-button-group="key">Keyboards</button></li>
+                <li><button id="buttonMice" data-id-button-group="mice">Mice</button></li>
+            </ul>
+
+            <!-- Populating lists with components-->
+            <div id="components" >
+                <div id="processors" style="display: none" data-id-button-group="proc">
+                    <ul id="sortable1" class="connectedSortable">
+                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Processors</li>
+                        {%  for cpu in cpus %}
+                            <li class="ui-state-default" data-item-type="procItem"><p>{{ cpu.name }}</p></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div id="gpus" style="display: none" data-id-button-group="gpu">
+                    <ul id="sortable2" class="connectedSortable">
+                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Graphic Cards</li>
+                        {% for gpu in gpus %}
+                            <li class="ui-state-default" data-item-type="gpuItem"><p>{{ gpu.name }}</p></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div id="motherboards" style="display: none" data-id-button-group="mobo">
+                    <ul id="sortable3" class="connectedSortable">
+                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Motherboards</li>
+                        {% for motherboard in motherboards %}
+                            <li class="ui-state-default" data-item-type="moboItem"><p>{{ motherboard.name }}</p></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div id="cooling" style="display: none" data-id-button-group="cool">
+                    <ul id="sortable4" class="connectedSortable">
+                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Cooling</li>
+                        {% for cooling in coolings %}
+                            <li class="ui-state-default" data-item-type="coolingItem"><p>{{ cooling.name }}</p></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div id="ram" style="display: none" data-id-button-group="ram">
+                    <ul id="sortable5" class="connectedSortable">
+                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">RAM</li>
+                        {% for ram in rams %}
+                            <li class="ui-state-default" data-item-type="ramItem"><p>{{ ram.name }}</p></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div id="psu" style="display: none" data-id-button-group="psu">
+                    <ul id="sortable6" class="connectedSortable">
+                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Power Supply</li>
+                        {% for psu in psus %}
+                            <li class="ui-state-default" data-item-type="psuItem"><p>{{ psu.name }}</p></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div id="ssd" style="display: none" data-id-button-group="ssd">
+                    <ul id="sortable7" class="connectedSortable">
+                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">SSDs</li>
+                        {% for ssd in ssds %}
+                            <li class="ui-state-default" data-item-type="ssdItem"><p>{{ ssd.name }}</p></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div id="hdd" style="display: none" data-id-button-group="hdd">
+                    <ul id="sortable8" class="connectedSortable">
+                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">HDDs</li>
+                        {% for hdd in hdds %}
+                            <li class="ui-state-default" data-item-type="hddItem"><p>{{ hdd.name }}</p></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div id="cases" style="display: none" data-id-button-group="case">
+                    <ul id="sortable9" class="connectedSortable">
+                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Cases</li>
+                        {% for compcase in compcases %}
+                            <li class="ui-state-default" data-item-type="compcaseItem"><p>{{ compcase.name }}</p></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div id="monitors" style="display: none" data-id-button-group="moni">
+                    <ul id="sortable10" class="connectedSortable">
+                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Monitors</li>
+                        {% for monitor in monitors %}
+                            <li class="ui-state-default" data-item-type="monitorItem"><p>{{ monitor.name }}</p></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div id="keyboards" style="display: none" data-id-button-group="key">
+                    <ul id="sortable11" class="connectedSortable">
+                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Keyboards</li>
+                        {% for keyboard in keyboards %}
+                            <li class="ui-state-default" data-item-type="keyboardItem"><p>{{ keyboard.name }}</p></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div id="mice" style="display: none" data-id-button-group="mice">
+                    <ul id="sortable12" class="connectedSortable">
+                        <li class="ui-state-default ui-state-disabled" style="background-color: black; color: white;">Mice</li>
+                        {% for mouse in mouses %}
+                            <li class="ui-state-default"><p>{{ mouse.name }}</p></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Drag area for users selected items -->
+            <div id="selectItems">
+                <h1 id="dragText">Drag Here</h1>
+                <ul id="sortable13" style="min-height: 50px;" class="connectedSortable">
+                </ul>
+            </div>
+        </div>
+
+        <!-- Continue button -->
+        <div id="contDiv"><button id="cont">Continue</button></div>
+
+        <!-- Displaying the build and printing to pdf -->
+        <div id="display" hidden>
+            <div id="toPdf">
+                <h2 id="buildText" hidden>Your Build</h2>
+                <ul id="displayUl"></ul>
+            </div>
+            <div id="editor"></div>
+            <button id='pdfButton'>Save To PDF</button>
+            <button id='backBuild'>Back To Build</button>
+        </div>
+    </div>
+</div>
+    {% block javascripts %}
+        <script src="{{ asset('js/build.js') }}"></script>
+    {% endblock %}
+
+{% endblock %}

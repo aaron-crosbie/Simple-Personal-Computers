@@ -2,57 +2,82 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * BlogComment
  *
- * @ORM\Table(name="blog_comment", indexes={@ORM\Index(name="blog_comment_post_id_idx", columns={"post_id"})})
- * @ORM\Entity
+ * @ORM\Table(name="blog_comment")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogCommentRepository")
  */
 class BlogComment
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="author", type="string", length=20, nullable=false)
+     * @ORM\Column(name="author", type="string", length=255)
      */
     private $author;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="text", nullable=false)
+     * @ORM\Column(name="content", type="string", length=255)
      */
     private $content;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     * @ORM\Column(name="created_at", type="string", length=255)
      */
     private $createdAt;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="id", type="bigint")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Column(name="blogID", type="string")
      */
-    private $id;
+    private $blogID;
+
+
 
     /**
-     * @var \AppBundle\Entity\BlogPost
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\BlogPost")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="post_id", referencedColumnName="id")
-     * })
+     * @return string
      */
-    private $post;
+    public function getBlogID()
+    {
+        return $this->blogID;
+    }
+
+    /**
+     * @param string $blogID
+     */
+    public function setBlogID($blogID)
+    {
+        $this->blogID = $blogID;
+    }
 
 
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set author
@@ -105,7 +130,7 @@ class BlogComment
     /**
      * Set createdAt
      *
-     * @param \DateTime $createdAt
+     * @param string $createdAt
      *
      * @return BlogComment
      */
@@ -119,22 +144,17 @@ class BlogComment
     /**
      * Get createdAt
      *
-     * @return \DateTime
+     * @return string
      */
     public function getCreatedAt()
     {
         return $this->createdAt;
     }
-
     /**
-     * Get id
-     *
-     * @return integer
+     * @var \AppBundle\Entity\BlogPost
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $post;
+
 
     /**
      * Set post

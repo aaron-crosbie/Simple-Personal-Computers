@@ -29,7 +29,7 @@ class DbManager {
             echo "Failed to connect to database";
         }
         else{
-//            echo "Connection Successful!";
+            echo "Connection Successful!";
         }
     }
 
@@ -44,13 +44,15 @@ class DbManager {
         echo "$sql";
         mysqli_query($this->con, $sql);
     }
-
+/*
     /**
      * @param $username
      * @param $password
      * @return string|Session
      */
+
     function authenticateUser($username, $password){
+
         // username and password sent from form
         $session = new Session();
 
@@ -61,23 +63,23 @@ class DbManager {
         $username = stripslashes($username);
         $password = stripslashes($password);
 
+
         $username = mysqli_real_escape_string( $this->con, $_POST['username']);
         $password = mysqli_real_escape_string( $this->con, $_POST['password']);
 
-
-        $sql = "SELECT * FROM users WHERE username='$username' and pass='$password'";
+        $sql = "SELECT * FROM user WHERE username='$username' and password='$password'";
         $result = mysqli_query($this->con, $sql);
 
-
+        echo $result;
         // Mysql_num_row is counting table row
         $count = mysqli_num_rows($result);
-
 
         // If result matched $username and $password, table row must be 1 row
         if ($count == 1) {
            $session -> set('username', $username);
             return $session;
         }
+
         else{
             return 'Session login was NOT successful!' ;
         }
@@ -192,12 +194,12 @@ class DbManager {
 //        mysqli_query($this->con, $sql);
 //        $sql = "CREATE TABLE ram(itemName varchar(45), price varchar(45), size varchar(45) manufacturer varchar(45));";
 //        mysqli_query($this->con, $sql);
-        $sql = "CREATE TABLE users(username varchar(45), firstname varchar(45), tel varchar(45), email varchar(45), dob varchar(45), address1 varchar(45),address2 varchar(45), address3 varchar(45), pass varchar(45));";
-        mysqli_query($this->con, $sql);
+//        $sql = "CREATE TABLE users(username varchar(45), firstname varchar(45), tel varchar(45), email varchar(45), dob varchar(45), address1 varchar(45),address2 varchar(45), address3 varchar(45), pass varchar(45));";
+//        mysqli_query($this->con, $sql);
     }
 
 }
 
 //Code to put unto registering.php which will register a user with the DB
 //  $dbm = new \itb\DbManager();
-//  $dbm->addUser($_POST['username'],$_POST['name1'],$_POST['tel'],$_POST['email'],$_POST['date'],$_POST['addresslineone'],$_POST['addresslinetwo'],$_POST['addresslinethree'],$_POST['password']);
+//  $dbm->addUs6er($_POST['username'],$_POST['name1'],$_POST['tel'],$_POST['email'],$_POST['date'],$_POST['addresslineone'],$_POST['addresslinetwo'],$_POST['addresslinethree'],$_POST['password']);

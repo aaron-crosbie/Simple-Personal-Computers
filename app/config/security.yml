@@ -1,9 +1,15 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/security.html
 security:
-
+    encoders:
+        AppBundle\Entity\User:
+            algorithm: bcrypt
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
+        our_db_provider:
+            entity:
+                class: AppBundle:User
+                property: username
         in_memory:
             memory: ~
 
@@ -14,7 +20,17 @@ security:
             security: false
 
         main:
+            pattern:    ^/
+            http_basic: ~
+            provider: our_db_provider
+
             anonymous: ~
+            form_login:
+                login_path: login
+                check_path: login
+            logout:
+                path:   /logout
+                target: /
             # activate different ways to authenticate
 
             # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate

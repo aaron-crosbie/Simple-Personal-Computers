@@ -8,48 +8,57 @@ use Doctrine\ORM\Mapping as ORM;
  * BlogPost
  *
  * @ORM\Table(name="blog_post")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogPostRepository")
  */
 class BlogPost
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=100, nullable=false)
+     * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="text", nullable=false)
+     * @ORM\Column(name="content", type="string", length=255)
      */
     private $content;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     * @ORM\Column(name="created_at", type="string", length=255)
      */
     private $createdAt;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="user", type="string", length=45, nullable=false)
+     * @ORM\Column(name="user", type="string", length=255)
      */
     private $user;
 
+
     /**
-     * @var integer
+     * Get id
      *
-     * @ORM\Column(name="id", type="bigint")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @return int
      */
-    private $id;
-
-
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set title
@@ -102,7 +111,7 @@ class BlogPost
     /**
      * Set createdAt
      *
-     * @param \DateTime $createdAt
+     * @param string $createdAt
      *
      * @return BlogPost
      */
@@ -116,7 +125,7 @@ class BlogPost
     /**
      * Get createdAt
      *
-     * @return \DateTime
+     * @return string
      */
     public function getCreatedAt()
     {
@@ -145,15 +154,5 @@ class BlogPost
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 }

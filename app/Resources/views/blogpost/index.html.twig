@@ -1,0 +1,305 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{%  endblock %}
+
+
+
+{% block body %}
+<div id="mainContent">
+
+    <div class="container">
+
+        <div class="jumbotron">
+
+            <header>
+
+                <h1>Welcome to SPC Blog  </h1>
+
+                <div>
+
+                    <p>Advise | Help | Solve</p>
+
+                </div>
+
+                <div id="login">
+
+                    <a>Create Post</a>
+
+                </div>
+
+            </header>
+
+        </div>
+
+        <div id="post" hidden>
+
+            <form
+                    method="post"
+                    action="">
+
+                <section id="hideIfNot" hidden>
+
+                    {% if is_granted('ROLE_USER') %}
+
+                        <h3>
+
+                            {{ app.user.username }}, be friendly to <strong>SPC's</strong> community! Good luck!
+                        </h3>
+
+                        <script>
+
+                            $("#hideIfNot").show(500);
+
+                        </script>
+
+                    {% else %}
+
+                        <script>
+
+                            $("#hideIfNot").hide(500);
+
+                            $("#login").click(function(){
+
+                                alert("Please login before you want to write a post!");
+
+                            });
+
+                        </script>
+
+                    {% endif %}
+
+                    <br>
+
+                    <label>Please specify your topic</label>
+
+                    <br>
+
+                    <br>
+
+                    <input type="text" name="topic" id="topic" required>
+
+                    <br>
+
+                    <br>
+
+                    <label>Content</label>
+
+                    <br>
+
+                    <p style="color: gray; margin-bottom: 0; padding-bottom: 0; font-size: 12px;">Max. 255 characters</p>
+
+                    <textarea cols="40" rows="5" id="content" name="content" required maxlength="255"></textarea>
+
+
+                    <br>
+
+                    <br>
+
+
+                    <br>
+
+                    <button type="submit" style="margin-left: auto; margin-right: auto;" id="commentData" name="commentData">Submit</button>
+
+                    <button type="button" style="margin-left: auto; margin-right: auto;" id="backButton">Back</button>
+
+                    <br>
+
+                    <br>
+
+                </section>
+
+                <script>
+
+                    $("#backButton").click(function(){
+
+                        $("#hideIfNot").hide(500);
+
+                    });
+
+                </script>
+
+            </form>
+
+        </div>
+
+
+        <div class="row">
+
+            <aside>
+
+                <h3>
+                    {{ app.session.get('username')}}
+                </h3>
+
+                <p>
+                    Short description
+                </p>
+
+                <br>
+
+                <p style="font-size: 12px; text-align: right">
+                    Time stamp
+                </p>
+
+                <hr>
+
+                <h3>
+                    Username
+                </h3>
+
+                <p>
+                    Short description
+                </p>
+
+                <br>
+
+                <p style="font-size: 12px; text-align: right">
+                    Time stamp
+                </p>
+
+                <hr>
+
+                <h3>
+                    Username
+                </h3>
+
+                <p>
+                    Short description
+                </p>
+
+                <br>
+
+                <p style="font-size: 12px; text-align: right">Time stamp</p>
+
+                <hr>
+
+                <h3>
+                    Username
+                </h3>
+
+                <p>
+                    Short description
+                </p>
+
+                <br>
+
+                <p style="font-size: 12px; text-align: right">
+                    Time stamp
+                </p>
+
+                <hr>
+
+            </aside>
+
+            <div id="cntrol">
+
+            <form>
+
+                <table>
+
+
+
+                {% for blogPost in blogPosts|reverse %}
+
+                    <tr>
+
+                        <td>
+
+                        </td>
+
+                    <tr>
+
+                        <td>
+
+                            <h3 style="text-decoration: underline; font-size: 18px;">
+
+                                <a href="{{ path('blogpost_show', { 'id': blogPost.id }) }}">{{ blogPost.title }}</a>
+
+                                <p style="font-size: 15px;  text-align: right">
+
+                                    @{{ blogPost.user }}
+
+                                </p>
+
+                            </h3>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+
+                            <p>{{ blogPost.content }}</p>
+
+                            <br>
+
+                            <p style="font-size: 14px; text-align: right">{{ blogPost.createdAt|date('Y-m-d\\ H:i:s') }}</p>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+
+                            <ul style="display: flex; list-style-type: none">
+
+                                <li style="padding: 20px; ">
+
+                                    <a style="text-decoration: none; color: #2e2e2e" href="{{ path('blogpost_show', { 'id': blogPost.id }) }}">show</a>
+
+                                </li>
+
+                                <li style="padding: 20px; ">
+
+                                    <a  style="text-decoration: none; color: #2e2e2e" href="{{ path('blogpost_edit', { 'id': blogPost.id }) }}">edit</a>
+
+                                </li>
+
+                                <li style="padding: 20px; ">
+
+                                    <a  style="text-decoration: none; color: #2e2e2e" href="{{ path('blogcomment_new', { 'id': blogPost.id }) }}">Comment</a>
+
+                                </li>
+                            </ul>
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </table>
+
+            </form>
+
+                <script>
+
+                    $("#login").click(function () {
+
+                        $("#post").show(500);
+
+                    });
+
+                    $("#clickedForView").click(function () {
+
+                        $("#cntrol").hide(500);
+
+                        $("#thisPost").show(500);
+
+                    });
+
+                </script>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

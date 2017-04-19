@@ -37,11 +37,11 @@
                 method="post"
                 action="/blog">
             <section id="hideIfNot" hidden>
-                {% if app.session.get('username') != '' %}
+                {% if is_granted('ROLE_USER') %}
 
                 <h3>
 
-                  {{ app.session.get('username') }} , be friendly to <strong>SPC's</strong> community! Good luck!</h3>
+                    {{ app.user.username }}  , be friendly to <strong>SPC's</strong> community! Good luck!</h3>
                 <script>
                     $("#hideIfNot").show(500);
                 </script>
@@ -50,7 +50,7 @@
                 <script>
                     $("#hideIfNot").hide(500);
                     $("#login").click(function(){
-                        alert("Please login before you want to write a post!");
+                        alert("Please login before you want to write a post!"  + {{ app.user.username }});
                     });
                 </script>
                 {% endif %}
@@ -146,6 +146,7 @@
             <form
                     method="post"
                     action="" >
+
                 <table>
 
                     {% for blogPost in blogPosts|sort|slice(0, 5) %}
@@ -157,25 +158,33 @@
                     </tr>
 
                     <tr>
+
                         <td>
+
                             <p>{{ blogPost.content }}</p>
-                            <br>
+
+                                <br>
+
                             <p style="font-size: 14px; text-align: right">{{ blogPost.createdAt|date('Y-m-d\\ H:i:s') }}</p>
+
                         </td>
+
                     </tr>
 
 
                     <tr>
-                        <td><input type="submit" id="clickedForView" value="View">
+
+                        <td>
+                            <input type="submit" id="clickedForView" value="View">
                             <input type="hidden" id="blogID" name="blogID" value="ID">
                             <hr>
                         </td>
 
                     </tr>
-
                     {% endfor %}
 
                 </table>
+
             </form>
 
             <hr>

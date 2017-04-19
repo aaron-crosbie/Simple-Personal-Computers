@@ -29,6 +29,10 @@
             width: 100%;
         }
 
+        .row div{
+            display: inline-block;
+        }
+
         #case_side{
             border: 2px solid black;
         }
@@ -39,9 +43,6 @@
             position: absolute;
             top: 145px;
             left: 130px;
-
-
-            background-color: lightblue;
 
             width: 60px;
             height: 60px;
@@ -151,7 +152,18 @@
             border: 2px solid black;
         }
 
-        #start1, #start2{
+        #draggableCase1, #draggableCase2, #draggableCase3, #draggableCase4, #draggableCase5,
+        #draggableCase6, #draggableCase7, #draggableCase8, #draggableCase9, #draggableCase10{
+            z-index: 1000;
+            width: 10%;
+            height: 50px;
+            padding: 0.5em;
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+
+        #start1, #start2, #quitQuiz1, #quitQuiz2{
             height: 50%;
             text-decoration: none;
             color: aliceblue;
@@ -159,6 +171,17 @@
             border-radius: 10px;
             padding: 10px 40px 10px 40px;
             background-color: #0077b3;
+        }
+
+        #start1:hover, #start2:hover, #quitQuiz1:hover, #quitQuiz2:hover{
+            height: 50%;
+            text-decoration: none;
+            color: aliceblue;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 10px 40px 10px 40px;
+            background-color: #75a0f0;
+            transition: 0.5s;
         }
     </style>
 {% endblock %}
@@ -181,7 +204,7 @@
 <div id="shown">
     <div>
         <a href="#" id="componentThat"><h2>Learn</h2></a>
-        <p style="text-align: center">Check out our videos on how to build your computer from scratch!</p>
+        <p style="text-align: center">Check out our quizes which will help you to build your own PC!</p>
 
     </div>
     <div>
@@ -200,12 +223,13 @@
             <button id="start1">Start</button>
         <br><br>
         <div id="quizHnD2">
-            <h1>Quiz 2</h1><h3>- drag onto case</h3>
+            <h1>Quiz 2</h1><h3>- drag onto a case</h3>
         </div>
             <button id="start2">Start</button>
     </div>
         <div id="quiz1" hidden>
-            <div><h3>Time Left <span id="time">5</span> seconds!</h3></div>
+            <div><button id="quitQuiz1">Quit</button></div>
+            <div><h3>Time Left <span id="timeQuiz1">60</span> seconds!</h3></div>
             <div class="row">
                 <div id="draggable" class="ui-widget-content" data-id-group="cpuQuiz1">
                     <p id="dragText">Processor</p>
@@ -311,23 +335,55 @@
             </div>
         </div>
         <div id="quiz2" hidden>
-            <button id="backPls">Back</button>
-            <div id="draggableCase1" class="ui-widget-content" data-id-group="cpuQuiz2" style="position: relative;">
-                <p id="dragText">Processor</p>
+            <button id="quitQuiz2">Quit</button>
+            <div><h3>Time Left <span id="timeQuiz2">60</span> seconds!</h3></div>
+            <div class="row">
+                <div id="draggableCase1" class="ui-widget-content" data-id-group="cpuQuiz2">
+                    <p id="dragText">CPU</p>
+                </div>
+                <div id="draggableCase2" class="ui-widget-content" data-id-group="ramQuiz2">
+                    <p id="dragText">RAM</p>
+                </div>
+                <div id="draggableCase3" class="ui-widget-content" data-id-group="gpuQuiz2">
+                    <p id="dragText">GPU</p>
+                </div>
+                <div id="draggableCase4" class="ui-widget-content" data-id-group="psuQuiz2">
+                    <p id="dragText">PSU</p>
+                </div>
+                <div id="draggableCase5" class="ui-widget-content" data-id-group="fanQuiz2">
+                    <p id="dragText">Fan Cooling</p>
+                </div>
+            </div>
+            <div class="row">
+                <div id="draggableCase6" class="ui-widget-content" data-id-group="coolQuiz2">
+                    <p id="dragText">LiquidCooling</p>
+                </div>
+                <div id="draggableCase7" class="ui-widget-content" data-id-group="hddQuiz2">
+                    <p id="dragText">HDD</p>
+                </div>
+                <div id="draggableCase8" class="ui-widget-content" data-id-group="ssdQuiz2">
+                    <p id="dragText">SSD</p>
+                </div>
+                <div id="draggableCase9" class="ui-widget-content" data-id-group="cdQuiz2">
+                    <p id="dragText">CD/DVD-ROM</p>
+                </div>
+                <div id="draggableCase10" class="ui-widget-content" data-id-group="moboQuiz2">
+                    <p id="dragText">Motherboard</p>
+                </div>
             </div>
             <div id="caseMap">
                 <img src="images/case_side.png" id="case_side">
                 <div id="droppableCase1" class="ui-widget-header" data-id-group="cpuQuiz2"></div>
-                <div id="droppableCase2" class="ui-widget-header"></div>
-                <div id="droppableCase3" class="ui-widget-header"></div>
-                <div id="droppableCase4" class="ui-widget-header"></div>
-                <div id="droppableCase5" class="ui-widget-header"></div>
-                <div id="droppableCase6" class="ui-widget-header"></div>
-                <div id="droppableCase7" class="ui-widget-header"></div>
-                <div id="droppableCase8" class="ui-widget-header"></div>
-                <div id="droppableCase9" class="ui-widget-header"></div>
+                <div id="droppableCase2" class="ui-widget-header" data-id-group="ramQuiz2"></div>
+                <div id="droppableCase3" class="ui-widget-header" data-id-group="gpuQuiz2"></div>
+                <div id="droppableCase4" class="ui-widget-header" data-id-group="psuQuiz2"></div>
+                <div id="droppableCase5" class="ui-widget-header" data-id-group="fanQuiz2"></div>
+                <div id="droppableCase6" class="ui-widget-header" data-id-group="coolQuiz2"></div>
+                <div id="droppableCase7" class="ui-widget-header" data-id-group="hddQuiz2"></div>
+                <div id="droppableCase8" class="ui-widget-header" data-id-group="ssdQuiz2"></div>
+                <div id="droppableCase9" class="ui-widget-header" data-id-group="cdQuiz2"></div>
                 <div id="droppableCase10" class="ui-widget-header"><img src="images/arrow.png"></div>
-                <div id="droppableCase11" class="ui-widget-header"></div>
+                <div id="droppableCase11" class="ui-widget-header" data-id-group="moboQuiz2"></div>
             </div>
         </div>
     </div>
@@ -511,13 +567,51 @@
 
         <script type="text/javascript">
 
-                var counter = 0;
+                var counterQuiz1 = 0;
+                var counterQuiz2 = 0;
                 var timeCount;
 
-                $("#draggableCase1").draggable({revert: "invalid"}).css("position", "relative");
-                $( "#droppableCase1" ).droppable({
+                var allDragCaseComp = $("#draggableCase1, #draggableCase2, #draggableCase3, #draggableCase4, #draggableCase5," +
+                    "#draggableCase6, #draggableCase7, #draggableCase8, #draggableCase9, #draggableCase10");
+                var allDropCaseComp = $("#droppableCase1, #droppableCase2, #droppableCase3, #droppableCase4, #droppableCase5," +
+                    "#droppableCase6, #droppableCase7, #droppableCase8, #droppableCase9, #droppableCase11");
+
+
+                allDragCaseComp.draggable({
+                    revert: "invalid",
+                    cursor: "move",
+                    cursorAt: { top: 30, left: 70 }}).css("position", "relative");
+                allDropCaseComp.droppable({
+                    accept:  function (draggable) {
+                        var id_group_drop, id_group_drag;
+
+                        //get the "id_group" stored in a data-attribute of the draggable
+                        id_group_drag = $(draggable).attr("data-id-group");
+
+                        //get the "id_group" stored in a data-attribute of the droppable
+                        id_group_drop = $(this).attr("data-id-group");
+
+                        //compare the id_groups, return true if they match or false otherwise
+                        return id_group_drop == id_group_drag;
+                    },
                     drop: function( event, ui ) {
-                        $( this ).addClass( "ui-state-highlight" );
+                        $( this ).css('visibility', 'hidden');
+                        ui.draggable.css('visibility', 'hidden');
+                        counterQuiz2++;
+
+                        if(ui.draggable.is('#draggableCase10')){
+                            $('#droppableCase10').css('visibility', 'hidden');
+                        }
+
+                        if(counterQuiz2 == 10){
+                            clearInterval(timeCount);
+                            alert("Success!\nScore: "+counterQuiz2+"/10");
+                            //$("#droppable").draggable({revert:true});
+                            counterQuiz2 = 0;
+                            $("#quiz2").hide(500);
+                            $("#start1, #quizHnD1, #start2").show(500);
+                            allDragCaseComp.css({"left": "0", "top": "0"});
+                        }
                     }
                 });
 
@@ -525,32 +619,51 @@
                     "#draggable5, #draggable6, #draggable7, #draggable8,"+
                     "#draggable9, #draggable10, #draggable11, #draggable12" );
 
-                allDragComp.draggable({ revert: "invalid" });
+                allDragComp.draggable({
+                    revert: "invalid",
+                    cursor: "move",
+                    cursorAt: { top: 50, left: 60 }});
 
 
                 var allDropComp = $("#droppable, #droppable2, #droppable3, #droppable4, " +
                     "#droppable5, #droppable6, #droppable7, #droppable8,"+
-                    "#droppable9, #droppable10, #droppable11, #droppable12, #droppableCase1" );
+                    "#droppable9, #droppable10, #droppable11, #droppable12" );
 
-                function startTimer(duration, display) {
-                    var timer = duration, minutes, seconds;
+                function startTimerQuiz1(duration, display) {
+                    var timer = duration, seconds;
                     timeCount = setInterval(function () {
-                        minutes = parseInt(timer / 60, 10);
                         seconds = parseInt(timer % 60, 10);
-
-                        minutes = minutes < 10 ? "0" + minutes : minutes;
 
                         display.textContent = seconds;
 
                         if (--timer < 0){
-                            alert("Quiz Failed.\nScore: "+ counter +"/12\nTry Again.");
-                            counter = 0;
+                            alert("Quiz Failed.\nScore: "+ counterQuiz1 +"/12\nTry Again.");
+                            counterQuiz1 = 0;
                             $("#quiz1").hide(500);
                             $("#start1, #quizHnD2, #start2").show(500);
                             clearInterval(timeCount);
-                            display.textContent = "5";
+                            display.textContent = "60";
                             allDragComp.css({"left": "0", "top": "0"});
                             allDropComp.removeClass("ui-state-highlight");
+                        }
+                    }, 1000);
+                }
+
+                function startTimerQuiz2(duration, display) {
+                    var timer = duration, seconds;
+                    timeCount = setInterval(function () {
+                        seconds = parseInt(timer % 60, 10);
+
+                        display.textContent = seconds;
+
+                        if (--timer < 0){
+                            alert("Quiz Failed.\nScore: "+ counterQuiz2 +"/10\nTry Again.");
+                            counterQuiz2 = 0;
+                            $("#quiz2").hide(500);
+                            $("#start1, #quizHnD1, #start2").show(500);
+                            clearInterval(timeCount);
+                            display.textContent = "60";
+                            allDragCaseComp.css({"left": "0", "top": "0"});
                         }
                     }, 1000);
                 }
@@ -570,12 +683,13 @@
                     },
                     drop: function( event, ui ) {
                         $(this).addClass('ui-state-highlight');
-                        counter++;
-                        if(counter == 12){
+                        ui.draggable.css('visibility', 'hidden');
+                        counterQuiz1++;
+                        if(counterQuiz1 == 12){
                             clearInterval(timeCount);
-                            alert("Success!\nScore: "+counter+"/12");
+                            alert("Success!\nScore: "+counterQuiz1+"/12");
                             //$("#droppable").draggable({revert:true});
-                            counter = 0;
+                            counterQuiz1 = 0;
                             $("#quiz1").hide(500);
                             $("#start1, #quizHnD2, #start2").show(500);
                             allDragComp.css({"left": "0", "top": "0"});
@@ -588,17 +702,37 @@
                 $( "#start1" ).click(function() {
                     $("#quiz1").show(500);
                     $("#start1, #quizHnD2, #start2").hide(500);
-                    var fiveMinutes = 5,
-                        display = document.querySelector('#time');
-                    startTimer(fiveMinutes, display);
+                    allDragComp.css('visibility', 'visible');
+                    var sixtySec = 59,
+                        display1 = document.querySelector('#timeQuiz1');
+                    startTimerQuiz1(sixtySec, display1);
                 });
 
                 $( "#start2" ).click(function() {
                     $("#quiz2").show(500);
                     $("#start2, #quizHnD1, #start1").hide(500);
+                    allDropCaseComp.css('visibility', 'visible');
+                    allDragCaseComp.css('visibility', 'visible');
+                    var thirtySec = 59,
+                        display2 = document.querySelector('#timeQuiz2');
+                    startTimerQuiz2(thirtySec, display2);
                 });
 
-                $( "#backPls" ).click(function() {
+                $( "#quitQuiz1" ).click(function() {
+                    alert("You have failed the quiz.");
+                    clearInterval(timeCount);
+                    counterQuiz1 = 0;
+                    allDragComp.css({"left": "0", "top": "0"});
+                    allDropComp.removeClass("ui-state-highlight");
+                    $("#quiz1").hide(500);
+                    $("#start2, #quizHnD2, #start1").show(500);
+                });
+
+                $( "#quitQuiz2" ).click(function() {
+                    alert("You have failed the quiz.");
+                    clearInterval(timeCount);
+                    allDragCaseComp.css({"left": "0", "top": "0"});
+                    counterQuiz2 = 0;
                     $("#quiz2").hide(500);
                     $("#start2, #quizHnD1, #start1").show(500);
                 });
@@ -676,27 +810,27 @@
                 });
 
                 $(document).on('click', '.cancelBut', function() {
-                    if(hasProc){
+                    if(hasProc && $(this).parent().attr('data-item-type') === 'procItem'){
                         $("#sortable1").find("li[data-item-type='procItem']").removeClass('ui-state-disabled');
                         hasProc = false;
                         $(this).parent().remove();
                     }
-                    else if(hasMobo){
+                    else if(hasMobo  && $(this).parent().attr('data-item-type') === 'moboItem'){
                         $("#sortable3").find("li[data-item-type='moboItem']").removeClass('ui-state-disabled');
                         hasMobo = false;
                         $(this).parent().remove();
                     }
-                    else if(hasPsu){
+                    else if(hasPsu  && $(this).parent().attr('data-item-type') === 'psuItem'){
                         $("#sortable6").find("li[data-item-type='psuItem']").removeClass('ui-state-disabled');
                         hasPsu = false;
                         $(this).parent().remove();
                     }
-                    else if(hasCase){
+                    else if(hasCase  && $(this).parent().attr('data-item-type') === 'caseItem'){
                         $("#sortable9").find("li[data-item-type='caseItem']").removeClass('ui-state-disabled');
                         hasCase = false;
                         $(this).parent().remove();
                     }
-                    else if(hasGpu < 2){
+                    else if(hasGpu < 2  && $(this).parent().attr('data-item-type') === 'gpuItem'){
                         $("#sortable2").find("li[data-item-type='gpuItem']").removeClass('ui-state-disabled');
                         hasGpu--;
                         $(this).parent().remove();

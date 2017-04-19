@@ -23,7 +23,7 @@
 
             {#<h4>Name</h4> <input type="text" id="name" value="{{ app.session.get('username')}}" contenteditable="false">#}
 
-            <p>The google tracking code is: {{ ga_tracking }}</p>
+            <a href="{{ asset('uploads/profileImage_directory/' ~ product.profileImage) }}">View Profile Image </a>
         </form>
 
     </div>

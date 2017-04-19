@@ -3,155 +3,147 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use AppBundle\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\BrowserKit\Response;
-use Symfony\Component\Finder\Exception\AccessDeniedException;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Controller\DefaultController;
 use Symfony\Component\HttpFoundation\Session\Session;
 
+/**
+ * User controller.
+ *
+ * @Route("user")
+ */
 class UserController extends Controller
 {
 
+
     /**
-     * @Route("/login", name="login")
+     * Lists all user entities.
+     *
+     * @Route("/", name="user_index")
+     * @Method("GET")
      */
-    public function loginAction(Request $request)
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $users = $em->getRepository('AppBundle:User')->findAll();
+
+        return $this->render('user/index.html.twig', array(
+            'users' => $users,
+        ));
+    }
+
+    /**
+     * Creates a new user entity.
+     *
+     * @Route("/new", name="user_new")
+     * @Method({"GET", "POST"})
+     */
+    public function newAction(Request $request)
     {
         $user = new User();
-        $name = $request->request->get('username');
-        $password = $request->request->get('password');
+        $form = $this->createForm('AppBundle\Form\UserType', $user);
+        $form->handleRequest($request);
 
-        $data = new DbManager();
-        $data -> authenticateUser($name, $password);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
 
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ]);
-    }
-
-    /**
-     * @Route("/logout", name="logout")
-     */
-    public function logoutAction(Request $request)
-    {
-        $session = new Session();
-        $session ->remove('username');
-
-        return $this->redirect('/');
-    }
-
-
-
-
-
-    /**
-     * @Route("/users/list", name="user_list")
-     */
-    public function listAction(Request $request)
-    {
-        $userRepository = $this->getDoctrine()->getRepository('AppBundle:User');
-        $users= $userRepository->findAll();
-        $argsArray = [
-            'users' => $users
-        ];
-        $templateName = 'users/list';
-        return $this->render($templateName . '.html.twig', $argsArray);
-    }
-
-    /**
-     * @Route("/users/create/{name}, {password}", name="users_create")
-     * @param $name
-     * @param $password
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function createAction($name, $password)
-    {
-        $user = new User();
-        $user->setName($name);
-        $user->setPassword($password);
-
-        $em = $this->getDoctrine()->getManager();
-        // tells Doctrine you want to (eventually) save the Student (no queries yet)
-        $em->persist($user);
-        // actually executes the queries (i.e. the INSERT query)
-        $em->flush();
-//        return new Response('Created new student with id '.$student->getId());
-        return $this->redirectToRoute('user_list');
-    }
-
-    /**
-     * @Route("/users/delete/{id}", name="users_delete")
-     * @param $id
-     * @return Response
-     */
-    public function deleteAction($id)
-    {
-        // entity manager
-        $em = $this->getDoctrine()->getManager();
-        $userRepository = $em->getRepository('AppBundle:User');
-        // find thge student with this ID
-        $user = $userRepository->find($id);
-        if (!$user) {
-            throw $this->createNotFoundException(
-                'No student found for id '.$id
-            );
+            return $this->redirectToRoute('user_show', array('id' => $user->getId()));
         }
-        // tells Doctrine you want to (eventually) delete the Student (no queries yet)
-        $em->remove($user);
-        // actually executes the queries (i.e. the INSERT query)
-        $em->flush();
-        return new Response('Deleted user with id '.$id);
+
+        return $this->render('user/new.html.twig', array(
+            'user' => $user,
+            'form' => $form->createView(),
+        ));
     }
 
+//    /**
+//     * Finds and displays a user entity.
+//     *
+//     * @Route("/{id}", name="user_show")
+//     * @Method("GET")
+//     */
+//    public function showAction(User $user)
+//    {
+//        $deleteForm = $this->createDeleteForm($user);
+//
+//        return $this->render('user/show.html.twig', array(
+//            'user' => $user,
+//            'delete_form' => $deleteForm->createView(),
+//        ));
+//    }
+
     /**
-     * @Route("/users/show/{id}", name="users_show")
-     * @param $id
-     * @return \Symfony\Component\HttpFoundation\Response
+     * Displays a form to edit an existing user entity.
+     *
+     * @Route("/{id}/edit", name="user_edit")
+     * @Method({"GET", "POST"})
      */
-    public function showAction($id)
+    public function editAction(Request $request, User $user)
     {
-        $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('AppBundle:User')->find($id);
-        if (!$user) {
-            throw $this->createNotFoundException(
-                'No user found for id '.$id
-            );
+        $deleteForm = $this->createDeleteForm($user);
+        $editForm = $this->createForm('AppBundle\Form\UserType', $user);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('user_edit', array('id' => $user->getId()));
         }
-        $argsArray = [
-            'user' => $user
-        ];
-        $templateName = 'users/show';
-        return $this->render($templateName . '.html.twig', $argsArray);
+
+        return $this->render('user/edit.html.twig', array(
+            'user' => $user,
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
     }
 
     /**
-     * @Route("/users/processNewForm", name="users_process_new_form")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * Deletes a user entity.
+     *
+     * @Route("/{id}", name="user_delete")
+     * @Method("DELETE")
      */
-    public function processNewFormAction(Request $request)
+    public function deleteAction(Request $request, User $user)
     {
-        // extract 'name' parameter from POST data
-        $name = $request->request->get('name');
-        $password = $request->request->get('password');
-        if(empty($name)){
-            $this->addFlash(
-                'error',
-                'user name cannot be an empty string'
-            );
-            // forward this to the createAction() method
-            return $this->newFormAction($request);
+        $form = $this->createDeleteForm($user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($user);
+            $em->flush();
         }
-        // forward this to the createAction() method
-        return $this->createAction($name, $password);
+
+        return $this->redirectToRoute('user_index');
     }
 
     /**
-     * @Route("/users/new", name="users_new_form")
+     * Creates a form to delete a user entity.
+     *
+     * @param User $user The user entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(User $user)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('user_delete', array('id' => $user->getId())))
+            ->setMethod('DELETE')
+            ->getForm()
+        ;
+    }
+
+
+
+
+    /**
+     * @Route("/user/new", name="users_new_form")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -173,58 +165,5 @@ class UserController extends Controller
         $templateName = 'users/new';
         return $this->render($templateName . '.html.twig');
     }
-//
-    /**
-     * @Route("/register")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function registerUser(Request $request)
-    {
-//        session_start();
-        $data = new DbManager();
-        $data -> generateDatabase();
 
-        // create a task and give it some dummy data for this example
-        $user = new User();
-
-        $fname = $request->request->get('name');
-        $user -> setName($fname);
-
-        $sname = $request->request->get('sname');
-        $user -> setSName($sname);
-
-        $email = $request->request->get('email');
-//        $user -> setEmail($email);
-
-        $username = $request->request->get('username');
-        $user -> setUsername($username);
-
-        $password = $request->request->get('password');
-        $user -> setPassword($password);
-
-        $dob = $request->request->get('dob');
-        $user -> setAge($dob);
-
-        $mobile = $request->request->get('mobile');
-        $user -> setNumber($mobile);
-
-        $addL1 = $request->request->get('addL1');
-//        $user -> setAge($addL1);
-
-        $addL2 = $request->request->get('addL2');
-//        $user -> setAge($addL2);
-
-        $addL3 = $request->request->get('addL3');
-//        $user -> setAge($addL3);
-
-//        $addL1 = $request->request->get('addL1');
-//        $user -> setAddress($addL1);
-
-
-        $data -> addUser($username, $fname, $mobile , $email, $dob, $addL1, $addL2, $addL3, $password );
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ]);
-    }
 }

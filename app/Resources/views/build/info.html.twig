@@ -1,0 +1,787 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Component Information{%  endblock %}
+
+{% block body %}
+
+<div id="mainContent">
+
+<h1>Component Information</h1>
+
+    <div id="compInfo">
+
+        <ul>
+
+            <li><button id="case1">Computer Case</button></li>
+
+            <li><button id="cool">Cooling system</button></li>
+
+            <li><button id="cpu">CPU</button></li>
+
+            <li><button id="gpu">GPU</button></li>
+
+            <li><a id="hdd" href="#"><button>HDD</button></a></li>
+
+            <li><a id="key" href="#"><button>Keyboard</button></a></li>
+
+            <li><a id="monitor" href="#"><button>Monitor</button></a></li>
+
+            <li><a id="moth" href="#"><button>Motherboard</button></a></li>
+
+            <li><a id="mouse" href="#"><button>Mouse</button></a></li>
+
+            <li><a id="psu" href="#"><button>PSU</button></a></li>
+
+            <li><a id="ram" href="#"><button>RAM</button></a></li>
+
+            <li><a id="ssd" href="#"><button>SSD</button></a></li>
+
+        </ul>
+
+    </div>
+
+    {#---------------------------------------------------------------------#}
+    {#------------------------------CASE-----------------------------------#}
+    {#---------------------------------------------------------------------#}
+    <style>
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Modal Header */
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        /* Modal Body */
+        .modal-body {padding: 2px 16px;}
+
+        /* Modal Footer */
+        .modal-footer {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+
+        @keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+    </style>
+
+    <!-- Trigger/Open The Modal -->
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <img src="/images/fewfans.jpg">
+            </div>
+            <div class="modal-footer">
+                <h3>Modal Footer</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the button that opens the modal
+
+        var case1 = document.getElementById("case1");
+        var cool = document.getElementById("cool");
+        var cpu = document.getElementById("cpu");
+        var gpu = document.getElementById("gpu");
+        var hhd = document.getElementById("hhd");
+        var key = document.getElementById("key");
+        var mon = document.getElementById("mon");
+        var moth = document.getElementById("moth");
+        var mouse = document.getElementById("mouse");
+        var psu = document.getElementById("psu");
+        var ram = document.getElementById("ram");
+        var ssd = document.getElementById("ssd");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        cool.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        case1.onclick = function() {
+            modal.style.display = "block";
+        }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+
+
+    {#------------------------------------------------------------------------#}
+    {#------------------------------COOLING-----------------------------------#}
+    {#------------------------------------------------------------------------#}
+
+    <div id="coolShow" class="thisDivClose" hidden>
+        <h2>Cooling</h2>
+
+        <hr>
+
+        <h3>What is it?</h3>
+
+        <p>
+            Cooling is necessary within a computer, to remove any excess or waste heat.
+            <br>
+            <strong>Basically: </strong><i>Cools your computer</i>
+        </p>
+
+        <h3>Why is it important?</h3>
+
+        <ul>
+            <li>Any computer can reach very high temperatures
+                <br>
+                of heat,and that needs to be taken care of
+            </li>
+
+            <li><i>It'll go on fire without it. <strike>Take out the fans, overclock your CPU and see</strike></i></li>
+            <li>Components are susceptible to malfunction if there is too much heat</li>
+        </ul>
+
+        <h3>Different Types</h3>
+
+        <div style="display: flex">
+
+            <section style="padding: 2%">
+
+                <p>Fan Cooling</p>
+
+                <img src="/images/fewfans.jpg">
+
+            </section>
+
+
+            <section style="padding: 2%">
+
+                <p>Liquid Cooling</p>
+
+                <img src="/images/liquid.jpg">
+
+            </section>
+
+        </div>
+
+        <button type="button" class="back" >Back</button>
+    </div>
+
+    {#--------------------------------------------------------------------#}
+    {#------------------------------CPU-----------------------------------#}
+    {#--------------------------------------------------------------------#}
+
+
+    <div id="cpuShow" class="thisDivClose" hidden>
+
+        <h2>CPU - Computer brain</h2>
+
+        <hr>
+
+        <h3>What is it?</h3>
+
+        <p>
+            Electronic circuitry on top of the motherboard that carries out instructions to the computer.
+            <br>
+            <strong>Basically: </strong><i>CPU: Do this! PC: Sure..</i>
+        </p>
+
+        <h3>Why is it important?</h3>
+
+        <ul>
+            <li>The CPU performs any logical / arithmetic or control
+                <br>
+                based instructions to accomplish the user given action.
+            </li>
+
+            <li><i>Computer would be as good as dead<strike>Take it out and launch the PC</strike></i></li>
+
+            <li>The better the cache handling is, the better the CPU perfomance will be</li>
+        </ul>
+
+        <h3>Looks</h3>
+
+        <div style="display: flex">
+
+            <section style="padding: 2%">
+
+                <p>Front and back view of an Intel i7 - 4500 </p>
+
+                <img src="/images/i7.jpg">
+
+            </section>
+
+
+            <section style="padding: 2%">
+
+                <p>CPU is located within the motherboard</p>
+
+                <img src="/images/cpu_loc.jpg">
+
+            </section>
+
+        </div>
+
+        <button type="button" class="back" >Back</button>
+    </div>
+
+    {#--------------------------------------------------------------------#}
+    {#------------------------------GPU-----------------------------------#}
+    {#--------------------------------------------------------------------#}
+
+    <div id="gpuShow" class="thisDivClose" hidden>
+
+        <h2>Graphics card - Computer brain</h2>
+
+        <hr>
+
+        <h3>What is it?</h3>
+
+        <p>
+            Cooling is necessary within a computer, to remove any excess or waste heat.
+            <br>
+            <strong>Basically: </strong><i>Cools your computer</i>
+        </p>
+
+        <h3>Why is it important?</h3>
+
+        <ul>
+            <li>Any computer can reach very high temperatures
+                <br>
+                of heat,and that needs to be taken care of
+            </li>
+
+            <li><i>It'll go on fire without it. <strike>Take out the fans, overclock your CPU and see</strike></i></li>
+            <li>Components are susceptible to malfunction if there is too much heat</li>
+        </ul>
+
+        <h3>Different Types</h3>
+
+        <div style="display: flex">
+
+            <section style="padding: 2%">
+
+                <p>Fan Cooling</p>
+
+                <img src="/images/fewfans.jpg">
+
+            </section>
+
+
+            <section style="padding: 2%">
+
+                <p>Liquid Cooling</p>
+
+                <img src="/images/liquid.jpg">
+
+            </section>
+
+        </div>
+
+        <button type="button" class="back" >Back</button>
+    </div>
+
+    <div id="hddShow" class="thisDivClose" hidden>
+
+        <h2>CPU - Computer brain</h2>
+
+        <hr>
+
+        <h3>What is it?</h3>
+
+        <p>
+            Cooling is necessary within a computer, to remove any excess or waste heat.
+            <br>
+            <strong>Basically: </strong><i>Cools your computer</i>
+        </p>
+
+        <h3>Why is it important?</h3>
+
+        <ul>
+            <li>Any computer can reach very high temperatures
+                <br>
+                of heat,and that needs to be taken care of
+            </li>
+
+            <li><i>It'll go on fire without it. <strike>Take out the fans, overclock your CPU and see</strike></i></li>
+            <li>Components are susceptible to malfunction if there is too much heat</li>
+        </ul>
+
+        <h3>Different Types</h3>
+
+        <div style="display: flex">
+
+            <section style="padding: 2%">
+
+                <p>Fan Cooling</p>
+
+                <img src="/images/fewfans.jpg">
+
+            </section>
+
+
+            <section style="padding: 2%">
+
+                <p>Liquid Cooling</p>
+
+                <img src="/images/liquid.jpg">
+
+            </section>
+
+        </div>
+
+        <button type="button" class="back" >Back</button>
+    </div>
+
+    <div id="keyShow" class="thisDivClose" hidden>
+
+        <h2>CPU - Computer brain</h2>
+
+        <hr>
+
+        <h3>What is it?</h3>
+
+        <p>
+            Cooling is necessary within a computer, to remove any excess or waste heat.
+            <br>
+            <strong>Basically: </strong><i>Cools your computer</i>
+        </p>
+
+        <h3>Why is it important?</h3>
+
+        <ul>
+            <li>Any computer can reach very high temperatures
+                <br>
+                of heat,and that needs to be taken care of
+            </li>
+
+            <li><i>It'll go on fire without it. <strike>Take out the fans, overclock your CPU and see</strike></i></li>
+            <li>Components are susceptible to malfunction if there is too much heat</li>
+        </ul>
+
+        <h3>Different Types</h3>
+
+        <div style="display: flex">
+
+            <section style="padding: 2%">
+
+                <p>Fan Cooling</p>
+
+                <img src="/images/fewfans.jpg">
+
+            </section>
+
+
+            <section style="padding: 2%">
+
+                <p>Liquid Cooling</p>
+
+                <img src="/images/liquid.jpg">
+
+            </section>
+
+        </div>
+
+        <button type="button" class="back" >Back</button>
+    </div>
+
+    <div id="monitorShow" class="thisDivClose" hidden>
+
+        <h2>CPU - Computer brain</h2>
+
+        <hr>
+
+        <h3>What is it?</h3>
+
+        <p>
+            Cooling is necessary within a computer, to remove any excess or waste heat.
+            <br>
+            <strong>Basically: </strong><i>Cools your computer</i>
+        </p>
+
+        <h3>Why is it important?</h3>
+
+        <ul>
+            <li>Any computer can reach very high temperatures
+                <br>
+                of heat,and that needs to be taken care of
+            </li>
+
+            <li><i>It'll go on fire without it. <strike>Take out the fans, overclock your CPU and see</strike></i></li>
+            <li>Components are susceptible to malfunction if there is too much heat</li>
+        </ul>
+
+        <h3>Different Types</h3>
+
+        <div style="display: flex">
+
+            <section style="padding: 2%">
+
+                <p>Fan Cooling</p>
+
+                <img src="/images/fewfans.jpg">
+
+            </section>
+
+
+            <section style="padding: 2%">
+
+                <p>Liquid Cooling</p>
+
+                <img src="/images/liquid.jpg">
+
+            </section>
+
+        </div>
+
+        <div id="mothShow" class="thisDivClose" hidden>
+
+            <h2>CPU - Computer brain</h2>
+
+            <hr>
+
+            <h3>What is it?</h3>
+
+            <p>
+                Cooling is necessary within a computer, to remove any excess or waste heat.
+                <br>
+                <strong>Basically: </strong><i>Cools your computer</i>
+            </p>
+
+            <h3>Why is it important?</h3>
+
+            <ul>
+                <li>Any computer can reach very high temperatures
+                    <br>
+                    of heat,and that needs to be taken care of
+                </li>
+
+                <li><i>It'll go on fire without it. <strike>Take out the fans, overclock your CPU and see</strike></i></li>
+                <li>Components are susceptible to malfunction if there is too much heat</li>
+            </ul>
+
+            <h3>Different Types</h3>
+
+            <div style="display: flex">
+
+                <section style="padding: 2%">
+
+                    <p>Fan Cooling</p>
+
+                    <img src="/images/fewfans.jpg">
+
+                </section>
+
+
+                <section style="padding: 2%">
+
+                    <p>Liquid Cooling</p>
+
+                    <img src="/images/liquid.jpg">
+
+                </section>
+
+            </div>
+
+            <button type="button" class="back" >Back</button>
+        </div>
+
+        <div id="mouseShow" class="thisDivClose" hidden>
+
+            <h2>CPU - Computer brain</h2>
+
+            <hr>
+
+            <h3>What is it?</h3>
+
+            <p>
+                Cooling is necessary within a computer, to remove any excess or waste heat.
+                <br>
+                <strong>Basically: </strong><i>Cools your computer</i>
+            </p>
+
+            <h3>Why is it important?</h3>
+
+            <ul>
+                <li>Any computer can reach very high temperatures
+                    <br>
+                    of heat,and that needs to be taken care of
+                </li>
+
+                <li><i>It'll go on fire without it. <strike>Take out the fans, overclock your CPU and see</strike></i></li>
+                <li>Components are susceptible to malfunction if there is too much heat</li>
+            </ul>
+
+            <h3>Different Types</h3>
+
+            <div style="display: flex">
+
+                <section style="padding: 2%">
+
+                    <p>Fan Cooling</p>
+
+                    <img src="/images/fewfans.jpg">
+
+                </section>
+
+
+                <section style="padding: 2%">
+
+                    <p>Liquid Cooling</p>
+
+                    <img src="/images/liquid.jpg">
+
+                </section>
+
+            </div>
+
+            <button type="button" class="back" >Back</button>
+        </div>
+
+        <div id="psuShow" class="thisDivClose" hidden>
+
+            <h2>CPU - Computer brain</h2>
+
+            <hr>
+
+            <h3>What is it?</h3>
+
+            <p>
+                Cooling is necessary within a computer, to remove any excess or waste heat.
+                <br>
+                <strong>Basically: </strong><i>Cools your computer</i>
+            </p>
+
+            <h3>Why is it important?</h3>
+
+            <ul>
+                <li>Any computer can reach very high temperatures
+                    <br>
+                    of heat,and that needs to be taken care of
+                </li>
+
+                <li><i>It'll go on fire without it. <strike>Take out the fans, overclock your CPU and see</strike></i></li>
+                <li>Components are susceptible to malfunction if there is too much heat</li>
+            </ul>
+
+            <h3>Different Types</h3>
+
+            <div style="display: flex">
+
+                <section style="padding: 2%">
+
+                    <p>Fan Cooling</p>
+
+                    <img src="/images/fewfans.jpg">
+
+                </section>
+
+
+                <section style="padding: 2%">
+
+                    <p>Liquid Cooling</p>
+
+                    <img src="/images/liquid.jpg">
+
+                </section>
+
+            </div>
+
+            <button type="button" class="back" >Back</button>
+        </div>
+
+        <button type="button" class="back" >Back</button>
+    </div>
+
+    <div id="ramShow" class="thisDivClose" hidden>
+
+        <h2>CPU - Computer brain</h2>
+
+        <hr>
+
+        <h3>What is it?</h3>
+
+        <p>
+            Cooling is necessary within a computer, to remove any excess or waste heat.
+            <br>
+            <strong>Basically: </strong><i>Cools your computer</i>
+        </p>
+
+        <h3>Why is it important?</h3>
+
+        <ul>
+            <li>Any computer can reach very high temperatures
+                <br>
+                of heat,and that needs to be taken care of
+            </li>
+
+            <li><i>It'll go on fire without it. <strike>Take out the fans, overclock your CPU and see</strike></i></li>
+            <li>Components are susceptible to malfunction if there is too much heat</li>
+        </ul>
+
+        <h3>Different Types</h3>
+
+        <div style="display: flex">
+
+            <section style="padding: 2%">
+
+                <p>Fan Cooling</p>
+
+                <img src="/images/fewfans.jpg">
+
+            </section>
+
+
+            <section style="padding: 2%">
+
+                <p>Liquid Cooling</p>
+
+                <img src="/images/liquid.jpg">
+
+            </section>
+
+        </div>
+
+        <button type="button" class="back" >Back</button>
+    </div>
+
+    <div id="ssdShow" class="thisDivClose" hidden>
+
+        <h2>CPU - Computer brain</h2>
+
+        <hr>
+
+        <h3>What is it?</h3>
+
+        <p>
+            Cooling is necessary within a computer, to remove any excess or waste heat.
+            <br>
+            <strong>Basically: </strong><i>Cools your computer</i>
+        </p>
+
+        <h3>Why is it important?</h3>
+
+        <ul>
+            <li>Any computer can reach very high temperatures
+                <br>
+                of heat,and that needs to be taken care of
+            </li>
+
+            <li><i>It'll go on fire without it. <strike>Take out the fans, overclock your CPU and see</strike></i></li>
+            <li>Components are susceptible to malfunction if there is too much heat</li>
+        </ul>
+
+        <h3>Different Types</h3>
+
+        <div style="display: flex">
+
+            <section style="padding: 2%">
+
+                <p>Fan Cooling</p>
+
+                <img src="/images/fewfans.jpg">
+
+            </section>
+
+
+            <section style="padding: 2%">
+
+                <p>Liquid Cooling</p>
+
+                <img src="/images/liquid.jpg">
+
+            </section>
+
+        </div>
+
+        <button type="button" class="back" >Back</button>
+    </div>
+
+
+
+
+</div>
+
+{% endblock %}

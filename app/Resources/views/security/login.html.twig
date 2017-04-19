@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registering{%  endblock %}
+
+{% block body %}
+<div id="mainContent">
+    <div id="loginContent">
+        <div id="loginForm">
+            <h1>Please Login</h1>
+            {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            <form action="{{ path('login') }}" method="post">
+                <table id="loginTable">
+                <tr>
+                    <td><label for="username">Username:</label></td>
+                    <td><input type="text" id="username" name="_username" value="{{ last_username }}" /></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password:</label></td>
+                    <td><input type="password" id="password" name="_password" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit" id="loginButton">Login</button></td>
+                </tr>
+                </table>
+            </form>
+        </div>
+        <div id="registerSide">
+            <h2>Don't have an account yet?</h2>
+            <button id="registerButton">Register</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,128 +1,197 @@
 <?php
+
 namespace AppBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\HttpFoundation\File\File;
 /**
  * @ORM\Entity
- * @ORM\Table(name="users")
+ * @UniqueEntity(fields="email", message="Email already taken")
+ * @UniqueEntity(fields="username", message="Username already taken")
  */
-class User
+class User implements UserInterface
 {
     /**
-     * @ORM\Column(type="integer")
      * @ORM\Id
+     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $name;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
-    private $password;
+    private $email;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $sname;
-
-    /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
      */
     private $username;
 
     /**
-     * @ORM\Column(type="integer", length=2)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
      */
-    private $age;
+    private $plainPassword;
 
     /**
-     * @ORM\Column(type="integer", length=10)
+     * The below length depends on the "algorithm" you use for encoding
+     * the password, but this works well with bcrypt.
+     *
+     * @ORM\Column(type="string", length=64)
      */
-    private $number;
+    private $password;
 
+    /**
+    *
+     * @Assert\Image(
+     *     minWidth = 800,
+     *     maxWidth = 1200,
+     *     minHeight = 200,
+     *     maxHeight = 400
+     * )
+     */
+    private $profileImage;
+
+    /**
+     * @param mixed $profileImage
+     * @return $this
+     */
+    public function setProfileImage(File $profileImage = null)
+    {
+        $this->profileImage = $profileImage;
+
+        return $this;
+    }
 
     /**
      * @return mixed
      */
-    public function getSname()
+    public function getProfileImage()
     {
-        return $this->sname;
+        return $this->profileImage;
     }
 
-    /**
-     * @param mixed $sname
-     */
-    public function setSname($sname)
+
+
+
+
+    public function getEmail()
     {
-        $this->sname = $sname;
+        return $this->email;
     }
 
-    /**
-     * @return mixed
-     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
     public function getUsername()
     {
         return $this->username;
     }
 
-    /**
-     * @param mixed $username
-     */
     public function setUsername($username)
     {
         $this->username = $username;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAge()
+    public function getPlainPassword()
     {
-        return $this->age;
+        return $this->plainPassword;
     }
 
-    /**
-     * @param mixed $age
-     */
-    public function setAge($age)
+    public function setPlainPassword($password)
     {
-        $this->age = $age;
+        $this->plainPassword = $password;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getNumber()
-    {
-        return $this->number;
-    }
-
-    /**
-     * @param mixed $number
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-    }
-
-
-    /**
-     * @return mixed
-     */
     public function getPassword()
     {
         return $this->password;
     }
 
-    /**
-     * @param mixed $password
-     */
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    public function getSalt()
+    {
+        // The bcrypt algorithm doesn't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
+    }
+
+    /**
+     * @ORM\Column(name="is_active", type="boolean")
+     */
+    private $isActive;
+
+    public function __construct()
+    {
+        $this->isActive = true;
+        // may not be needed, see section on salt below
+        // $this->salt = md5(uniqid(null, true));
+    }
+
+    // other methods, including security methods like getRoles()
+
+    /**
+     * Returns the roles granted to the user.
+     *
+     * <code>
+     * public function getRoles()
+     * {
+     *     return array('ROLE_USER');
+     * }
+     * </code>
+     *
+     * Alternatively, the roles might be stored on a ``roles`` property,
+     * and populated in any number of different ways when the user object
+     * is created.
+     *
+     * @return (Role|string)[] The user roles
+     */
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function eraseCredentials()
+    {
+
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt
+            ) = unserialize($serialized);
     }
 
     /**
@@ -134,25 +203,28 @@ class User
     {
         return $this->id;
     }
+
     /**
-     * Set name
+     * Set isActive
      *
-     * @param string $name
+     * @param boolean $isActive
      *
      * @return User
      */
-    public function setName($name)
+    public function setIsActive($isActive)
     {
-        $this->name = $name;
+        $this->isActive = $isActive;
+
         return $this;
     }
+
     /**
-     * Get name
+     * Get isActive
      *
-     * @return string
+     * @return boolean
      */
-    public function getName()
+    public function getIsActive()
     {
-        return $this->name;
+        return $this->isActive;
     }
 }

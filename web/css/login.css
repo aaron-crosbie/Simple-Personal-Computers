@@ -1,0 +1,55 @@
+#loginContent{
+    display: flex;
+}
+
+#loginButton{
+    width: 100%;
+    border: none;
+    height: 100%;
+    padding: 5px;
+    background-color: #007399;
+    color: aliceblue;
+    transition: 0.5s;
+}
+
+#loginButton:hover{
+    width: 100%;
+    border: none;
+    height: 100%;
+    padding: 5px;
+    background-color: #75a0f0;
+    color: aliceblue;
+    transition: 0.5s;
+}
+
+#registerButton{
+    height: 30%;
+    width: 80%;
+    border: none;
+    background-color: #007399;
+    color: aliceblue;
+    transition: 0.5s;
+
+}
+
+#registerButton:hover{
+    height: 30%;
+    width: 80%;
+    border: none;
+    background-color: #75a0f0;
+    color: aliceblue;
+    transition: 0.5s;
+}
+
+#loginForm{
+    width: 49%;
+    text-align: left;
+    display: block;
+    border-right: 2px solid #313131;
+}
+
+#registerSide{
+    width: 49%;
+    text-align: center;
+    display: block;
+}
