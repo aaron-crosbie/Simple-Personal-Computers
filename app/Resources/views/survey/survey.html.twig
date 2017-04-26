@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Survey{%  endblock %}
+
+{% block body %}
+<div id="mainContent">
+
+    {% if submission == false %}
+
+    <div class="survey">
+        <section id="gaming">
+            <form class="survey" method="post">
+                <caption>Gaming Build</caption>
+                <br>
+                What is your price range?<br>
+                <input type="radio" name="price" value="800" required> &euro;600-800<br>
+                <input type="radio" name="price" value="1000"> &euro;800-1000<br>
+                <input type="radio" name="price" value="1200"> &euro;1000-1200<br>
+                <input type="radio" name="price" value="2000"> &euro;1200-2000<br>
+                <br>
+                Motherboard preference><br>
+                <input type="radio" name="motherboard" value="asus" required> Asus<br>
+                <input type="radio" name="motherboard" value="msi"> MSI<br>
+                <input type="radio" name="motherboard" value="gigabyte"> Gigabyte<br>
+                CPU preference?<br>
+                <input type="radio" name="cpuPref" value="intel" required> Intel<br>
+                <input type="radio" name="cpuPref" value="amd"> AMD<br>
+                <br>
+                GPU preference?<br>
+                <input type="radio" name="gpuPref" value="nvidia" required> Nvidia<br>
+                <input type="radio" name="gpuPref" value="amd"> AMD<br>
+                <br>
+                Ram requriements?<br>
+                <select name="ram" required>
+                    <option value="4">4GB</option>
+                    <option value="8">8GB</option>
+                    <option value="16">16GB</option>
+                </select>
+                <br><br>
+                Storage space required?<br>
+                <select name="hdd" required>
+                    <option value="1">1TB</option>
+                    <option value="2">2TB</option>
+                    <option value="3">3TB</option>
+                    <option value="4">4TB</option>
+                </select>
+                <br><br>
+                SSD storage?<br>
+                <select name="ssd" required>
+                    <option value="0">No SSD needed</option>
+                    <option value="120">120GB</option>
+                    <option value="250">250GB</option>
+                    <option value="500">500GB</option>
+                </select>
+                <br><br>
+                <span class="surveyButtons"><input type="submit" value="Submit" name="gamesubmit"> <input type="reset"
+                                                                                                          value="Reset"
+                                                                                                          name="reset"></span>
+            </form>
+        </section>
+        <!--***************TESTING DATABASE SUBMISSIONS*****************-->
+        <!--    <form action="survey.php" method="post">-->
+        <!--        fname:-->
+        <!--        <input type="text" width="50" name="fname"><br>-->
+        <!--        lname:-->
+        <!--        <input type="text" width="50" name="lname"><br>-->
+        <!--        num:-->
+        <!--        <input type="number" width="50" name="num1"><br>-->
+        <!--        <input type="submit" name="submit" value="Submit">-->
+        <!--    </form>-->
+    </div>
+{% endif %}
+
+    {% if submission == true %}
+<div id="buildDisplay">
+    <div>
+        <table style="margin-bottom: 20px;">
+            <caption><b>Your Build</b></caption>
+            <tr>
+                <th>Motherboard: </th>
+                <td>{{ testMotherboard }}</td>
+            </tr>
+            <tr>
+                <th>CPU: </th>
+                <td>{{ testCpu }}</td>
+            </tr>
+            <tr>
+                <th>GPU: </th>
+                <td>{{ testGpu }}</td>
+            </tr>
+            <tr>
+                <th>RAM: </th>
+                <td>{{ testRam }}</td>
+            </tr>
+            <tr>
+                <th>HDD: </th>
+                <td>{{ testHdd }}</td>
+            </tr>
+            <tr>
+                <th>SSD: </th>
+                <td>
+                    {% if testSsd != null %}
+                        {{ testSsd }}
+                    {% endif %}
+                </td>
+            </tr>
+
+            <tr>
+                <th>Price: </th>
+                <td>{{ testSpent }}</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <img src="../public/images/case1.jpg" style="width: 80%; border-radius: 4px;">
+    </div>
+</div>
+    {% endif %}
+</div>
+{% endblock %}

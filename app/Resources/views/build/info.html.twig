@@ -1,0 +1,1167 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Component Information{%  endblock %}
+
+{% block body %}
+
+<div id="mainContent">
+
+    <div style="text-align: center" >
+        <h1>Component Information</h1> <p style="color: #989898;"> - Please click the components to find out more</p>
+    </div>
+    <div id="compInfo">
+
+        <table>
+            <tr>
+                <td><a href="#" id="case1">Computer Case</a></td>
+                <td><a href="#" id="cool">Cooling system</a></td>
+                <td><a href="#"  id="cpu">CPU</a></td>
+            </tr>
+
+            <tr>
+                <td><a href="#"  id="gpu">GPU</a></td>
+                <td><a href="#"  id="hdd">HDD</a></td>
+                <td><a href="#"  id="key">Keyboard</a></td>
+            </tr>
+
+            <tr>
+                <td><a href="#"  id="monitor">Monitor</a></td>
+                <td><a href="#"  id="moth">Motherboard</a></td>
+                <td><a href="#"  id="mouse">Mouse</a></td>
+            </tr>
+
+            <tr>
+                <td><a href="#"  id="psu" >PSU</a></td>
+                <td><a href="#"  id="ram" >RAM</a></td>
+                <td><a href="#"  id="ssd" >SSD</a></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    {#------------------------------------------------------------------------#}
+    {#------------------------------COOLING-----------------------------------#}
+    {#------------------------------------------------------------------------#}
+    <style>
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close,
+        .close1,
+        .close2,
+        .close3,
+        .close4,
+        .close5,
+        .close6,
+        .close7,
+        .close8,
+        .close9,
+        .close10,
+        .close11{
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close1:hover,
+        .close2:hover,
+        .close3:hover,
+        .close4:hover,
+        .close5:hover,
+        .close6:hover,
+        .close7:hover,
+        .close8:hover,
+        .close9:hover,
+        .close10:hover,
+        .close11:hover,
+        .close:focus,
+        .close1:focus,
+        .close2:focus,
+        .close3:focus,
+        .close4:focus,
+        .close5:focus,
+        .close6:focus,
+        .close7:focus,
+        .close8:focus,
+        .close9:focus,
+        .close10:focus,
+        .close11:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Modal Header */
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #2a88bd;
+            color: white;
+        }
+
+        /* Modal Body */
+        .modal-body {padding: 2px 16px;}
+
+        /* Modal Footer */
+        .modal-footer {
+            padding: 2px 16px;
+            background-color: #2a88bd;
+            color: white;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+
+        @keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+    </style>
+
+    <!-- Trigger/Open The Modal -->
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 style="text-align: center">Cooling system</h2>
+            </div>
+            <div class="modal-body" style="display: flex;">
+
+                <section style="padding: 5%">
+                    <h3>What is it?</h3>
+
+                    <p>
+                        Cooling is necessary within a computer, to remove any excess or waste heat.
+                        <br>
+                        <strong>Basically: </strong><i>Cools your computer</i>
+                    </p>
+
+                    <h3>Why is it important?</h3>
+
+                    <ul>
+                        <li>Any computer can reach very high temperatures
+                            <br>
+                            of heat,and that needs to be taken care of
+                        </li>
+
+                        <li><i>It'll go on fire without it. <strike>Take out the fans, overclock your CPU and see</strike></i></li>
+                        <li>Components are susceptible to malfunction if there is too much heat</li>
+                    </ul>
+                </section>
+
+                <div style="display: flex; padding: 5%">
+
+                    <section style="padding: 2%">
+
+                        <p style="text-align: center">Fan Cooling</p>
+
+                        <img src="/images/fewfans.jpg">
+
+                    </section>
+
+
+                    <section style="padding: 2%">
+
+                        <p style="text-align: center">Liquid Cooling</p>
+
+                        <img src="/images/liquid.jpg">
+
+                    </section>
+
+                </div>
+            </div>
+            <div class="modal-footer" >
+                <h3 style="text-align: right">SPC</h3>
+                <h4 style="text-align: left"><strong>Basically: </strong><i>Cools your computer</i></h4>
+            </div>
+        </div>
+    </div>
+
+
+    {#------------------------------------------------------------------------#}
+    {#---------------------------------CASE-----------------------------------#}
+    {#------------------------------------------------------------------------#}
+
+    <!-- The Modal -->
+    <div id="myModal1" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close1">&times;</span>
+                <h2 style="text-align: center">Case</h2>
+            </div>
+            <div class="modal-body" style="display: flex;">
+
+                <section style="padding: 5%">
+                    <h3>What is it?</h3>
+
+                    <p>
+                        The case acts as necessary protection for your components from dust,
+                        <br>
+                        Liquids and external environmental hazards.
+                    </p>
+
+                    <h3>Why is it important?</h3>
+
+                    <ul>
+                        <li>Protects the computer.<strike> Throw it and turn it on</strike></li>
+
+                        <li>Keeps wiring and internals together</li>
+
+                        <li>Keeps components tidy and clean.</li>
+                    </ul>
+                </section>
+
+                <div style="display: flex; padding: 5%">
+
+                    <section style="padding: 2%">
+
+                        <p style="text-align: center">Regular case with LEDs</p>
+
+                        <img src="/images/case.png">
+
+                    </section>
+
+
+                    <section style="padding: 2%">
+
+                        <p style="text-align: center">Hazardous, open design </p>
+
+                        <img src="/images/class.jpg">
+
+                    </section>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <h3 style="text-align: right">SPC</h3>
+                <h4 style="text-align: left"><strong>Basically: </strong><i>Protects your computer</i></h4>
+            </div>
+        </div>
+    </div>
+
+
+    {#--------------------------------------------------------------------#}
+    {#------------------------------CPU-----------------------------------#}
+    {#--------------------------------------------------------------------#}
+
+
+    <!-- The Modal -->
+    <div id="myModal2" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close2">&times;</span>
+                <h2 style="text-align: center">CPU - Central Processing Unit</h2>
+            </div>
+            <div class="modal-body" style="display: flex;">
+
+                <section style="padding: 5%">
+                    <h3>What is it?</h3>
+
+                    <p>
+                        Electronic circuitry on top of the motherboard that carries out instructions to the computer.
+                        <br>
+                        Liquids and external environmental hazards.
+                    </p>
+
+                    <h3>Why is it important?</h3>
+
+                    <ul>
+                        <li>The CPU performs any logical / arithmetic or control
+                            <br>
+                            based instructions to accomplish the user given action.
+                        </li>
+
+                        <li><i>Computer would be as good as dead<strike>Take it out and launch the PC</strike></i></li>
+
+                        <li>The better the cache handling is, the better the CPU perfomance will be</li>
+                    </ul>
+                </section>
+
+                <div style="display: flex; padding: 5%">
+
+                    <section style="padding: 2%">
+
+                        <p>Front and back view of an Intel i7 - 4500 </p>
+
+                        <img src="/images/i7.jpg">
+
+                    </section>
+
+
+                    <section style="padding: 2%">
+
+                        <p>CPU is located within the motherboard</p>
+
+                        <img src="/images/cpu_loc.jpg">
+
+                    </section>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <h3 style="text-align: right">SPC</h3>
+                <h4 style="text-align: left"><strong>Basically: </strong><i>Computer brain</i></h4>
+            </div>
+        </div>
+    </div>
+
+
+    {#--------------------------------------------------------------------#}
+    {#------------------------------GPU-----------------------------------#}
+    {#--------------------------------------------------------------------#}
+
+
+    <!-- The Modal -->
+    <div id="myModal3" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close3">&times;</span>
+                <h2 style="text-align: center">GPU - Graphical Processing Unit (Graphics Card)</h2>
+            </div>
+            <div class="modal-body" style="display: flex;">
+
+                <section style="padding: 5%">
+                    <h3>What is it?</h3>
+
+                    <p>
+                        A card that is connected to the motherboard which
+                        <br>
+                        generates a feed of images to computer screen via VGA cables as instructed by the motherboard.
+                    </p>
+
+                    <h3>Why is it important?</h3>
+
+                    <ul>
+                        <li>
+                            The graphics card is giving the output that is has rendered
+                            <br>
+                            as it has been requested by the CPU.
+                        </li>
+
+                        <li>The graphics card depends on power, memory processing consumption</li>
+
+                        <li><strike> Overload it, pour water on it and turn it on </strike></li>
+
+
+                    </ul>
+                </section>
+
+                <div style="display: flex; padding: 5%">
+
+                    <section style="padding: 2%">
+
+                        <p>Basic graphics car with visible VGA connections</p>
+
+                        <img src="/images/Gpucard.png">
+
+                    </section>
+
+
+                    <section style="padding: 2%">
+
+                        <p>One of the strongest graphics card on the market: GForce's Titan X</p>
+
+                        <img src="/images/titan.png">
+
+                    </section>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <h3 style="text-align: right">SPC</h3>
+                <h4 style="text-align: left"><strong>Basically: </strong><i>No card, no view.</i></h4>
+            </div>
+        </div>
+    </div>
+
+
+
+    {#--------------------------------------------------------------------#}
+    {#------------------------------HHD-----------------------------------#}
+    {#--------------------------------------------------------------------#}
+
+
+    <!-- The Modal -->
+    <div id="myModal4" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close4">&times;</span>
+                <h2 style="text-align: center">HDD - Hard disk drive</h2>
+            </div>
+            <div class="modal-body" style="display: flex;">
+
+                <section style="padding: 5%">
+                    <h3>What is it?</h3>
+
+                    <p>
+                        Is a data storage device that uses magnetic storage to store
+                        <br>
+                        and receive data using one or more rigid rapidly rotating discs
+                    </p>
+
+                    <h3>Why is it important?</h3>
+
+                    <ul>
+                        <li>
+                            Your HDD stores the data you want to use
+                            <br>
+                            within a digital form inside a physical device.
+                        </li>
+
+                        <li><strike> Throw it on the ground and turn it back on, it helps to store more data </strike></li>
+
+                    </ul>
+                </section>
+
+                <div style="display: flex; padding: 5%">
+
+                    <section style="padding: 2%; text-align: center">
+
+                        <p>Basic HDD</p>
+
+                        <img src="/images/hddpic.png">
+
+                    </section>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <h3 style="text-align: right">SPC</h3>
+                <h4 style="text-align: left"><strong>Basically: </strong><i>Stores usable data</i></h4>
+            </div>
+        </div>
+    </div>
+
+
+
+    {#--------------------------------------------------------------------#}
+    {#------------------------------KEYBOARD------------------------------#}
+    {#--------------------------------------------------------------------#}
+
+
+    <!-- The Modal -->
+    <div id="myModal5" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close5">&times;</span>
+                <h2 style="text-align: center">Keyboard</h2>
+            </div>
+            <div class="modal-body" style="display: flex;">
+
+                <section style="padding: 5%">
+                    <h3>What is it?</h3>
+
+                    <p>
+                        Keyboards provide a way to input data into
+                        <br>
+                        computer using physical interaction
+                    </p>
+
+                    <h3>Why is it important?</h3>
+
+                    <ul>
+                        <li>It is one of the main ways to input information</li>
+
+                        <li>Mostly used as text entry interface</li>
+
+                        <li><strike>Eat food and put crumbles in between key spaces</strike></li>
+
+                    </ul>
+                </section>
+
+                <div style="display: flex; padding: 5%">
+
+                    <section style="padding: 2%">
+
+                        <p>Basic wired keyboard</p>
+
+                        <img src="/images/keyboardBasic.png">
+
+                    </section>
+
+
+                    <section style="padding: 2%">
+
+                        <p>Mechanical key keyboard with LEDs</p>
+
+                        <img src="/images/mechkeyoboard.png">
+
+                    </section>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <h3 style="text-align: right">SPC</h3>
+                <h4 style="text-align: left"><strong>Basically: </strong><i>The long plastic thing with buttons</i></h4>
+            </div>
+        </div>
+    </div>
+
+
+
+    {#--------------------------------------------------------------------#}
+    {#------------------------------MONITOR-------------------------------#}
+    {#--------------------------------------------------------------------#}
+
+
+    <!-- The Modal -->
+    <div id="myModal6" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close6">&times;</span>
+                <h2 style="text-align: center">Monitor</h2>
+            </div>
+            <div class="modal-body" style="display: flex;">
+
+                <section style="padding: 5%">
+                    <h3>What is it?</h3>
+
+                    <p>
+                        Monitors provide view for users generated by the graphics card.
+                    </p>
+
+                    <h3>Why is it important?</h3>
+
+                    <ul>
+                        <li>Needed to show input / output display</li>
+
+                        <li>Provides visual aid for the user</li>
+
+                        <li><strike>Try using the computer without a monitor...</strike></li>
+
+                    </ul>
+                </section>
+
+                <div style="display: flex; padding: 5%">
+
+                    <section style="padding: 2%; text-align: center">
+
+                        <p>Basic monitor</p>
+
+                        <img src="/images/monitorshow.png">
+
+                    </section>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <h3 style="text-align: right">SPC</h3>
+                <h4 style="text-align: left"><strong>Basically: </strong><i>Monitors - they give you glasses</i></h4>
+            </div>
+        </div>
+    </div>
+
+
+    {#------------------------------------------------------------------------#}
+    {#------------------------------MOTHERBOARD-------------------------------#}
+    {#------------------------------------------------------------------------#}
+
+
+    <!-- The Modal -->
+    <div id="myModal7" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close7">&times;</span>
+                <h2 style="text-align: center">Motherboard</h2>
+            </div>
+            <div class="modal-body" style="display: flex;">
+
+                <section style="padding: 5%">
+                    <h3>What is it?</h3>
+
+                    <p>
+                        Also known as a main circuit board, where most of the components are mounted.
+                        <br>
+                        And provides connection to other peripherals.
+                    </p>
+
+                    <h3>Why is it important?</h3>
+
+                    <ul>
+                        <li>Has all the components attached to it (RAM, CPU, etc.)</li>
+
+                        <li>Provides connection to other peripherals</li>
+
+                        <li><strike>Best way to keep it clean is to wash your motherboard with soap (Make sure you scrub it)</strike></li>
+
+                    </ul>
+                </section>
+
+                <div style="display: flex; padding: 5%">
+
+                    <section style="padding: 2%; text-align: center">
+
+                        <p>Basic motherboard (Visible connections and circuits)</p>
+
+                        <img src="/images/motherboard1.png">
+
+                    </section>
+
+                    <section style="padding: 2%; text-align: center">
+
+                        <p>One of the newest MSI motherboards</p>
+
+                        <img src="/images/motherboard2.png">
+
+                    </section>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <h3 style="text-align: right">SPC</h3>
+                <h4 style="text-align: left"><strong>Basically: </strong><i>Main component communication location</i></h4>
+            </div>
+        </div>
+    </div>
+
+    {#------------------------------------------------------------------------#}
+    {#------------------------------MOUSE-------------------------------------#}
+    {#------------------------------------------------------------------------#}
+
+    <!-- The Modal -->
+    <div id="myModal8" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close8">&times;</span>
+                <h2 style="text-align: center">Mouse</h2>
+            </div>
+            <div class="modal-body" style="display: flex;">
+
+                <section style="padding: 5%">
+
+                    <h3>What is it?</h3>
+
+                    <p>
+                        It is a pointing device that detects two - dimensional motion relative surface.
+                        <br>
+                        Which is then transferred onto the monitor screen.
+                    </p>
+
+                    <h3>Why is it important?</h3>
+
+                    <ul>
+                        <li>It is used an an interactive way to control / interact with graphical user interface. </li>
+
+                        <li>Most common convention of interacting with the PC</li>
+
+                        <li><strike>Screeny-pointy-thingy</strike></li>
+
+                    </ul>
+
+                </section>
+
+                <div style="display: flex; padding: 5%">
+
+                    <section style="padding: 2%; text-align: center">
+
+                        <p>A basic mouse for common usage</p>
+
+                        <img src="/images/mmouse.png">
+
+                    </section>
+
+                    <section style="padding: 2%; text-align: center">
+
+                        <p>A common mouse for gaming usage</p>
+
+                        <img src="/images/cmouse.png">
+
+                    </section>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <h3 style="text-align: right">SPC</h3>
+                <h4 style="text-align: left"><strong>Basically: </strong><i>The thing that you're currently holding</i></h4>
+            </div>
+        </div>
+    </div>
+
+
+
+    {#------------------------------------------------------------------------#}
+    {#------------------------------PSU---------------------------------------#}
+    {#------------------------------------------------------------------------#}
+
+    <!-- The Modal -->
+    <div id="myModal9" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close9">&times;</span>
+                <h2 style="text-align: center">PSU - Power Supply Unit</h2>
+            </div>
+            <div class="modal-body" style="display: flex;">
+
+                <section style="padding: 5%">
+
+                    <h3>What is it?</h3>
+
+                    <p>
+                        Produces regulated DC power for internal / external computer components.
+                        <br>
+                        DC voltages must be regulated with some accuracy to provide stable operation of the computer.
+                    </p>
+
+                    <h3>Why is it important?</h3>
+
+                    <ul>
+                        <li>Provide the correct amount of power to the components</li>
+
+                        <li>It is important so that the power is correctly distributed</li>
+
+                        <li><strike>Make sure the PSU has a very low DC power. </strike></li>
+
+                    </ul>
+
+                </section>
+
+                <div style="display: flex; padding: 5%">
+
+                    <section style="padding: 2%; text-align: center">
+
+                        <p>A basic power supply unit</p>
+
+                        <img src="/images/psuu.png">
+
+                    </section>
+
+                    <section style="padding: 2%; text-align: center">
+
+                        <p>Advances usage power supply</p>
+
+                        <img src="/images/psugaming.png">
+
+                    </section>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <h3 style="text-align: right">SPC</h3>
+                <h4 style="text-align: left"><strong>Basically: </strong><i>Provides power to computer</i></h4>
+            </div>
+        </div>
+    </div>
+
+
+    {#------------------------------------------------------------------------#}
+    {#------------------------------RAM---------------------------------------#}
+    {#------------------------------------------------------------------------#}
+
+    <!-- The Modal -->
+    <div id="myModal10" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <span class="close10">&times;</span>
+                <h2 style="text-align: center">RAM - Random-access memory</h2>
+            </div>
+
+            <div class="modal-body" style="display: flex;">
+
+                <section style="padding: 5%">
+
+                    <h3>What is it?</h3>
+
+                    <p>
+                        It is a form of computer data storage which stores frequently used
+                        <br>
+                        program instructions to increase the general speed of a system.
+                    </p>
+
+                    <h3>Why is it important?</h3>
+
+                    <ul>
+                        <li>Computer efficiency, speed and processing power</li>
+
+                        <li>For quick and fast data access option</li>
+
+                        <li><strike>If the memory that you're using is volatile, make sure you turn off your PC without saving</strike></li>
+
+                    </ul>
+
+                </section>
+
+                <div style="display: flex; padding: 5%">
+
+                    <section style="padding: 2%; text-align: center">
+
+                        <p>A basic RAM components</p>
+
+                        <img src="/images/ram1.png">
+
+                    </section>
+
+                    <section style="padding: 2%; text-align: center">
+
+                        <p>Advanced RAM</p>
+
+                        <img src="/images/ram2.png">
+
+                    </section>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <h3 style="text-align: right">SPC</h3>
+                <h4 style="text-align: left"><strong>Basically: </strong><i>Provides power to computer</i></h4>
+            </div>
+        </div>
+    </div>
+
+    {#------------------------------------------------------------------------#}
+    {#------------------------------SSD---------------------------------------#}
+    {#------------------------------------------------------------------------#}
+
+    <!-- The Modal -->
+    <div id="myModal11" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <span class="close11">&times;</span>
+
+                <h2 style="text-align: center">SSD - Solid-state drive</h2>
+
+            </div>
+
+            <div class="modal-body" style="display: flex;">
+
+                <section style="padding: 5%">
+
+                    <h3>What is it?</h3>
+
+                    <p>
+                        Its a solid-state storage device that uses integrated
+                        <br>
+                        circuit assemblies as memory to store data persistently.
+                    </p>
+
+                    <h3>Why is it important?</h3>
+
+                    <ul>
+                        <li>Much faster (than HDD) memory usage and allocation</li>
+
+                        <li>For quick and fast data access option</li>
+
+                        <li><strike>Better than HDD</strike></li>
+
+                    </ul>
+
+                </section>
+
+                <div style="display: flex; padding: 5%">
+
+                    <section style="padding: 2%; text-align: center">
+
+                        <p>Internal structure of SSD</p>
+
+                        <img src="/images/ssd1.png">
+
+                    </section>
+
+                    <section style="padding: 2%; text-align: center">
+
+                        <p>External structure of SSD</p>
+
+                        <img src="/images/ssd2.png">
+
+                    </section>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <h3 style="text-align: right">SPC</h3>
+                <h4 style="text-align: left"><strong>Basically: </strong><i>Transfers and keeps memory</i></h4>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+        var modal1 = document.getElementById('myModal1');
+        var modal2 = document.getElementById('myModal2');
+        var modal3 = document.getElementById('myModal3');
+        var modal4 = document.getElementById('myModal4');
+        var modal5 = document.getElementById('myModal5');
+        var modal6 = document.getElementById('myModal6');
+        var modal7 = document.getElementById('myModal7');
+        var modal8 = document.getElementById('myModal8');
+        var modal9 = document.getElementById('myModal9');
+        var modal10 = document.getElementById('myModal10');
+        var modal11 = document.getElementById('myModal11');
+
+        // Get the button that opens the modal
+
+        var case1 = document.getElementById("case1");
+        var cool = document.getElementById("cool");
+        var cpu = document.getElementById("cpu");
+        var gpu = document.getElementById("gpu");
+        var hhd = document.getElementById("hhd");
+        var key = document.getElementById("key");
+        var monitor = document.getElementById("monitor");
+        var moth = document.getElementById("moth");
+        var mouse = document.getElementById("mouse");
+        var psu = document.getElementById("psu");
+        var ram = document.getElementById("ram");
+        var ssd = document.getElementById("ssd");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        var span1 = document.getElementsByClassName("close1")[0];
+        var span2 = document.getElementsByClassName("close2")[0];
+        var span3 = document.getElementsByClassName("close3")[0];
+        var span4 = document.getElementsByClassName("close4")[0];
+        var span5 = document.getElementsByClassName("close5")[0];
+        var span6 = document.getElementsByClassName("close6")[0];
+        var span7 = document.getElementsByClassName("close7")[0];
+        var span8 = document.getElementsByClassName("close8")[0];
+        var span9 = document.getElementsByClassName("close9")[0];
+        var span10 = document.getElementsByClassName("close10")[0];
+        var span11 = document.getElementsByClassName("close11")[0];
+
+
+
+        // Cooling systems modal
+        cool.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Case modal
+        case1.onclick = function() {
+            modal1.style.display = "block";
+        }
+
+        // Case modal
+        cpu.onclick = function() {
+            modal2.style.display = "block";
+        }
+
+        // Case modal
+        gpu.onclick = function() {
+            modal3.style.display = "block";
+        }
+
+        hdd.onclick = function() {
+            modal4.style.display = "block";
+        }
+
+        key.onclick = function() {
+            modal5.style.display = "block";
+        }
+
+        monitor.onclick = function() {
+            modal6.style.display = "block";
+        }
+
+        moth.onclick = function() {
+            modal7.style.display = "block";
+        }
+
+        mouse.onclick = function() {
+            modal8.style.display = "block";
+        }
+
+        psu.onclick = function() {
+            modal9.style.display = "block";
+        }
+
+        ram.onclick = function() {
+            modal10.style.display = "block";
+        }
+
+        ssd.onclick = function() {
+            modal11.style.display = "block";
+        }
+
+
+
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        };
+
+        // When the user clicks on <span> (x), close the modal
+        span1.onclick = function() {
+            modal1.style.display = "none";
+        };
+
+        // When the user clicks on <span> (x), close the modal
+        span2.onclick = function() {
+            modal2.style.display = "none";
+        };
+
+        // When the user clicks on <span> (x), close the modal
+        span3.onclick = function() {
+            modal3.style.display = "none";
+        };
+
+        // When the user clicks on <span> (x), close the modal
+        span4.onclick = function() {
+            modal4.style.display = "none";
+        };
+
+        // When the user clicks on <span> (x), close the modal
+        span5.onclick = function() {
+            modal5.style.display = "none";
+        };
+
+        // When the user clicks on <span> (x), close the modal
+        span6.onclick = function() {
+            modal6.style.display = "none";
+        };
+
+        // When the user clicks on <span> (x), close the modal
+        span7.onclick = function() {
+            modal7.style.display = "none";
+        };
+
+        // When the user clicks on <span> (x), close the modal
+        span8.onclick = function() {
+            modal8.style.display = "none";
+        };
+
+        // When the user clicks on <span> (x), close the modal
+        span9.onclick = function() {
+            modal9.style.display = "none";
+        };
+
+        // When the user clicks on <span> (x), close the modal
+        span10.onclick = function() {
+            modal10.style.display = "none";
+        };
+
+        // When the user clicks on <span> (x), close the modal
+        span11.onclick = function() {
+            modal11.style.display = "none";
+        };
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+
+            if (event.target == modal1) {
+                modal1.style.display = "none";
+            }
+
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+
+            if (event.target == modal3) {
+                modal3.style.display = "none";
+            }
+
+            if (event.target == modal4) {
+                modal4.style.display = "none";
+            }
+
+            if (event.target == modal5) {
+                modal5.style.display = "none";
+            }
+
+            if (event.target == modal6) {
+                modal6.style.display = "none";
+            }
+
+            if (event.target == modal7) {
+                modal7.style.display = "none";
+            }
+
+            if (event.target == modal8) {
+                modal8.style.display = "none";
+            }
+
+            if (event.target == modal9) {
+                modal9.style.display = "none";
+            }
+
+            if (event.target == modal10) {
+                modal10.style.display = "none";
+            }
+
+            if (event.target == modal11) {
+                modal11.style.display = "none";
+            }
+        }
+    </script>
+
+
+
+</div>
+
+{% endblock %}

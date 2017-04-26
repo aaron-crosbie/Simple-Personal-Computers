@@ -1,0 +1,171 @@
+{% block body %}
+
+    <title>Home</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+        <style>
+
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 10px 10px 10px 10px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .2rem;
+                text-decoration: none;
+                text-transform: uppercase;
+                /*box-shadow: 0px 0px 10px #FFFFFF;*/
+                /*border-radius: 5px;*/
+                transition: 0.5s;
+                border-bottom: 2px solid transparent;
+            }
+
+            .links > a:hover{
+                color: #1a66ff;
+                font-weight: 700;
+                /*box-shadow: 0px 0px 10px #989898;*/
+                transition: 0.5s;
+                border-bottom: 2px solid #1a66ff;
+
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
+    <div id="mainContent">
+
+    <div class="flex-center position-ref full-height">
+
+
+            <div class="content">
+                <div class="title m-b-md">
+                    Simple PC
+                </div>
+
+                <div class="links">
+                    <a
+                            {% if app.request.attributes.get('_route') == 'homepage'  %}
+
+                                id="current"
+
+                            {% endif %}
+
+                            href="/"><span>Home</span>
+                    </a>
+
+                    <a
+                            {% if app.request.attributes.get('_route') == 'build_index'  %}
+
+                                id="current"
+
+                            {% endif %}
+
+                            href="/build"><span>Build SPC</span>
+                    </a>
+                    <a
+                            {% if app.request.attributes.get('_route') == 'build_show'  %}
+
+                                id="current"
+
+                            {% endif %}
+
+                            href="/build/info"><span>Information</span>
+                    </a>
+
+                        <a
+                                {% if app.request.attributes.get('_route') == 'blogpost_index'  %}
+
+                                    id="current"
+
+                                {% endif %}
+
+                                href="/blogpost"><span >Blog</span>
+                        </a>
+
+                        <a
+                                {% if app.request.attributes.get('_route') == 'survey_index'  %}
+
+                                    id="current"
+
+                                {% endif %}
+
+                                href="/survey/"><span>Survey</span>
+                        </a>
+
+                        <a
+                                {% if app.request.attributes.get('_route') == 'documentpage'  %}
+
+                                    id="current"
+
+                                {% endif %}
+
+                                href="/document"><span>Documentation</span>
+                        </a>
+
+
+                        {% if is_granted('ROLE_USER') %}
+                            <div style="font-size: 18px">
+                                hi, <strong>{{ app.user.username }} </strong>
+                            </div>
+
+                            <a
+                                    {% if app.request.attributes.get('_route') == 'accountpage'  %}
+
+                                        id="current"
+
+                                    {% endif %}
+                                    href="/account" style="padding: 8px 5px 0px; margin: 0"><img src="/images/account.png" style="width: 23px"></a>
+
+                            <a href="{{ path('logout') }}" style="padding: 8px 5px 0px; margin: 0"><img src="/images/logout.png" style="width: 23px"></a>
+                        {% else %}
+                            <a href="{{ path('login') }}">Login</a>
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+

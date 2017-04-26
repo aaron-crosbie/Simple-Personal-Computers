@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ app.session.get('username')}}'s account{%  endblock %}
+
+{% block body %}
+<div id="mainContent">
+
+    <div id="holder">
+        <div>
+            <h2>Welcome {{ app.session.get('username')}}</h2>
+            <p style="color: #6E6E6E">
+                You can adjust your profile here!
+            </p>
+        </div>
+        <div>
+            <img id="accountImg" src="images/default_account.png" style="width: 25%">
+        </div>
+    </div>
+
+    <div>
+        <form>
+
+            <h4>Username</h4> <input type="text" id="name" value="{{ app.user.username }}" contenteditable="false" disabled>
+
+
+        </form>
+
+
+        {#<div>#}
+            {#<section>#}
+                 {#<h3>Your blog posts</h3>#}
+
+                {#{% for blogPost in blogPosts %}#}
+
+                    {#{{ blogPost.title }}#}
+
+                {#{% endfor %}#}
+            {#</section>#}
+
+            {#<section>#}
+                {#<h3>Your comments posts</h3>#}
+
+                {#{% for blogComment in blogComments %}#}
+
+                    {#{{ blogComment.content }}#}
+
+                {#{% endfor %}#}
+            {#</section>#}
+
+        {#</div>#}
+    </div>
+</div>
+{% endblock %}

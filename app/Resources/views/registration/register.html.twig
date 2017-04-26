@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registering{%  endblock %}
+
+{% block body %}
+<div id="mainContent">
+
+    <h1>Please Register</h1>
+
+    {{ form_start(form) }}
+
+    {% form_theme form _self %}
+
+    {% block _user_username_widget %}
+        <div class="text_widget">
+            {{ block('form_widget_simple') }}
+        </div>
+    {% endblock %}
+
+    <label style="padding-right: 57px">Username</label>
+    {{ form_widget(form.username) }}
+
+    {% block _user_email_widget %}
+        <div class="text_widget">
+            {{ block('form_widget_simple') }}
+        </div>
+    {% endblock %}
+
+    <br>
+
+    <label style="padding-right: 86px">Email</label>
+    {{ form_widget(form.email) }}
+
+
+    {% block _user_plainPassword_first_widget %}
+        <div class="text_widget">
+            {{ block('form_widget_simple') }}
+        </div>
+    {% endblock %}
+
+    <br>
+
+    <label style="padding-right: 62px">Password</label>
+    {{ form_widget(form.plainPassword.first) }}
+
+
+    {% block _user_plainPassword_second_widget %}
+        <div class="text_widget">
+            {{ block('form_widget_simple') }}
+        </div>
+    {% endblock %}
+
+    <br>
+
+    <label style="padding-right: 5px">Re-Enter Password </label>
+    {{ form_widget(form.plainPassword.second) }}
+
+    <br>
+    <br>
+    <br>
+
+    <button id="registerButton" type="submit">Register</button>
+    {#{% form_end(form) %}#}
+    {{ form_end(form) }}
+
+</div>
+
+{% endblock %}

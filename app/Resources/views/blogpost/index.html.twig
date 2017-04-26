@@ -1,0 +1,263 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{%  endblock %}
+
+
+
+{% block body %}
+<div id="mainContent">
+
+    <div class="container">
+
+        <div class="jumbotron">
+
+            <header>
+                <h1>Welcome to SPC Blog  </h1>
+
+                <div>
+
+                    <p>Advise | Help | Solve</p>
+
+                </div>
+
+                <div id="login">
+
+                    <a>Create Post</a>
+
+                </div>
+
+            </header>
+
+        </div>
+
+        {# The application form for a new post starts HERE #}
+
+        {# This part is hidden until user clicks a button to submit a post #}
+        {# Relating back to minimalistic design #}
+        <div id="post" hidden>
+
+            {# A form that would be posted to the controller when the user clicks the submit button #}
+            <form
+                    method="post"
+                    action="">
+
+                {# This part is hidden until user clicks a button to submit a post #}
+
+                <section id="hideIfNot" hidden>
+
+                    {# Checking if the user has a role, because only registered user can submit post #}
+                    {% if is_granted('ROLE_USER') %}
+
+                        <h3>
+                            {# Welcoming the user #}
+                            {{ app.user.username }}, be friendly to <strong>SPC's</strong> community! Good luck!
+                        </h3>
+
+                        {# Putting animation to for sleek and clear action #}
+                        <script>
+
+                            {# Using jQuery to to show the selected div #}
+                            $("#hideIfNot").show(500);
+
+                        </script>
+
+                    {# If the user doesn't have a role #}
+                    {% else %}
+
+                        <script>
+
+                            {# Keep that div hidden #}
+                            $("#hideIfNot").hide(500);
+
+                            {# Notify the anonymous user that
+                            it is necessary to log in  if they want to post anything #}
+                            $("#login").click(function(){
+
+                                alert("Please login before you want to write a post!");
+
+                            });
+                            {# End of jQuery script #}
+                        </script>
+                    {# End of the if has role statement #}
+                    {% endif %}
+
+                    <br>
+
+                    {# Specifying the topic #}
+                    <label>Please specify your topic</label>
+
+                    <br>
+
+                    <br>
+
+                    {# Required post title #}
+                    <input type="text" name="topic" id="topic" required>
+
+                    <br>
+
+                    <br>
+
+                    <label>Content</label>
+
+                    <br>
+
+                    {# Required blog post content #}
+                    <p style="color: gray; margin-bottom: 0; padding-bottom: 0; font-size: 12px;">Max. 255 characters</p>
+
+                    <textarea cols="40" rows="5" id="content" name="content" required maxlength="255"></textarea>
+
+
+                    <br>
+
+                    <br>
+
+
+                    <br>
+
+                    {# Submitting the form #}
+                    <button type="submit" style="margin-left: auto; margin-right: auto;" id="commentData" name="commentData">Submit</button>
+
+                    {# Closing the div if the user changes their mind #}
+                    <button type="button" style="margin-left: auto; margin-right: auto;" id="backButton">Back</button>
+
+                    <br>
+
+                    <br>
+                {# End of login for section #}
+                </section>
+
+                {# Script for the back button #}
+                <script>
+
+                    $("#backButton").click(function(){
+
+                        $("#hideIfNot").hide(500);
+
+                    });
+
+                </script>
+
+                {# End of login form #}
+
+            </form>
+
+            {# End of login div #}
+        </div>
+
+
+        <div class="row">
+
+
+            <div id="cntrol">
+
+            <form>
+
+
+
+
+                {% for blogPost in blogPosts|reverse %}
+                    <table>
+
+                    <tr>
+
+                        <td>
+
+                        </td>
+
+                    <tr>
+
+                        <td>
+
+                            <h3 style="text-decoration: underline; font-size: 18px;">
+
+                                <a href="{{ path('blogpost_show', { 'id': blogPost.id }) }}">{{ blogPost.title }}</a>
+
+                                <p style="font-size: 15px;  text-align: right">
+
+                                    @{{ blogPost.user }}
+
+                                </p>
+
+                            </h3>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+
+                            <p>{{ blogPost.content }}</p>
+
+                            <br>
+
+                            <p style="font-size: 14px; text-align: right">{{ blogPost.createdAt|date('Y-m-d\\ H:i:s') }}</p>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+
+                            <ul style="display: flex; list-style-type: none">
+
+                                <li style="padding: 20px; ">
+
+                                    <a style="text-decoration: none; color: #2e2e2e" href="{{ path('blogpost_show', { 'id': blogPost.id }) }}">show</a>
+
+                                </li>
+
+                                <li style="padding: 20px; ">
+
+                                    <a  style="text-decoration: none; color: #2e2e2e" href="{{ path('blogpost_edit', { 'id': blogPost.id }) }}">edit</a>
+
+                                </li>
+
+                                <li style="padding: 20px; ">
+
+                                    <a  style="text-decoration: none; color: #2e2e2e" href="{{ path('blogcomment_new', { 'id': blogPost.id }) }}">Comment</a>
+
+                                </li>
+                            </ul>
+
+                        </td>
+
+                    </tr>
+
+
+                </table>
+                    <hr width="80%">
+                {% endfor %}
+
+            </form>
+
+                <script>
+
+                    $("#login").click(function () {
+
+                        $("#post").show(500);
+
+                    });
+
+                    $("#clickedForView").click(function () {
+
+                        $("#cntrol").hide(500);
+
+                        $("#thisPost").show(500);
+
+                    });
+
+                </script>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

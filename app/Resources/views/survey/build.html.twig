@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Survey{%  endblock %}
+
+{% block body %}
+    <div id="mainContent">
+        {% if submission == true %}
+            <div id="buildDisplay">
+                <div id="toPdf">
+                    <table style="margin-bottom: 20px;">
+                        <caption><b>Your Build</b></caption>
+                        <tr>
+                            <th>Motherboard: </th>
+                            <td>{{ testMotherboard }}</td>
+                        </tr>
+                        <tr>
+                            <th>CPU: </th>
+                            <td>{{ testCpu }}</td>
+                        </tr>
+                        <tr>
+                            <th>GPU: </th>
+                            <td>{{ testGpu }}</td>
+                        </tr>
+                        <tr>
+                            <th>RAM: </th>
+                            <td>{{ testRam }}</td>
+                        </tr>
+                        <tr>
+                            <th>HDD: </th>
+                            <td>{{ testHdd }}</td>
+                        </tr>
+                        {% if testSsd != null %}
+                            <tr>
+                                <th>SSD: </th>
+                                <td>
+                                    {{ testSsd }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                        <tr>
+                            <th>PSU: </th>
+                            <td>{{ testPsu }}</td>
+                        </tr>
+                        <tr>
+                            <th>Price: </th>
+                            <td>{{ testSpent }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <p>
+                Your components list is ready! and is <b>€{{ testUnderBudget }}</b> under budget!
+            </p>
+            <button id='pdfButton'>Save To PDF</button>
+        {% endif %}
+    </div>
+    {% block javascripts %}
+        <script src="{{ asset('js/build.js') }}"></script>
+    {% endblock %}
+{% endblock %}

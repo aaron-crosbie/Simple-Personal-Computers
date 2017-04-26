@@ -1,0 +1,39 @@
+#compInfo table{
+    font-size: 15px;
+    width: 80%;
+    background-color: transparent;
+    color: #1a66ff;
+    transition: 0.5s;
+    padding: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: fixed;
+}
+
+#compInfo table tr td {
+    padding: 5%;
+    text-align: center;
+    background-color: transparent;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+#compInfo table tr td:hover {
+    background-color: #80bfff;
+    transition: 0.5s;
+}
+
+
+#compInfo table a {
+    word-wrap: normal;
+    background-color: transparent;
+    padding: 10%;
+    margin: 5%;
+    color: #1a66ff;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+#compInfo table a:hover {
+    transition: 0.5s;
+}

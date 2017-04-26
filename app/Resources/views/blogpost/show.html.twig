@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ blogPost.title }}{%  endblock %}
+
+{% block body %}
+
+<div id="mainContent">
+
+<h1 style="text-align: center;">{{ blogPost.title }}</h1>
+
+    <form>
+        <table style="width: 50%;; margin-right: auto; margin-left: auto">
+
+                <tr>
+                    <th style="text-align: left">Content</th>
+
+                    <th style="text-align: right">Time</th>
+                </tr>
+
+                <tr>
+                    <td>{{ blogPost.content }}</td>
+
+
+                    <td style="text-align: right">{% if blogPost.createdAt %}{{ blogPost.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                </tr>
+            <br>
+            <br>
+            <br>
+
+                <tr>
+                    <th style="text-align: left">By</th>
+
+                    <th style="text-align: right">Blog ID</th>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="">@{{ blogPost.user }}</a></td>
+
+
+                    <td style="text-align: right">#{{ blogPost.id }}</td>
+                </tr>
+
+        </table>
+    </form>
+
+    <hr>
+
+<h3>Comments</h3>
+    <div>
+        {% for blogcomment in blogcomments %}
+
+            <table>
+            <tr>
+                <th>Author:</th>
+                <td>@{{ blogcomment.author }}</td>
+            </tr>
+            <tr>
+                <th>Said:</th>
+                <td>{{ blogcomment.content }}</td>
+            </tr>
+
+            <tr>
+                <th>Time:</th>
+                <td>{{ blogcomment.createdAt }}</td>
+            </tr>
+        </table>
+
+            <hr>
+        {% endfor %}
+
+    </div>
+
+    <ul style="list-style-type: none; display: flex">
+        {% if is_granted('ROLE_ADMIN') or  is_granted('ROLE_USER')  %}
+
+            <li>
+
+                <a href="{{ path('blogpost_edit', { 'id': blogPost.id }) }}">Edit</a>
+
+            </li>
+
+            <li>
+
+                {{ form_start(delete_form) }}
+
+                    <input type="submit" value="Delete">
+
+                {{ form_end(delete_form) }}
+
+            </li>
+
+        {% else %}
+
+            <li>
+
+                <a href="{{ path('blogpost_index') }}"><button>Back to the list</button></a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ path('blogcomment_new', { 'id': blogPost.id }) }}"><button>Comment</button></a>
+
+            </li>
+
+        {% endif %}
+
+    </ul>
+
+</div>
+
+{% endblock %}
